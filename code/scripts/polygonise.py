@@ -420,9 +420,9 @@ def main(argv=None) -> int:
     notes["high-seas"].append("Nansen Basin: the high seas continue north beyond Norway's shelf outer limit; the model stops at the outer limit (notModelled: beyond-outer-limit).")
     print(f"  {'high-seas':34s} {sum(len(r) for g in zones['high-seas']['rings'] for r in g):6d} vertices  parts={hs_src}")
 
-    # ---- the Area: candidate extent = Marine Regions high seas inside the model extent minus every
-    # extended-continental-shelf polygon (any status) minus Norway's shelf and zones.  A data finding for
-    # the owner to characterise, emitted as candidateExtent, not as the zone's horizontal extent.
+    # ---- the Area (owner decision 2026-09-17, round 4: assert it): Marine Regions high seas inside the
+    # model extent minus every extended-continental-shelf polygon (any status) minus Norway's shelf and
+    # zones.  The Area continues beyond the model extent (notModelled: beyond-model-extent).
     ecs = json.loads((RAW / "marineregions" / "ecs_north_atlantic.json").read_text(encoding="utf-8"))["features"]
     hsp = json.loads((RAW / "marineregions" / "high_seas_pockets.json").read_text(encoding="utf-8"))["features"]
     from shapely.geometry import box as _box, shape as _shape
@@ -437,12 +437,12 @@ def main(argv=None) -> int:
     # near-coincident lines (Marine Regions vs Kartverket) leave hairline slivers: open by 100 m, simplify 50 m
     unclaimed = unclaimed.buffer(-100).buffer(100).simplify(50, preserve_topology=True)
     cand = [Polygon(g.exterior.coords) for g in parts_of(unclaimed) if g.area >= 1e9]
-    zones["the-area-candidate"] = {"rings": [[ring_from_shapely(g.exterior.coords, exact)] for g in cand], "shapely": MultiPolygon(cand),
+    zones["the-area"] = {"rings": [[ring_from_shapely(g.exterior.coords, exact)] for g in cand], "shapely": MultiPolygon(cand),
         "source": "Derived: Marine Regions high-seas pockets minus every Marine Regions extended-continental-shelf polygon (CLCS recommendation, submission, overlapping claim, DOALOS deposit; ECS v2, CC BY 4.0) minus Kartverket's Norwegian shelf and 200 nm zones; parts ≥ 1000 km²",
         "kartverket": [], "stats": {"parts": len(cand), "area_km2": round(sum(g.area for g in cand) / 1e6)}}
     for g in cand:
         c = g.representative_point(); lon, lat = inv(c.x, c.y)
-        print(f"  the-area candidate: {g.area/1e6:.0f} km2 near ({lon:.2f}, {lat:.2f})")
+        print(f"  the-area: {g.area/1e6:.0f} km2 near ({lon:.2f}, {lat:.2f})")
 
     # ---- national airspace: everything landward of the 12 nm limit (land + internal waters + territorial sea)
     print("National airspace:")

@@ -20,6 +20,7 @@ These are settled. Do not re-litigate them without asking.
 > - §8: zone-polygon vertex budget **35 000** (was 12 000); the `dist/index.html` size target is read as gzipped transfer size. Coastline simplified at 300 m, islands ≥ 3 km².
 > - No historical fisheries lines (1/4/6/10 nm) ship — current, UNCLOS-relevant lines only (the §2.3 overlay is dropped).
 > - Neighbouring states' lines: UN DOALOS deposits first; where DOALOS holds charts only, Marine Regions (CC BY 4.0) verified against the deposited chart. Attribution to Marine Regions is required in the UI.
+> - The Area: the 16 806 km² patch in the north-west Banana Hole in no shelf polygon of any status is asserted as the Area (PROVENANCE §15.1); it continues beyond the model extent.
 > - §6 layout: everything AGPL-licensed (front end, scripts, `package.json`, the AGPL text) lives under `code/`; `data/` (NLOD/CC BY) and `docs/` (AGPL, aligned with the code) stay at the root; the root `LICENSE.md` maps the three. `npm` runs inside `code/`; `dist/` is written at the root. Hosting: GitHub Pages via GitHub Actions.
 
 | Decision | Choice |

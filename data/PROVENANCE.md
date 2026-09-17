@@ -236,14 +236,14 @@ independently verified (note on `high-seas`).
 ## 12. Questions for the owner
 
 1. ~~Vertex budget~~ — resolved (§10.7).
-2. **The Area** — the candidate triangle (§10.10, magenta in `docs/renders/zones-overview.png`):
-   assert it as the Area, or keep it as a candidate only?
+2. ~~The Area~~ — resolved (§15.1): asserted.
 3. ~~Loop Hole~~ — resolved (§11).
 4. ~~Historical lines~~ — resolved (§9.5).
-5. **Contested readings** — confirm the two readings in §9.6 are the two you meant (a: within
-   200 nm; b: all shelf generated from Svalbard), or substitute the Treaty Article 1 area for (b).
+5. **Contested readings** — pending (§15.2): the owner leans towards the Treaty Article 1 box for
+   reading (b); implications laid out in §15.2 and `docs/renders/svalbard-treaty-box.png`.
 6. ~~EEZ strata~~ — resolved (§10.8).
-7. The Loop Hole sliver caveat (§11) — acceptable as is?
+7. The Loop Hole sliver — pending (§15.3): the owner asked for it to be clipped to the treaty
+   line; it already is (the treaty line is its western edge), so the real choice is keep or remove.
 
 ## 13. Licence
 
@@ -297,3 +297,38 @@ level −500 m is deeper than the coarse-cell mean (−318 m) because 0.25° cel
 axis with its flanks — the axis is 300–700 m; (iii) subsoil thickness 10 km and the airspace
 top 100 km / fade from 80 km are SPEC §5.2 nominal values, in `config.js`. The UI states that the
 seabed is schematic and indicative. GEBCO attribution is in `data/LICENSE.md` and the UI line.
+
+## 15. Owner decisions, fourth round (2026-09-17)
+
+1. **The Area is asserted.** The 16 806 km² patch in the north-west Banana Hole (≈ 0.3°E,
+   73.6°N; §10.10) is now the horizontal extent of `the-area` (strata seabed + subsoil), with
+   `notModelled: ["beyond-model-extent"]` because the Area continues beyond the model bbox. The
+   derivation is unchanged: Marine Regions high seas inside the model extent, minus every
+   extended-continental-shelf polygon of any status (Marine Regions ECS v2), minus Kartverket's
+   Norwegian shelf and 200 nm zones. The `candidateExtent` field is gone.
+2. **Contested readings on the shelf — implications of the Treaty Article 1 box** (10–35°E,
+   74–81°N), measured on the built geometry (`docs/renders/svalbard-treaty-box.png`):
+   - The shelf within 200 nm of Svalbard (reading a, 707 600 km²) splits into **304 200 km² inside
+     the box** and **403 400 km² outside it** (223 200 west of 10°E, 145 100 north of 81°N, 37 000
+     south of 74°N around Bjørnøya, 34 600 east of 35°E).
+   - The Nansen Basin shelf beyond 200 nm (the current interval, 14 600 km²) lies entirely outside
+     the box (north of 81°N).
+   - 17 600 km² of the **mainland** EEZ and the shelf beneath it lie inside the box (its southern
+     edge at 74°N cuts across the mainland zone north of Finnmark). A box-based marking must say
+     whether that is included — a legal characterisation the owner makes, not the model.
+   - The box lies almost entirely within Norwegian zones (4 km² outside them); 588 km² of the
+     Loop Hole is inside it.
+   - Consequences for the marker: with the box as reading (b) the *core* (in both readings) would be
+     the 200 nm shelf inside the box, and the *interval* (what reading (a) adds) the 403 400 km² of
+     200 nm shelf outside the box; the Nansen Basin would either join the interval or become a
+     third tier. The whole-zone `contested` flag on `svalbard-fpz` (water column) would face the
+     same question: 454 100 km² of the FPZ is inside the box, 404 700 km² outside.
+   Not implemented pending the owner's choice.
+3. **Loop Hole sliver — clarification.** The sliver (east of the 2010 line, 74.94–76.96°N) is
+   already bounded on the west by the treaty line; "clipping it to the treaty line" changes nothing.
+   Kartverket's Svalbard 200 nm arc ends exactly where it meets the treaty line (37°E, 74.9377°N),
+   so no Norwegian line crosses the sliver, and on Russia's deposited chart 10100 the Loop Hole's
+   boundary runs the same way (up the treaty line, then east along Russia's 200 nm limit) — the
+   overlay in `docs/renders/loop-hole-chart-overlay.png` covers that segment. The only decision is
+   whether the sliver stays high-seas water column (as now, consistent with both states' lines) or
+   is removed from the model; awaiting the owner.

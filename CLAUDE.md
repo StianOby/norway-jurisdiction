@@ -60,11 +60,10 @@ EPSG:25833 instead (Krüger series; validated in PROVENANCE §4). Don't add pypr
   registry is `build_zones.py::registry()`. Renaming one is a breaking change. Extensions to
   the SPEC §4 interface: `geography: 'all'` (shelf, high seas, the Area, airspace zones),
   `derivedFrom` (airspace beyond the TS = union of member zones, no duplicated geometry),
-  `notModelled` (`the-area`: horizontal; `high-seas`: beyond-outer-limit), `contestedExtent` /
+  `notModelled` (`the-area`: beyond-model-extent; `high-seas`: beyond-outer-limit), `contestedExtent` /
   `contestedExtentInterval` on `continental-shelf` (marker inside the extent; the interval is the
   difference between two readings and renders as "disputed extent" with a one-line neutral
-  mention of both readings — owner instruction), `candidateExtent` on `the-area` (a data
-  finding, not an asserted extent), `provenance`, `notes`. `contested: true` = whole zone.
+  mention of both readings — owner instruction),  `provenance`, `notes`. `contested: true` = whole zone.
 - **Three geodata sources, in order of authority**: Kartverket (Route B polygons, Route A text),
   UN DOALOS (checked; charts only for Russia), Marine Regions (only the Russian 200 nm line, the
   Special Area ring and ECS polygons). Never take Norwegian lines from Marine Regions — their

@@ -111,8 +111,8 @@ def registry() -> list[dict]:
     zones.append(zone("the-area", "all", ["seabed", "subsoil"],
                       "Området", "The Area",
                       [unclos("art. 1(1)(1)"), unclos("arts 136–137")], [unclos("art. 1(1)(1)"), unclos("arts 136–137")],
-                      notModelled=["horizontal"],
-                      notes=["No asserted horizontal extent. candidateExtent is a data finding: high seas (Marine Regions) inside the model extent whose seabed lies in no extended-continental-shelf polygon of any status (Marine Regions ECS v2) and outside Norway's shelf (Kartverket). Whether it is the Area is for the owner to characterise — see data/PROVENANCE.md."]))
+                      notModelled=["beyond-model-extent"],
+                      notes=["Extent asserted by the owner (2026-09-17, round 4): high seas (Marine Regions) inside the model extent whose seabed lies in no extended-continental-shelf polygon of any status (Marine Regions ECS v2) and outside Norway's shelf (Kartverket) — one 16 806 km² patch in the north-west Banana Hole. The Area continues beyond the model extent — see data/PROVENANCE.md §10.10, §15."]))
     zones.append(zone("national-airspace", "all", ["airspace"],
                       "Nasjonalt luftrom", "National airspace",
                       [cit("luftfartsloven § 1-1"), unclos("art. 2(2)")],
@@ -141,11 +141,6 @@ def build() -> tuple[dict, str]:
             z["horizontal"] = None
             z["vertexCount"] = 0
             assert z.get("derivedFrom") or "horizontal" in z.get("notModelled", []), z["id"]
-            cand = geom["zones"].get(z["id"] + "-candidate")
-            if cand:
-                z["candidateExtent"] = cand["geometry"]
-                z["candidateExtentVertexCount"] = cand["vertexCount"]
-                z["provenance"] = {"source": cand["source"], "stats": cand["stats"]}
         else:
             z["horizontal"] = g["geometry"]
             z["vertexCount"] = g["vertexCount"]
@@ -197,12 +192,10 @@ def dump(out: dict, geom_text: str) -> str:
             key = f"@@CE:{z['id']}@@"
             placeholders[key] = _extract(geom_text, z["id"], "zones", field="contestedExtent")
             z["contestedExtent"] = key
-        for field in ("contestedExtentInterval", "candidateExtent"):
-            if z.get(field):
-                key = f"@@{field}:{z['id']}@@"
-                src_id = z["id"] + "-candidate" if field == "candidateExtent" else z["id"]
-                placeholders[key] = _extract(geom_text, src_id, "zones", field="geometry" if field == "candidateExtent" else field)
-                z[field] = key
+        if z.get("contestedExtentInterval"):
+            key = f"@@contestedExtentInterval:{z['id']}@@"
+            placeholders[key] = _extract(geom_text, z["id"], "zones", field="contestedExtentInterval")
+            z["contestedExtentInterval"] = key
     for o in out["overlays"]:
         key = f"@@GEOM:{o['id']}@@"
         placeholders[key] = _extract(geom_text, o["id"], "overlays")
@@ -247,8 +240,6 @@ def check(path: Path) -> tuple[list[str], list[str], dict]:
         if z["horizontal"] is None:
             if not (z.get("derivedFrom") or "horizontal" in z.get("notModelled", [])):
                 fails.append(f"{z['id']}: no geometry and neither derivedFrom nor notModelled")
-            if z.get("candidateExtent") and not shape(z["candidateExtent"]).is_valid:
-                fails.append(f"{z['id']}: invalid candidateExtent")
             continue
         g = z["horizontal"]
         polys = g["coordinates"] if g["type"] == "MultiPolygon" else [g["coordinates"]]
@@ -316,7 +307,7 @@ def write_report(out: dict, fails, warns, info):
              "| Zone | Geography | Strata | Vertices | Source |", "|---|---|---|---:|---|"]
     for z in out["zones"]:
         src = z.get("provenance", {}).get("source", "— (" + ("derived from " + ", ".join(z["derivedFrom"]) if z.get("derivedFrom") else "not modelled: " + ", ".join(z.get("notModelled", []))) + ")")
-        extra = "".join(f" **+{f}** ({z[f + 'VertexCount']} v.)" for f in ("contestedExtent", "contestedExtentInterval", "candidateExtent") if z.get(f))
+        extra = "".join(f" **+{f}** ({z[f + 'VertexCount']} v.)" for f in ("contestedExtent", "contestedExtentInterval") if z.get(f))
         lines.append(f"| `{z['id']}` | {z['geography']} | {', '.join(z['strata'])} | {z['vertexCount']} | {src}{extra} |")
     lines += ["", "| Overlay | Vertices |", "|---|---:|"] + [f"| `{o['id']}` | {o['vertexCount']} |" for o in out["overlays"]]
     lines += ["", f"**Zone polygon vertices:** {info.get('vertexCount')} (SPEC §8 target {VERTEX_BUDGET}); zones.json {info.get('fileBytes', 0)/1024:.0f} KB.", "",
