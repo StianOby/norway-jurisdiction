@@ -35,7 +35,7 @@ const f4 = (v) => v.toFixed(4).replace(/\.?0+$/, '');
 export function encodeState(s) {
   const p = new URLSearchParams();
   if (s.view) p.set('view', s.view);
-  if (s.cam) p.set('cam', [f4(s.cam.lon), f4(s.cam.lat), Math.round(s.cam.height), (((s.cam.heading % 360) + 360) % 360).toFixed(1), s.cam.pitch.toFixed(1)].join(','));
+  if (s.cam) p.set('cam', [f4(s.cam.lon), f4(s.cam.lat), Math.round(s.cam.height), (Number((((s.cam.heading % 360) + 360) % 360).toFixed(1)) % 360).toFixed(1), s.cam.pitch.toFixed(1)].join(','));
   if (s.ex && s.ex !== s.exDefault) p.set('ex', String(s.ex));
   if (s.hide?.length) p.set('hide', s.hide.join(','));
   if (s.lang && s.lang !== 'no') p.set('lang', s.lang);

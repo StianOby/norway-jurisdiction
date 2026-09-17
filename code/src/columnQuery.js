@@ -5,7 +5,7 @@
 // is derived here beyond "is this point inside that polygon" (SPEC §10.2).
 //
 // Cesium is the CDN global (see index.html), not an import.
-import { MODEL_BBOX, STRATA_ORDER, AIRSPACE, SUBSOIL, PROBE } from './config.js';
+import { MODEL_BBOX, STRATA_ORDER, AIRSPACE, SUBSOIL, PROBE, stratumFactor } from './config.js';
 import { zones, footprint, partsOf } from './zones.js';
 import { seabedDepth } from './seabed.js';
 import { t } from './i18n.js';
@@ -106,7 +106,7 @@ export function pickLonLat(scene, windowPosition) {
 
 // ---------------------------------------------------------------------------------------------
 // The probe: a vertical line on the globe through the whole queried column, from the bottom of the
-// (nominal) subsoil to the top of the airspace, at the current exaggeration.
+// (nominal) subsoil to the top of the airspace, at the current exaggeration (airspace: always 1×).
 
 export class Probe {
   constructor(viewer) {
@@ -124,7 +124,7 @@ export class Probe {
     this.exaggeration = exaggeration;
     if (!point) { this.entity.show = false; this.viewer.scene.requestRender(); return; }
     const bottom = (seabedDepth(point.lon, point.lat) - SUBSOIL.thickness) * exaggeration;
-    const top = AIRSPACE.top * exaggeration;
+    const top = AIRSPACE.top * stratumFactor('airspace', exaggeration);
     this.entity.polyline.positions = [
       Cesium.Cartesian3.fromDegrees(point.lon, point.lat, bottom),
       Cesium.Cartesian3.fromDegrees(point.lon, point.lat, top),

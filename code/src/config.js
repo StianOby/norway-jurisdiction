@@ -25,6 +25,10 @@ export const AIRSPACE = {
   top: 100_000, // m — Kármán line; the upper limit of national airspace is undefined in law
   fadeFrom: 80_000, // m — the top 20 km fade to transparent rather than end in a surface
 };
+// The slider exaggerates the water column, seabed and subsoil only. The airspace is always drawn
+// at true scale (owner decision 2026-09-17): 100 km is legible as it is, and 20× of it was a
+// 2 000 km fence. The readout says so whenever the factor is not 1.
+export const stratumFactor = (stratum, factor) => (stratum === 'airspace' ? 1 : factor);
 export const SUBSOIL = {
   thickness: 10_000, // m below the seabed — nominal; the legal concept has no fixed lower limit
   fadeFrom: 6_000, // m below the seabed where the slab starts fading (bounded-but-open)
@@ -85,26 +89,27 @@ export const STRATA_ORDER = ['airspace', 'watercolumn', 'seabed', 'subsoil'];
 
 // Preset viewpoints (SPEC §7): a camera and, where the view is about a profile, the transect the
 // cross-section shows. Transect endpoints are viewing choices, not legal geometry: each was chosen
-// so that the profile crosses the zones named in the comment (checked against zones.json).
+// so that the profile crosses the zones named in the comment (checked against zones.json). Cameras
+// look obliquely from the south so the 100 km airspace walls read as walls.
 export const VIEWS = {
   'mainland-section': { // Møre → north-west: internal waters, TS, contiguous zone, EEZ, high seas over the shelf
-    camera: { lon: 6.0, lat: 54.0, height: 3_800_000, heading: 0, pitch: -68 },
+    camera: { lon: 4.0, lat: 58.5, height: 1_100_000, heading: 0, pitch: -55 },
     transect: [[8.5, 63.4], [-1.5, 68.5]],
   },
   svalbard: { // Isfjorden → north: TS, fisheries protection zone, shelf, high seas beyond 200 nm (Nansen Basin)
-    camera: { lon: 16.0, lat: 68.0, height: 4_000_000, heading: 0, pitch: -68 },
+    camera: { lon: 15.0, lat: 74.2, height: 1_200_000, heading: 0, pitch: -55 },
     transect: [[15.0, 78.2], [15.0, 85.5]],
   },
   janmayen: { // Jan Mayen → north-east: TS, fisheries zone over the shelf, high seas over the Area
-    camera: { lon: -6.0, lat: 62.0, height: 3_500_000, heading: 0, pitch: -68 },
+    camera: { lon: -5.5, lat: 66.5, height: 900_000, heading: 0, pitch: -55 },
     transect: [[-8.7, 71.0], [-1.0, 74.8]],
   },
   'barents-delimitation': { // Finnmark → north across the Loop Hole, then the Svalbard zone; the 2010 treaty line to the east
-    camera: { lon: 33.0, lat: 63.0, height: 4_000_000, heading: 0, pitch: -68 },
+    camera: { lon: 29.0, lat: 67.0, height: 1_000_000, heading: 0, pitch: -55 },
     transect: [[28.0, 71.0], [30.0, 75.5]],
   },
   'shelf-outer-limit': { // Lofoten → north-west: EEZ, high seas over the shelf beyond 200 nm (Banana Hole), Jan Mayen zone
-    camera: { lon: 5.0, lat: 58.0, height: 4_200_000, heading: 0, pitch: -68 },
+    camera: { lon: 7.5, lat: 62.5, height: 1_100_000, heading: 0, pitch: -55 },
     transect: [[14.5, 68.0], [2.0, 71.5]],
   },
 };

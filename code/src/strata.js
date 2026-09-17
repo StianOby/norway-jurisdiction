@@ -5,7 +5,7 @@
 // (Cesium's Scene.verticalExaggeration does not apply to primitives — SPEC §5.1).
 //
 // Cesium is the CDN global (see index.html / vite.config.js), not an import.
-import { AIRSPACE, SUBSOIL, MESH, STRATUM_ALPHA, HATCH, SEABED_CLEARANCE } from './config.js';
+import { AIRSPACE, SUBSOIL, MESH, STRATUM_ALPHA, HATCH, SEABED_CLEARANCE, stratumFactor } from './config.js';
 import { seabedDepth } from './seabed.js';
 import { zones, footprint, colourOf } from './zones.js';
 
@@ -321,7 +321,7 @@ export class StrataModel {
     const t0 = performance.now();
     for (const v of this.volumes) {
       if (v.primitive) this.scene.primitives.remove(v.primitive);
-      v.primitive = makePrimitive(v.vol, factor, this.appearance);
+      v.primitive = makePrimitive(v.vol, stratumFactor(v.stratum, factor), this.appearance); // airspace stays 1×
       v.primitive.show = this.isVisible(v);
       this.scene.primitives.add(v.primitive);
     }

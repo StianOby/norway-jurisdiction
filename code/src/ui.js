@@ -103,7 +103,7 @@ export function buildUI(root, callbacks) {
   let timer = null;
   let factor = EXAGGERATION.initial;
   const showReadout = () => {
-    readout.textContent = factor === 1 ? `1× (${t('trueScale')})` : `${factor}×`;
+    readout.textContent = factor === 1 ? `1× (${t('trueScale')})` : `${factor}× · ${t('airspaceTrueScale')}`;
     for (const b of detents.children) b.classList.toggle('active', Number.parseInt(b.textContent, 10) === factor);
   };
   const onSlide = (immediate) => {

@@ -85,6 +85,12 @@ EPSG:25833 instead (Krüger series; validated in PROVENANCE §4). Don't add pypr
   → midpoint subdivision to `MESH.maxEdgeDeg` → rows at per-vertex heights + walls along boundary
   edges (edges used by exactly one triangle, so holes get walls too). Nominal heights are cached per
   vertex; exaggeration = recompute positions + swap primitives (≈ 60 ms desktop for 380k vertices).
+- **The airspace is never exaggerated** (owner decision 2026-09-17, deviating from SPEC §5.1's single
+  factor): `config.js::stratumFactor` returns 1 for `airspace`, so the fence is always the nominal
+  100 km; the slider scales the water column, seabed and subsoil only, and the readout says
+  "20× · luftrom 1×". At 20× the airspace was a 2 000 km wall that hid everything and forced the
+  preset cameras up to 4 000 km. Apply `stratumFactor` wherever a nominal height is scaled
+  (`strata.js`, the probe in `columnQuery.js`).
 - Coincident surfaces are separated by `SEABED_CLEARANCE` (30 m nominal) to avoid z-fighting.
 - Bilingual strings: `no` / `en`. Norwegian statutory quotations stay Norwegian in both modes.
 - **Legal text is never typed, only extracted** (§10.1). `fetch_legal.py` stores the source documents
@@ -182,8 +188,9 @@ open: licence wording for the DOALOS text in `data/LICENSE.md`.
 + panel with every regime top to bottom, summary, `<details>` quotes, source links; on `en` the
 Court's translation under its own caveat), cross-section (`crossSection.js`: canvas profile along
 a transect, presets or two clicks in the model, click in the section → column there), preset
-views (`config.js::VIEWS`, cameras above the 20x airspace), URL state + "Del lenke"
-(`urlState.js`), phone layout (one 40 vh sheet). Verified in headless Chrome at 1400×900 and
+views (`config.js::VIEWS`), URL state + "Del lenke" (`urlState.js`), phone layout (one 40 vh
+sheet). On the owner's first review the airspace stopped being exaggerated (see Conventions) and the
+preset cameras came down to 0.9–1.2 Mm, pitch −55°. Verified in headless Chrome at 1400×900 and
 375×667 (`docs/renders/app-section-*.png`, `app-phone-section.png`): no page errors, state
 restores from the URL. Bundle 1 032 KB raw / 385 KB gzip — over SPEC §8's 900 KB raw target
 (the zone geometry alone is ~700 KB); gzip is what the wire carries. Not yet reviewed by the owner.
