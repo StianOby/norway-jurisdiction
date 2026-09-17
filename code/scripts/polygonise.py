@@ -416,7 +416,7 @@ def main(argv=None) -> int:
                   "Loop Hole: same network plus Marine Regions 'Russia 200 NM' (line_id 3697) and the Special Area ring (line_id 4697), Flanders Marine Institute Maritime Boundaries v12, CC BY 4.0, snapped (≤100 m) onto Kartverket lines. "
                   "Nansen Basin: Norway's continental-shelf polygon beyond every 200 nm zone.",
         "kartverket": [], "stats": {"parts": hs_src, "area_km2": round(sum(g.area for g in hs_parts) / 1e6)}}
-    notes["high-seas"].append("Loop Hole: Russia's 200 nm limit is not Norwegian data; it is taken from Marine Regions (their own computation) and was compared visually with the chart Russia deposited with the UN (M.Z.N.124.2016, chart 10100). The sliver east of the 2010 line between 74.94 N and the continuation of the Svalbard 200 nm arc is treated as high seas, following Marine Regions — not verified.")
+    notes["high-seas"].append("Loop Hole: Russia's 200 nm limit is not Norwegian data; it is taken from Marine Regions (their own computation) and verified against the chart Russia deposited with the UN (M.Z.N.124.2016, chart 10100) to about 2 km, including the segment north of 74.94 N where the pocket is bounded by the 2010 treaty line.")
     notes["high-seas"].append("Nansen Basin: the high seas continue north beyond Norway's shelf outer limit; the model stops at the outer limit (notModelled: beyond-outer-limit).")
     print(f"  {'high-seas':34s} {sum(len(r) for g in zones['high-seas']['rings'] for r in g):6d} vertices  parts={hs_src}")
 

@@ -137,8 +137,8 @@ toggles, NO/EN toggle, scope note, persistent attribution incl. Cesium credits),
 (EllipsoidTerrainProvider + OSM, translucent globe inside the bbox, camera may go underground,
 requestRenderMode). Bundle 897 KB raw / 341 KB gzip. Verified in headless Chrome.
 
-Open for the owner: sanity-check the seabed levels (PROVENANCE §14); the Phase 1 questions
-(PROVENANCE §12) still stand; Canvas CSP allow-listing of github.io.
+All Phase 1 questions are resolved (PROVENANCE §12/§15). Seabed levels and airspace exaggeration
+accepted for now. Still open: Canvas CSP allow-listing of github.io; Pages source setting.
 
 Next: Phase 3 (`scripts/fetch_legal.py`, Lovdata/UNCLOS/HR-2023-491-P quotes), then Phase 4
 (column query, cross-section, preset viewpoints, URL state), Phase 5 (device matrix, Canvas test).

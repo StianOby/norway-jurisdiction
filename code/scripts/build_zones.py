@@ -102,8 +102,8 @@ def registry() -> list[dict]:
                       "Kontinentalsokkelen", "Continental shelf",
                       [cit("kontinentalsokkelloven"), cit("petroleumsloven § 1-6"), unclos("arts 76–79"), cit(snokrabbe)],
                       [cit("kontinentalsokkelloven"), cit("petroleumsloven § 1-6"), unclos("arts 76–79"), cit(snokrabbe)],
-                      notes=["Neutral contested marker (SPEC §1/§10.5) applies within contestedExtent: the shelf within the 200 nm zone around Svalbard — the narrower of two readings of the disputed area.",
-                             "contestedExtentInterval marks the difference between the two readings, to be shown as 'disputed extent': (a) the disputed area is the shelf within 200 nm of Svalbard; (b) it is all Norwegian shelf generated from Svalbard, including beyond 200 nm north of Svalbard (Nansen Basin). A third notion, the Svalbard Treaty Article 1 area (10–35 E, 74–81 N), is not modelled. Owner instruction 2026-09-17."]))
+                      notes=["Neutral contested marker (SPEC §1/§10.5) within contestedExtent: the shelf within 200 nm of Svalbard.",
+                             "contestedExtentInterval: the shelf beyond 200 nm generated from Svalbard (Nansen Basin), shown as 'disputed extent' — whether the dispute reaches it is left open. The Svalbard Treaty Article 1 area is not modelled (owner decision 2026-09-17, round 4)."]))
     zones.append(zone("high-seas", "all", ["watercolumn"],
                       "Det åpne hav", "High seas",
                       [unclos("art. 86"), unclos("art. 87")], [unclos("art. 86"), unclos("art. 87")],

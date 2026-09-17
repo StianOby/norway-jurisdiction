@@ -229,9 +229,10 @@ were drawn on it: `docs/renders/loop-hole-chart-overlay.png`. They coincide with
 millimetre (≈ 2 km); the SK-42 → WGS 84 datum shift (order 100 m) is below that. Digitising the
 chart itself was therefore not done.
 
-**Caveat carried in the data:** the sliver east of the 2010 line between 74.94°N and the
-continuation of the Svalbard 200 nm arc is treated as high seas, following Marine Regions; not
-independently verified (note on `high-seas`).
+**North of 74.94°N** (where Kartverket's Svalbard 200 nm arc ends on the treaty line) the pocket
+is bounded on the west by the 2010 treaty line and on the north-east by Russia's 200 nm limit,
+exactly as chart 10100 draws it; the overlay covers that segment. The owner reviewed this
+(§15.3) and the earlier "not verified" caveat was removed 2026-09-17.
 
 ## 12. Questions for the owner
 
@@ -239,11 +240,10 @@ independently verified (note on `high-seas`).
 2. ~~The Area~~ — resolved (§15.1): asserted.
 3. ~~Loop Hole~~ — resolved (§11).
 4. ~~Historical lines~~ — resolved (§9.5).
-5. **Contested readings** — pending (§15.2): the owner leans towards the Treaty Article 1 box for
-   reading (b); implications laid out in §15.2 and `docs/renders/svalbard-treaty-box.png`.
+5. ~~Contested readings~~ — resolved (§15.2): no Treaty box; the interval stays the Nansen Basin
+   shelf beyond 200 nm, described minimally and neutrally.
 6. ~~EEZ strata~~ — resolved (§10.8).
-7. The Loop Hole sliver — pending (§15.3): the owner asked for it to be clipped to the treaty
-   line; it already is (the treaty line is its western edge), so the real choice is keep or remove.
+7. ~~Loop Hole sliver~~ — resolved (§15.3): kept; caveat removed.
 
 ## 13. Licence
 
@@ -323,7 +323,11 @@ seabed is schematic and indicative. GEBCO attribution is in `data/LICENSE.md` an
      200 nm shelf outside the box; the Nansen Basin would either join the interval or become a
      third tier. The whole-zone `contested` flag on `svalbard-fpz` (water column) would face the
      same question: 454 100 km² of the FPZ is inside the box, 404 700 km² outside.
-   Not implemented pending the owner's choice.
+   **Decision (owner, same day): the box is not used.** The readings stay (a) shelf within 200 nm
+   of Svalbard (core) and (b) plus the Svalbard-generated shelf beyond 200 nm (Nansen Basin,
+   interval). The zone notes now say only that; whether the dispute reaches the shelf beyond
+   200 nm is left open in the data (the owner asked; the model does not answer it — it is a legal
+   characterisation the fetched sources in Phase 3 may or may not settle).
 3. **Loop Hole sliver — clarification.** The sliver (east of the 2010 line, 74.94–76.96°N) is
    already bounded on the west by the treaty line; "clipping it to the treaty line" changes nothing.
    Kartverket's Svalbard 200 nm arc ends exactly where it meets the treaty line (37°E, 74.9377°N),
@@ -331,4 +335,5 @@ seabed is schematic and indicative. GEBCO attribution is in `data/LICENSE.md` an
    boundary runs the same way (up the treaty line, then east along Russia's 200 nm limit) — the
    overlay in `docs/renders/loop-hole-chart-overlay.png` covers that segment. The only decision is
    whether the sliver stays high-seas water column (as now, consistent with both states' lines) or
-   is removed from the model; awaiting the owner.
+   is removed from the model. **Decision (owner, same day): keep it; the caveat is removed** and §11
+   now records the segment as verified against the chart.
