@@ -1,8 +1,8 @@
 {
  "meta": {
-  "built_at_utc": "2026-09-17T13:05:32+00:00",
+  "built_at_utc": "2026-09-17T13:10:42+00:00",
   "sources": {
-   "lovdata": "2026-09-17T12:49:56+00:00",
+   "lovdata": "2026-09-17T13:10:34+00:00",
    "unclos": "2026-09-17T12:50:04+00:00",
    "hr": "2026-09-17T12:49:55+00:00"
   },
@@ -136,6 +136,32 @@
     ],
     "items": null
    }
+  },
+  {
+   "source": "forskrift 23. mai 1980 nr. 4",
+   "title": "Forskrift om opprettelse av fiskerisone ved Jan Mayen. Delegering av fullmakt.",
+   "citedAs": "forskrift 23. mai 1980 nr. 4",
+   "quote": "1\nMed hjemmel i lov av 17. desember 1976 nr. 91 om Norges økonomiske sone opprettes en fiskerisone i havområdene ved Jan Mayen med virkning fra 29. mai 1980.\n2\nYttergrensen for fiskerisonen skal trekkes i en avstand av 200 n. mil (en nautisk mil = 1.852 meter) fra de grunnlinjer som er fastsatt for Jan Mayen, likevel ikke ut over midtlinjen i forhold til Grønland eller ut over den linje som utgjør yttergrensen for Islands økonomiske sone, slik denne i dag er fastlagt i islandsk lov nr. 41 av 1. juni 1979.\n3\nHvor fiskerisonen støter opp mot sonen utenfor Øst-Grønland skal delelinjen trekkes i samsvar med avtale.\n4\nFiskeridepartementet gis fullmakt til, under hensyntagen til avtaler som måtte være sluttet med fremmed stat, å gi bestemmelser vedrørende forvaltningen av fiskerisonen med sikte på vern om fiskebestandene, begrensning av utenlandsk fiske og sikring av en rasjonell og forsvarlig utøvelse av fisket.\n5\nFiskeridepartementet gis fullmakt til å gi forskrifter vedrørende håndhevelsen av bestemmelsene gitt for fiskerisonen.",
+   "quoteLang": "no",
+   "url": "https://lovdata.no/dokument/SF/forskrift/1980-05-23-4/KAPITTEL_1",
+   "provenance": {
+    "publisher": "Lovdata",
+    "dokid": "SF/forskrift/1980-05-23-4",
+    "file": "data/raw/legal/lovdata/sf-19800523-0004.xml",
+    "sha256": "97783e16c0c8b1c4a46749b76de588ddc3307ca4d251a511bf6f89dc984dff3d",
+    "lastChangeInForce": "",
+    "package": "gjeldende-sentrale-forskrifter.tar.bz2",
+    "packageLastModified": "2026-09-17T01:32:00Z",
+    "selector": [
+     "kap1",
+     "kap2",
+     "kap3",
+     "kap4",
+     "kap5"
+    ],
+    "items": null
+   },
+   "selectionNote": "Quoted in full (its five provisions are numbered 1–5 without §); owner instruction 2026-09-17."
   },
   {
    "source": "UNCLOS art. 1(1)(1)",

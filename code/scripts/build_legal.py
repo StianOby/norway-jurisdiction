@@ -53,6 +53,9 @@ PROVISIONS = [
                       "exploitation of other subsea natural resources), whose § 1 now refers to the 2021 act for the definition. "
                       "§ 1 of the 2021 act is quoted; the 1963 act is fetched (data/raw/legal/lovdata/nl-19630621-012.xml) but not cited."},
     {"source": "luftfartsloven § 1-1", "kind": "lovdata", "doc": "NL/lov/1993-06-11-101", "articles": ["§1-1"]},
+    {"source": "forskrift 23. mai 1980 nr. 4", "kind": "lovdata", "doc": "SF/forskrift/1980-05-23-4",
+     "sections": ["kap1", "kap2", "kap3", "kap4", "kap5"],
+     "selectionNote": "Quoted in full (its five provisions are numbered 1–5 without §); owner instruction 2026-09-17."},
 
     {"source": "UNCLOS art. 1(1)(1)", "kind": "unclos", "articles": [(1, 1, "1")]},
     {"source": "UNCLOS art. 2", "kind": "unclos", "articles": [(2, None, None)]},

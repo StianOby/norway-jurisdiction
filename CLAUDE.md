@@ -152,7 +152,7 @@ accepted for now. Still open: Canvas CSP allow-listing of github.io; Pages sourc
 Phase 3 built (same day): `fetch_legal.py` (Lovdata packages → 8 documents, DOALOS UNCLOS parts,
 HR-2023-491-P PDFs, all verbatim with SHA-256 logs), `build_legal.py` (26 provisions → `legal.json`,
 review copy `LEGAL.md`, cross-checked against the DOALOS PDF and Lovdata's HTML of the judgment),
-`build_zones.py` merges them (76 citations, all quoted; petroleumsloven and the two zone regulations dropped by the owner, so `janmayen-fisheries-zone` has no citation). Draft summaries for 15 zones in
+`build_zones.py` merges them (78 citations, all quoted; petroleumsloven § 1-6 and the Svalbard FPZ regulation dropped by the owner; the Jan Mayen regulation quoted in full). Draft summaries for 15 zones in
 `data/legal/summaries.json`, none approved yet. **Awaiting the owner's review** of the selection
 choices (PROVENANCE §16.3: kontinentalsokkelloven = 2021 act § 1, judgment paragraphs 16/220, English translation of the judgment) and of the
 summaries — the Phase 3 exit criterion. The UI does not yet show legal text (Phase 4).

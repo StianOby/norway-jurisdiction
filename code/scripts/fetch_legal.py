@@ -43,15 +43,17 @@ USER_AGENT = "norway-jurisdiction/0.1 (teaching model, UiO)"
 LOVDATA_API = "https://api.lovdata.no/v1/publicData"
 LOVDATA_PACKAGES = ("gjeldende-lover.tar.bz2", "gjeldende-sentrale-forskrifter.tar.bz2")
 # DokIDs found by searching the titles in the fetched packages on 2026-09-17 (not from memory):
-# "territorialfarvann", "økonomiske sone", "kontinentalsokkel", "luftfart". The label is a reading
-# aid only; the title that ships comes from the document itself. (petroleumsloven and the two zone
-# regulations were fetched at first and dropped by the owner, 2026-09-17.)
+# "territorialfarvann", "økonomiske sone", "kontinentalsokkel", "luftfart", "fiskerisone". The
+# label is a reading aid only; the title that ships comes from the document itself. (petroleumsloven
+# and the Svalbard fisheries-protection-zone regulation were fetched at first and dropped by the
+# owner, 2026-09-17.)
 LOVDATA_DOCS = {
     "NL/lov/2003-06-27-57": "territorialfarvannsloven",
     "NL/lov/1976-12-17-91": "økonomiske soneloven",
     "NL/lov/2021-06-18-89": "lov om Norges kontinentalsokkel",
     "NL/lov/1963-06-21-12": "lov om undersjøiske naturforekomster (1963)",
     "NL/lov/1993-06-11-101": "luftfartsloven",
+    "SF/forskrift/1980-05-23-4": "forskrift om opprettelse av fiskerisone ved Jan Mayen",
 }
 
 # ---- UNCLOS -------------------------------------------------------------------------------

@@ -100,9 +100,9 @@ def registry() -> list[dict]:
                              "contested: true — owner instruction 2026-09-17 (neutral marker only, SPEC §1/§10.5)."]))
     zones.append(zone("janmayen-fisheries-zone", "janmayen", ["watercolumn"],
                       "Fiskerisonen ved Jan Mayen", "Fisheries zone around Jan Mayen",
-                      [], [],
-                      notes=["A fisheries zone, not an exclusive economic zone (SPEC §2.3).",
-                             "No citation: the owner dropped forskrift 23. mai 1980 nr. 4 (2026-09-17); nothing else is named in SPEC §4.1."]))
+                      [cit("forskrift 23. mai 1980 nr. 4")],
+                      [cit("forskrift 23. mai 1980 nr. 4")],
+                      notes=["A fisheries zone, not an exclusive economic zone (SPEC §2.3)."]))
     zones.append(zone("continental-shelf", "all", ["seabed", "subsoil"],
                       "Kontinentalsokkelen", "Continental shelf",
                       [cit("kontinentalsokkelloven"), unclos("arts 76–79"), cit(snokrabbe, pinpoint="avsnitt 220")],
