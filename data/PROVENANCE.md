@@ -411,9 +411,10 @@ Recorded as `selectionNote` in `legal.json` and shown in `LEGAL.md`:
    (arts 56(1)(a), 57, 58) and then what the Norwegian regulation established — pending approval.
 6d. Zone `airspace-beyond-territorial-sea` renamed **`international-airspace`**, labelled
    "Internasjonalt luftrom" / "International airspace" (owner, 2026-09-17).
-7. **Summaries.** Drafts for all 15 zones are in `data/legal/summaries.json` with
-   `status: "draft"`, written only from the quoted provisions (each sentence cites its provision).
-   None ships until the owner sets `status: "approved"`; until then the app has no summaries.
+7. **Summaries.** All 15 zones in `data/legal/summaries.json` are **approved by the owner
+   (2026-09-17)** and ship. Drafts were written only from the quoted provisions; the owner edited
+   several before approving (e.g. "Området – bedre kjent som dyphavet"). A future edit goes back to
+   `status: "draft"` until re-approved.
 
 ### 16.4 Citation record (SPEC §4 interface, extended)
 

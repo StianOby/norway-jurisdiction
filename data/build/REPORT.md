@@ -1,6 +1,6 @@
 # Build report — data/build/zones.json
 
-Generated 2026-09-17T13:49:52+00:00. Simplification: arcs 100.0 m, coast 300.0 m, islands ≥ 3.0 km². Exempt: baselines (layer 0); agreed delimitation lines (layers 8, 10); other states' 200 nm limits (layer 11); continental-shelf outer limit (layer 9).
+Generated 2026-09-17T13:54:48+00:00. Simplification: arcs 100.0 m, coast 300.0 m, islands ≥ 3.0 km². Exempt: baselines (layer 0); agreed delimitation lines (layers 8, 10); other states' 200 nm limits (layer 11); continental-shelf outer limit (layer 9).
 
 | Zone | Geography | Strata | Vertices | Source |
 |---|---|---|---:|---|
@@ -23,15 +23,11 @@ Generated 2026-09-17T13:49:52+00:00. Simplification: arcs 100.0 m, coast 300.0 m
 | Overlay | Vertices |
 |---|---:|
 
-**Zone polygon vertices:** 32396 (SPEC §8 target 35000); zones.json 960 KB.
+**Zone polygon vertices:** 32396 (SPEC §8 target 35000); zones.json 963 KB.
 
 ## Checks
 
 - all hard checks passed (closure, validity, antimeridian, bbox, schema, byte-identity of layers 0/8/9/10, every citation quoted from a fetched document)
-- WARN: svalbard-fpz [no]: summary not shipped (status: draft)
-- WARN: svalbard-fpz [en]: summary not shipped (status: draft)
-- WARN: janmayen-fisheries-zone [no]: summary not shipped (status: draft)
-- WARN: janmayen-fisheries-zone [en]: summary not shipped (status: draft)
 - WARN: 9-yttergrense-kontinentalsokkel: [36.980199999630315,84.505780556427567] not emitted — bounds no modelled zone (nearest boundary 254.4 km)
 - WARN: 9-yttergrense-kontinentalsokkel: [35.203827305885511,84.564505610645483] not emitted — bounds no modelled zone (nearest boundary 128.6 km)
 - WARN: 9-yttergrense-kontinentalsokkel: [33.390542777826965,84.617926750319327] not emitted — bounds no modelled zone (nearest boundary 46.3 km)
@@ -43,7 +39,7 @@ Generated 2026-09-17T13:49:52+00:00. Simplification: arcs 100.0 m, coast 300.0 m
 - WARN: 11-andre-staters-eez: [7.0887772780000002,83.889729999800664] on a boundary but represented by the coincident Norwegian-line vertex (junction end)
 - WARN: 11-andre-staters-eez: [7.9279609170000001,83.71345655579502] on a boundary but represented by the coincident Norwegian-line vertex (junction end)
 - citations: 78 (every one with a quote from a fetched document)
-- summaries: 26/30 approved and shipped
+- summaries: 30/30 approved and shipped
 - verbatim:0-grunnlinje: 485/485
 - verbatim:8-avtalt-avgrensningslinje: 389/389
 - verbatim:9-yttergrense-kontinentalsokkel: 199/202
