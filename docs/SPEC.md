@@ -140,14 +140,16 @@ interface LegalPayload {
 
 _Amended 2026-09-17 (owner): internal waters and the territorial sea are modelled as water, seabed and
 subsoil only; the air above them is the national-airspace zone in the table below, not a stratum of
-these zones. (They were listed with "air" before.)_
+these zones. (They were listed with "air" before.) The EEZ is water only — the seabed and subsoil
+beneath it are the continental shelf, as the registry has had it since Phase 1; the table said "water,
+seabed" before._
 
 | Zone | Extent | Strata | Norwegian basis | UNCLOS |
 |---|---|---|---|---|
 | Indre farvann | landward of baseline | water, seabed, subsoil | territorialfarvannsloven § 3 | arts 2, 8 |
 | Sjøterritoriet | baseline → 12 nm | water, seabed, subsoil | territorialfarvannsloven §§ 1–2 | arts 2, 3, 17 |
 | Tilstøtende sone | → 24 nm, **mainland only** | water | territorialfarvannsloven § 4 | arts 33, 303 |
-| Norges økonomiske sone | → 200 nm, mainland | water, seabed | lov om Norges økonomiske sone § 1 | arts 55–58 |
+| Norges økonomiske sone | → 200 nm, mainland | water | lov om Norges økonomiske sone § 1 | arts 55–58 |
 | Fiskevernsonen ved Svalbard | → 200 nm | water | forskrift 3. juni 1977 nr. 6 | — |
 | Fiskerisonen ved Jan Mayen | → 200 nm | water | forskrift 23. mai 1980 nr. 4 | — |
 | Kontinentalsokkelen | → 200 nm and beyond to outer limit | seabed, subsoil | kontinentalsokkelloven; petroleumsloven § 1-6 | arts 76–79 |
