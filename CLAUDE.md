@@ -155,10 +155,10 @@ HR-2023-491-P PDFs, all verbatim with SHA-256 logs), `build_legal.py` (22 provis
 review copy `LEGAL.md`, cross-checked against the DOALOS PDF and Lovdata's HTML of the judgment),
 `build_zones.py` merges them (78 citations, all quoted; UNCLOS arts 55–58 added to both fisheries zones; petroleumsloven § 1-6, luftfartsloven § 1-1, UNCLOS art. 303 and judgment paragraph 16 dropped by the owner; the two zone regulations quoted in full; summaries cite UNCLOS first). Summaries for all 15 zones in
 `data/legal/summaries.json` reviewed and **approved by the owner** (30/30 payloads ship); judgment
-paragraph 220 confirmed. **Phase 3 exit criterion met.** Still open from PROVENANCE §16.3: explicit
-confirmation of kontinentalsokkelloven = 2021 act § 1 (SPEC §1 box says "pending"); whether the UI
-shows the Court's English translation on `en`; licence wording for DOALOS text and the Court's PDFs
-in `data/LICENSE.md`. The UI does not yet show legal text (Phase 4).
+paragraph 220 confirmed. **Phase 3 exit criterion met.** All §16.3 choices confirmed by the owner
+(kontinentalsokkelloven = 2021 act § 1; the Court's English translation stays on `en`, to be shown
+with the Court's caveat in Phase 4; the Court's PDFs are public domain as official government
+documents). Still open: licence wording for the DOALOS text in `data/LICENSE.md`. The UI does not yet show legal text (Phase 4).
 
 Next: Phase 4 (column query with citations + quotes + summaries, cross-section, preset viewpoints,
 URL state), Phase 5 (device matrix, Canvas test).

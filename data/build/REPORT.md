@@ -1,6 +1,6 @@
 # Build report — data/build/zones.json
 
-Generated 2026-09-17T13:54:48+00:00. Simplification: arcs 100.0 m, coast 300.0 m, islands ≥ 3.0 km². Exempt: baselines (layer 0); agreed delimitation lines (layers 8, 10); other states' 200 nm limits (layer 11); continental-shelf outer limit (layer 9).
+Generated 2026-09-17T13:58:45+00:00. Simplification: arcs 100.0 m, coast 300.0 m, islands ≥ 3.0 km². Exempt: baselines (layer 0); agreed delimitation lines (layers 8, 10); other states' 200 nm limits (layer 11); continental-shelf outer limit (layer 9).
 
 | Zone | Geography | Strata | Vertices | Source |
 |---|---|---|---:|---|

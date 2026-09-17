@@ -14,7 +14,7 @@ of this directory, nor to the zone geometry that the build inlines into
 | `raw/gebco/*.json` | GEBCO Compilation Group (2020) GEBCO 2020 Grid, via NOAA CoastWatch ERDDAP — coarse subset used only to derive the schematic seabed class map | GEBCO terms of use: public domain, attribution requested |
 | `raw/legal/lovdata/*` | Lovdata, free data packages (`api.lovdata.no`): the cited acts and regulations, verbatim | NLOD 2.0 |
 | `raw/legal/unclos/*` | United Nations, Division for Ocean Affairs and the Law of the Sea: the text of the Convention, by Part | UN publication of the Convention text (see `PROVENANCE.md` §16) |
-| `raw/legal/hr/*` | Norges Høyesterett (domstol.no): HR-2023-491-P and the Court's English translation | published by the Court (see `PROVENANCE.md` §16) |
+| `raw/legal/hr/*` | Norges Høyesterett (domstol.no): HR-2023-491-P and the Court's English translation | Public domain: official Norwegian government documents (owner's statement, see `PROVENANCE.md` §16) |
 | `legal/summaries.json` | Written for this project (zone summaries, bilingual) | CC BY 4.0 |
 | `build/*` | Derived from the above by `code/scripts/` | CC BY 4.0-compatible terms of the sources; derivation is documented in `PROVENANCE.md` |
 

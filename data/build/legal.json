@@ -1,6 +1,6 @@
 {
  "meta": {
-  "built_at_utc": "2026-09-17T13:33:30+00:00",
+  "built_at_utc": "2026-09-17T13:58:45+00:00",
   "sources": {
    "lovdata": "2026-09-17T13:12:25+00:00",
    "unclos": "2026-09-17T12:50:04+00:00",
@@ -114,7 +114,7 @@
     ],
     "items": null
    },
-   "selectionNote": "SPEC §4.1 says 'kontinentalsokkelloven' without a provision. Lovdata's current-acts package holds two acts on the shelf: lov 18. juni 2021 nr. 89 om Norges kontinentalsokkel (short title on Lovdata: 'Lov om Norges kontinentalsokkel'), whose § 1 defines the shelf, and lov 21. juni 1963 nr. 12 (scientific research and exploitation of other subsea natural resources), whose § 1 now refers to the 2021 act for the definition. § 1 of the 2021 act is quoted; the 1963 act is fetched (data/raw/legal/lovdata/nl-19630621-012.xml) but not cited."
+   "selectionNote": "SPEC §4.1 says 'kontinentalsokkelloven' without a provision. Lovdata's current-acts package holds two acts on the shelf: lov 18. juni 2021 nr. 89 om Norges kontinentalsokkel (short title on Lovdata: 'Lov om Norges kontinentalsokkel'), whose § 1 defines the shelf, and lov 21. juni 1963 nr. 12 (scientific research and exploitation of other subsea natural resources), whose § 1 now refers to the 2021 act for the definition. § 1 of the 2021 act is quoted (confirmed by the owner 2026-09-17); the 1963 act is fetched (data/raw/legal/lovdata/nl-19630621-012.xml) but not cited."
   },
   {
    "source": "forskrift 3. juni 1977 nr. 6",

@@ -51,7 +51,7 @@ PROVISIONS = [
                       "the shelf: lov 18. juni 2021 nr. 89 om Norges kontinentalsokkel (short title on Lovdata: 'Lov om Norges "
                       "kontinentalsokkel'), whose § 1 defines the shelf, and lov 21. juni 1963 nr. 12 (scientific research and "
                       "exploitation of other subsea natural resources), whose § 1 now refers to the 2021 act for the definition. "
-                      "§ 1 of the 2021 act is quoted; the 1963 act is fetched (data/raw/legal/lovdata/nl-19630621-012.xml) but not cited."},
+                      "§ 1 of the 2021 act is quoted (confirmed by the owner 2026-09-17); the 1963 act is fetched (data/raw/legal/lovdata/nl-19630621-012.xml) but not cited."},
     # luftfartsloven § 1-1 (SPEC §4.1, national airspace) was dropped by the owner 2026-09-17: it says
     # nothing about the extent of national airspace; the zone cites UNCLOS art. 2(2) alone.
     {"source": "forskrift 3. juni 1977 nr. 6", "kind": "lovdata", "doc": "SF/forskrift/1977-06-03-6",

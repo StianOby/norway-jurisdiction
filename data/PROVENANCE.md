@@ -351,7 +351,7 @@ searching the titles inside the fetched Lovdata packages.
 |---|---|---|---|
 | `raw/legal/lovdata/` | Lovdata, free data packages via `api.lovdata.no/v1/publicData` (`gjeldende-lover` 2026-09-15, `gjeldende-sentrale-forskrifter` 2026-09-17) | the six documents kept (XHTML, byte for byte); `publicData-list.json`; `FETCH_LOG.json` with the archives' SHA-256 | NLOD 2.0 (Lovdata, lovdata.no/info/api) |
 | `raw/legal/unclos/` | UN Division for Ocean Affairs and the Law of the Sea, `un.org/depts/los/convention_agreements/texts/unclos/` | Parts I, II, V, VI, VII and XI s. 2 as one HTML file each, plus the table of contents | UN publication of the Convention text; the owner records the terms |
-| `raw/legal/hr/` | Norges Høyesterett, domstol.no | HR-2023-491-P: the judgment (PDF) and the Court's English translation (PDF, "provided for information purposes only") | published by the Court; the owner records the terms |
+| `raw/legal/hr/` | Norges Høyesterett, domstol.no | HR-2023-491-P: the judgment (PDF) and the Court's English translation (PDF, "provided for information purposes only") | public domain as official Norwegian government documents (owner's statement, 2026-09-17) |
 
 Documents fetched from Lovdata: `NL/lov/2003-06-27-57` (territorialfarvannsloven),
 `NL/lov/1976-12-17-91` (økonomiske soneloven), `NL/lov/2021-06-18-89` (lov om Norges
@@ -384,20 +384,21 @@ Recorded as `selectionNote` in `legal.json` and shown in `LEGAL.md`:
 
 1. **kontinentalsokkelloven.** SPEC §4.1 names no provision. Lovdata's current acts contain lov
    18. juni 2021 nr. 89 om Norges kontinentalsokkel (§ 1 defines the shelf) and lov 21. juni 1963
-   nr. 12, whose § 1 now refers to the 2021 act. **§ 1 of the 2021 act is quoted**; the 1963 act
-   is fetched but not cited.
+   nr. 12, whose § 1 now refers to the 2021 act. **§ 1 of the 2021 act is quoted**, confirmed by
+   the owner (2026-09-17); the 1963 act is fetched but not cited.
 2. ~~petroleumsloven § 1-6~~ — **dropped by the owner (2026-09-17)**; the shelf cites the 2021
    act, UNCLOS arts 76–79 and HR-2023-491-P.
-3. **forskrift 3. juni 1977 nr. 6** ; **quoted in full**
+3. **forskrift 3. juni 1977 nr. 6** — **quoted in full**
    (§§ 1–5) on `svalbard-fpz`.
-4. **forskrift 23. mai 1980 nr. 4** ; **quoted in full**
+4. **forskrift 23. mai 1980 nr. 4** — **quoted in full**
    (items 1–5) on `janmayen-fisheries-zone`.
 5. **HR-2023-491-P** (not in SPEC §4.1; added with the contested marker in Phase 1). On
    `svalbard-fpz`: ~~paragraph 16~~ — **dropped by the owner (2026-09-17)**, it only restates the
    1977 regulation. On `continental-shelf`: paragraph 220 (conclusion on Treaty art. 2 and
    UNCLOS art. 77), **confirmed by the owner (2026-09-17)**; 227 is the overall conclusion. The
    `en` payload also carries the Court's own English translation of the paragraph as `translation`
-   (the `quote` stays Norwegian, SPEC §4); whether the UI shows it is the owner's call.
+   (the `quote` stays Norwegian, SPEC §4); the owner keeps this arrangement (2026-09-17), so
+   Phase 4 may show the translation on `en` with the Court's caveat.
 6. ~~luftfartsloven § 1-1~~ — **dropped by the owner (2026-09-17)**: it says nothing about the
    extent of national airspace; `national-airspace` cites UNCLOS art. 2(2) alone. The document was
    removed from `data/raw/legal/lovdata/`.
