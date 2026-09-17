@@ -11,6 +11,17 @@ Purpose: a browser-based 3D model of Norway's jurisdictional zones — maritime,
 
 These are settled. Do not re-litigate them without asking.
 
+> **Amendments by the owner, 2026-09-17** (recorded here so §1 stays authoritative; details in `data/PROVENANCE.md` §6):
+> - Geographic scope is **Fastlands-Norge, Svalbard, Jan Mayen**. Bouvetøya is removed; the UI must state that the model covers only these three.
+> - Coastline source: **N1000 Kartdata**, simplified to budget (§3.2 resolved).
+> - Zone polygons are taken from Kartverket's official polygons in the Geonorge (Route B) delivery rather than polygonised from lines (§6.1 method amended; §10 unchanged).
+> - The Norway–Iceland–Denmark/Faroes continental-shelf line is an agreed delimitation (in force December 2022).
+> - §4.1: Norges økonomiske sone has the stratum **water column only**; the seabed beneath it is the continental shelf.
+> - §8: zone-polygon vertex budget **35 000** (was 12 000); the `dist/index.html` size target is read as gzipped transfer size. Coastline simplified at 300 m, islands ≥ 3 km².
+> - No historical fisheries lines (1/4/6/10 nm) ship — current, UNCLOS-relevant lines only (the §2.3 overlay is dropped).
+> - Neighbouring states' lines: UN DOALOS deposits first; where DOALOS holds charts only, Marine Regions (CC BY 4.0) verified against the deposited chart. Attribution to Marine Regions is required in the UI.
+> - §6 layout: everything AGPL-licensed (front end, scripts, `package.json`, the AGPL text) lives under `code/`; `data/` (NLOD/CC BY) and `docs/` (AGPL, aligned with the code) stay at the root; the root `LICENSE.md` maps the three. `npm` runs inside `code/`; `dist/` is written at the root. Hosting: GitHub Pages via GitHub Actions.
+
 | Decision | Choice |
 |---|---|
 | Geographic scope | Fastlands-Norge, Svalbard, Jan Mayen, Bouvetøya |
@@ -47,7 +58,7 @@ Capabilities: `https://nedlasting.geonorge.no/api/capabilities/e106adf4-c9d8-4fc
 
 Route A is a convenience mirror. **Before shipping, re-verify a sample of Route A geometry against a Route B download** — at minimum the mainland baseline and the 12 nm territorial limit — and record the result in `data/PROVENANCE.md`. Note the datum difference is negligible here (ETRS89 vs WGS84 diverge by a few decimetres in Norway) but state it rather than ignore it.
 
-A snapshot of Route A is already committed at `data/raw/`. Re-fetch with `scripts/fetch_boundaries.py`.
+A snapshot of Route A is already committed at `data/raw/`. Re-fetch with `code/scripts/fetch_boundaries.py`.
 
 ### 2.2 Layer inventory (as fetched, 2026-09-17)
 
