@@ -92,6 +92,16 @@ EPSG:25833 instead (Krüger series; validated in PROVENANCE §4). Don't add pypr
   "20× · luftrom 1×". At 20× the airspace was a 2 000 km wall that hid everything and forced the
   preset cameras up to 4 000 km. Apply `stratumFactor` wherever a nominal height is scaled
   (`strata.js`, the probe in `columnQuery.js`).
+- **Opaque render mask** (owner, 2026-09-17: "make the land fully opaque"). Cesium's globe translucency
+  is uniform, so `build_zones.py::render_mask` emits `zones.json.renderMask`: MASK_RECT minus the union
+  of every water-column zone, cut into 10° cells, each ring as *references* into the zones' own rings
+  (`[zoneId, part, ring, start, count, step]`) plus literal points where rings cross — no coastline is
+  duplicated (~30 KB). `zones.js::renderMaskParts` rebuilds it; `strata.js` draws it as an opaque slab
+  40 m under the surface (stratum `mask`, never exaggerated or toggled, `MASK.maxEdgeDeg` 3°), so land
+  and foreign sea show nothing through. `GLOBE.undergroundColor` equals `MASK.colour` so the slab's
+  far edge does not show. Not legal geometry; the build proves every ring rebuilds exactly.
+- `prepareMesh(rings, maxEdge)` takes the edge limit as a second argument — never pass it to `.map`
+  bare (the index became the edge limit once and the subdivision ran until `Map` overflowed).
 - Coincident surfaces are separated by `SEABED_CLEARANCE` (30 m nominal) to avoid z-fighting.
 - Bilingual strings: `no` / `en`. Norwegian statutory quotations stay Norwegian in both modes.
 - **Legal text is never typed, only extracted** (§10.1). `fetch_legal.py` stores the source documents
@@ -193,7 +203,8 @@ views (`config.js::VIEWS`), URL state + "Del lenke" (`urlState.js`), phone layou
 sheet). On the owner's first review the airspace stopped being exaggerated (see Conventions) and the
 preset cameras came down to 0.9–1.2 Mm, pitch −55°; internal waters and the territorial sea lost
 their airspace stratum (the national-airspace zone covers the air above them). SPEC §4.1 and §5.1
-carry both amendments, dated. Verified in headless Chrome at 1400×900 and
+carry both amendments, dated. Later the same evening: the opaque render mask (see Conventions), so
+the water column no longer shows through the mainland. Verified in headless Chrome at 1400×900 and
 375×667 (`docs/renders/app-section-*.png`, `app-phone-section.png`): no page errors, state
 restores from the URL. Bundle 1 032 KB raw / 385 KB gzip — over SPEC §8's 900 KB raw target
 (the zone geometry alone is ~700 KB); gzip is what the wire carries. Not yet reviewed by the owner.

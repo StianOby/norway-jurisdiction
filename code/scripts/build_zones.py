@@ -182,6 +182,96 @@ def fill_legal(zones: list[dict]) -> list[str]:
     return problems
 
 
+# --------------------------------------------------------------------------- render mask
+MASK_RECT = (-60.0, 30.0, 90.0, 89.5)   # lon/lat; what the home view can see
+MASK_CELL = 10.0                          # degrees; the slab is cut into cells so no triangle spans the map
+
+
+def render_mask(zones: list[dict]) -> dict:
+    """The opaque land/foreign-sea slab the app draws just under the globe surface, so that nothing
+    bleeds through the translucent globe except inside the Norwegian water zones (owner, 2026-09-17).
+    It is MASK_RECT minus the union of every zone with a water-column stratum, cut into MASK_CELL
+    cells. Not legal geometry: the rings are emitted as *references* into the zones' own rings
+    ([zone id, part, ring, start, count, step]), so no coastline coordinate is duplicated; vertices
+    the union or the cell cuts create are emitted literally as [lon, lat]."""
+    from shapely.geometry import shape, box
+    from shapely.ops import unary_union
+    water = [z for z in zones if "watercolumn" in z["strata"] and z["horizontal"]]
+    sea = unary_union([shape(z["horizontal"]) for z in water])
+    assert sea.geom_type == "Polygon", sea.geom_type
+    w, s, e, n = MASK_RECT
+    land = box(w, s, e, n).difference(sea)
+    pieces = []
+    x = w
+    while x < e:
+        y = s
+        while y < n:
+            cut = land.intersection(box(x, y, min(x + MASK_CELL, e), min(y + MASK_CELL, n)))
+            pieces += [g for g in getattr(cut, "geoms", [cut]) if g.geom_type == "Polygon" and not g.is_empty]
+            y += MASK_CELL
+        x += MASK_CELL
+    lut: dict[tuple, list] = {}
+    ring_len: dict[tuple, int] = {}
+    ring_of: dict[tuple, list] = {}
+    for z in water:
+        g = z["horizontal"]
+        for pi, poly in enumerate([g["coordinates"]] if g["type"] == "Polygon" else g["coordinates"]):
+            for ri, ring in enumerate(poly):
+                ring_len[(z["id"], pi, ri)] = len(ring) - 1
+                ring_of[(z["id"], pi, ri)] = ring
+                for i, (lon, lat) in enumerate(ring[:-1]):
+                    lut.setdefault((lon, lat), []).append((z["id"], pi, ri, i))
+    literal = 0
+    nverts = 0
+
+    def encode(ring):
+        nonlocal literal, nverts
+        coords = list(ring.coords)[:-1]
+        nverts += len(coords)
+        runs = []
+        cur = None  # [id, part, ring, start, count, step]
+        for lon, lat in coords:
+            hits = lut.get((lon, lat))
+            if not hits:
+                if cur: runs.append(cur); cur = None
+                runs.append([round(lon, 6), round(lat, 6)]); literal += 1
+                continue
+            ext = None
+            if cur:
+                zid, pi, ri, s, c, d = cur
+                n = ring_len[(zid, pi, ri)]
+                last = (s + (c - 1) * (d or 1)) % n
+                for h in hits:
+                    if h[:3] != (zid, pi, ri): continue
+                    if d in (0, 1) and h[3] == (last + 1) % n: ext = [zid, pi, ri, s, c + 1, 1]; break
+                    if d in (0, -1) and h[3] == (last - 1) % n: ext = [zid, pi, ri, s, c + 1, -1]; break
+            if ext: cur = ext
+            else:
+                if cur: runs.append(cur)
+                h = hits[0]
+                cur = [h[0], h[1], h[2], h[3], 1, 0]
+        if cur: runs.append(cur)
+        # prove the runs rebuild the ring
+        rebuilt = []
+        for r in runs:
+            if len(r) == 2: rebuilt.append(tuple(r)); continue
+            zid, pi, ri, s, c, d = r
+            src = ring_of[(zid, pi, ri)]; n = ring_len[(zid, pi, ri)]
+            for k in range(c): rebuilt.append(tuple(src[(s + k * (d or 1)) % n]))
+        assert len(rebuilt) == len(coords)
+        for a, b in zip(rebuilt, coords):
+            assert abs(a[0] - b[0]) < 1e-6 and abs(a[1] - b[1]) < 1e-6, (a, b)
+        return runs
+
+    parts = [[encode(g.exterior), *(encode(r) for r in g.interiors)] for g in pieces]
+    return {"note": "Render aid, not legal geometry: the complement of the union of every water-column zone inside rect, cut into "
+                    "cells. Each ring is a list of references into the zones' rings ([zoneId, part, ring, start, count, step]) and "
+                    "literal [lon, lat] points. The app draws an opaque slab just below the surface here, so nothing shows through "
+                    "the translucent globe outside the Norwegian zones.",
+            "rect": list(MASK_RECT), "cell": MASK_CELL, "parts": parts, "vertexCount": nverts,
+            "runs": sum(len(r) for p in parts for r in p), "literal": literal}
+
+
 # --------------------------------------------------------------------------- build
 def build() -> tuple[dict, str, list[str]]:
     geom_text = GEOMETRY.read_text(encoding="utf-8")
@@ -229,6 +319,7 @@ def build() -> tuple[dict, str, list[str]]:
         },
         "zones": zones,
         "overlays": overlay_recs,
+        "renderMask": render_mask(zones),
     }
     # Re-emit with the geometry's numeric text untouched: serialise everything except geometry normally,
     # then splice the compact geometry strings straight from geometry.json.

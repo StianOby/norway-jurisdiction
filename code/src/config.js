@@ -28,7 +28,7 @@ export const AIRSPACE = {
 // The slider exaggerates the water column, seabed and subsoil only. The airspace is always drawn
 // at true scale (owner decision 2026-09-17): 100 km is legible as it is, and 20× of it was a
 // 2 000 km fence. The readout says so whenever the factor is not 1.
-export const stratumFactor = (stratum, factor) => (stratum === 'airspace' ? 1 : factor);
+export const stratumFactor = (stratum, factor) => (['watercolumn', 'seabed', 'subsoil'].includes(stratum) ? factor : 1);
 export const SUBSOIL = {
   thickness: 10_000, // m below the seabed — nominal; the legal concept has no fixed lower limit
   fadeFrom: 6_000, // m below the seabed where the slab starts fading (bounded-but-open)
@@ -131,7 +131,15 @@ export const SECTION = {
 // The column-query probe on the globe: a vertical line through the whole column.
 export const PROBE = { colour: '#ffffff', width: 2 };
 
-// Globe translucency inside MODEL_BBOX so volumes below the sea surface are visible.
-export const GLOBE = { frontFaceAlpha: 0.55, backFaceAlpha: 1.0, undergroundColor: '#5b7f9b', translucentInsideBboxOnly: false };
+// Globe translucency so volumes below the sea surface are visible. The globe cannot be translucent
+// per pixel, so an opaque slab (MASK) sits just under the surface everywhere except inside the
+// Norwegian water zones: land and foreign sea show nothing through (owner, 2026-09-17). The
+// underground colour matches the slab so its far edge does not show.
+export const GLOBE = { frontFaceAlpha: 0.55, backFaceAlpha: 1.0, undergroundColor: '#e6e2d8', translucentInsideBboxOnly: false };
+export const MASK = {
+  depth: 40, // m below the surface, never exaggerated
+  colour: '#e6e2d8',
+  maxEdgeDeg: 3, // coarser mesh than the zones (2 km sag mid-edge): the slab only has to sit under the surface
+};
 
 export const OSM_TILES = 'https://tile.openstreetmap.org/';

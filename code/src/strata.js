@@ -5,9 +5,9 @@
 // (Cesium's Scene.verticalExaggeration does not apply to primitives — SPEC §5.1).
 //
 // Cesium is the CDN global (see index.html / vite.config.js), not an import.
-import { AIRSPACE, SUBSOIL, MESH, STRATUM_ALPHA, HATCH, SEABED_CLEARANCE, stratumFactor } from './config.js';
+import { AIRSPACE, SUBSOIL, MESH, MASK, STRATUM_ALPHA, HATCH, SEABED_CLEARANCE, stratumFactor } from './config.js';
 import { seabedDepth } from './seabed.js';
-import { zones, footprint, colourOf } from './zones.js';
+import { zones, footprint, colourOf, renderMaskParts } from './zones.js';
 
 const Cesium = globalThis.Cesium;
 const RAD = Math.PI / 180;
@@ -16,7 +16,7 @@ const RAD = Math.PI / 180;
 // Mesh preparation: triangulate a polygon part (outer ring + holes) and subdivide until no edge
 // exceeds MESH.maxEdgeDeg, so that per-vertex heights (the seabed) are followed.
 
-function prepareMesh(rings) {
+function prepareMesh(rings, maxEdge = MESH.maxEdgeDeg) {
   const lon = [];
   const lat = [];
   const holes = [];
@@ -36,7 +36,6 @@ function prepareMesh(rings) {
   let tris = Cesium.PolygonPipeline.triangulate(positions2D, holes);
   if (tris.length < 3) return null;
 
-  const maxEdge = MESH.maxEdgeDeg;
   const maxEdge2 = maxEdge * maxEdge;
   const d2 = (a, b) => {
     const dx = (lon[a] - lon[b]) * cx;
@@ -230,11 +229,11 @@ void main() {
   out_FragColor = c;
 }`;
 
-function makeAppearance() {
+function makeAppearance(translucent = true) {
   return new Cesium.Appearance({
-    translucent: true,
+    translucent,
     closed: false,
-    renderState: Cesium.Appearance.getDefaultRenderState(true, false, { cull: { enabled: false } }),
+    renderState: Cesium.Appearance.getDefaultRenderState(translucent, false, { cull: { enabled: false } }),
     vertexShaderSource: VS,
     fragmentShaderSource: FS,
   });
@@ -277,6 +276,7 @@ export class StrataModel {
   constructor(scene) {
     this.scene = scene;
     this.appearance = makeAppearance();
+    this.opaque = makeAppearance(false);
     this.volumes = []; // { zoneId, stratum, marker, vol, primitive }
     this.exaggeration = 1;
     this.hidden = { zones: new Set(), strata: new Set() };
@@ -287,7 +287,7 @@ export class StrataModel {
   build() {
     const meshCache = new Map();
     const meshesFor = (z) => {
-      if (!meshCache.has(z.id)) meshCache.set(z.id, footprint(z).map(prepareMesh).filter(Boolean));
+      if (!meshCache.has(z.id)) meshCache.set(z.id, footprint(z).map((rings) => prepareMesh(rings)).filter(Boolean));
       return meshCache.get(z.id);
     };
     for (const z of zones) {
@@ -309,6 +309,14 @@ export class StrataModel {
         }
       }
     }
+    // Opaque slab just under the surface outside the Norwegian water zones (config.js MASK): the
+    // translucent globe shows nothing through it. Stratum 'mask' is never exaggerated or toggled.
+    const maskRgb = hexToRgb(MASK.colour);
+    for (const rings of renderMaskParts()) {
+      const mesh = prepareMesh(rings, MASK.maxEdgeDeg);
+      if (!mesh) continue;
+      this.volumes.push({ zoneId: null, stratum: 'mask', marker: false, opaque: true, vol: assemble(mesh, [{ h: flat(-MASK.depth), alpha: 1, cap: true }], maskRgb, 0) });
+    }
     for (const v of this.volumes) {
       this.stats.vertices += v.vol.lon.length;
       this.stats.triangles += v.vol.indices.length / 3;
@@ -321,7 +329,7 @@ export class StrataModel {
     const t0 = performance.now();
     for (const v of this.volumes) {
       if (v.primitive) this.scene.primitives.remove(v.primitive);
-      v.primitive = makePrimitive(v.vol, stratumFactor(v.stratum, factor), this.appearance); // airspace stays 1×
+      v.primitive = makePrimitive(v.vol, stratumFactor(v.stratum, factor), v.opaque ? this.opaque : this.appearance); // airspace and mask stay 1×
       v.primitive.show = this.isVisible(v);
       this.scene.primitives.add(v.primitive);
     }
@@ -330,6 +338,7 @@ export class StrataModel {
   }
 
   isVisible(v) {
+    if (v.stratum === 'mask') return true;
     return !this.hidden.zones.has(v.zoneId) && !this.hidden.strata.has(v.stratum);
   }
 

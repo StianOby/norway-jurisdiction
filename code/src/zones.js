@@ -28,6 +28,33 @@ export function footprint(z) {
   return partsOf(z.horizontal);
 }
 
+/**
+ * Polygons of the opaque render mask (data/build/zones.json `renderMask`): the complement of the
+ * water-column zones, rebuilt from references into the zones' own rings plus literal points.
+ * Returns GeoJSON-style parts (outer ring first, closed rings) — a render aid, not legal geometry.
+ */
+export function renderMaskParts() {
+  const mask = zonesData.renderMask;
+  if (!mask) return [];
+  const ringOf = (id, part, ring) => {
+    const g = byId.get(id).horizontal;
+    return (g.type === 'Polygon' ? [g.coordinates] : g.coordinates)[part][ring];
+  };
+  const rebuild = (runs) => {
+    const out = [];
+    for (const r of runs) {
+      if (r.length === 2) { out.push([r[0], r[1]]); continue; }
+      const [id, part, ring, start, count, step] = r;
+      const src = ringOf(id, part, ring);
+      const n = src.length - 1;
+      for (let k = 0; k < count; k++) out.push(src[(((start + k * (step || 1)) % n) + n) % n]);
+    }
+    out.push(out[0]);
+    return out;
+  };
+  return mask.parts.map((rings) => rings.map(rebuild));
+}
+
 export function colourOf(id) {
   return ZONE_COLOURS[id] ?? '#888888';
 }
