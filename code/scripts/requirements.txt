@@ -1,1 +1,2 @@
 shapely>=2.0,<3
+pypdf>=4,<7   # build_legal.py: paragraphs of HR-2023-491-P from the Court's PDFs (pure Python)

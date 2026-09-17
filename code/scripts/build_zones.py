@@ -4,9 +4,11 @@
     python scripts/build_zones.py            # build
     python scripts/build_zones.py --check    # build, then validate (exit 1 on any hard failure)
 
-Legal payloads are *skeletons* in Phase 1: names, strata and the citation
-sources from SPEC §4.1.  Every `quote` is empty and flagged; SPEC §10.1 forbids
-quoting from memory, so quotes arrive only from scripts/fetch_legal.py (Phase 3).
+Legal payloads: names and strata are in the registry below; the citation sources are
+SPEC §4.1's short forms.  Quotes are never typed here (SPEC §10.1): every citation is
+filled from data/build/legal.json (scripts/fetch_legal.py + scripts/build_legal.py),
+looked up by its `source` (+ `pinpoint`).  Summaries come from data/legal/summaries.json
+and ship only once the owner has set their status to "approved".
 
 Checks performed by --check (SPEC §9 Phase 1 exit criteria):
   * schema: every zone has the fields of the SPEC §4 Zone interface
@@ -38,13 +40,16 @@ RAW = ROOT / "data/raw"
 VERTEX_BUDGET = 35_000   # SPEC §8 amended by the owner 2026-09-17 (was 12 000)
 BBOX = (-15.0, 55.0, 46.0, 86.0)   # lon_min, lat_min, lon_max, lat_max — Bouvetøya excluded; 46 E covers the Loop Hole
 
-TODO = "quote not yet fetched — Phase 3, scripts/fetch_legal.py (SPEC §10.1: never quote from memory)"
+LEGAL = ROOT / "data/build/legal.json"
+SUMMARIES = ROOT / "data/legal/summaries.json"
 
 
-def cit(source: str, lang: str = "no", url: str | None = None) -> dict:
-    c = {"source": source, "quote": "", "quoteLang": lang, "_todo": TODO}
-    if url:
-        c["url"] = url
+def cit(source: str, lang: str = "no", pinpoint: str | None = None) -> dict:
+    """A citation skeleton: source (SPEC §4.1 short form) and expected quote language. The quote,
+    title, url and provenance are merged in from legal.json by fill_legal()."""
+    c = {"source": source, "quote": "", "quoteLang": lang}
+    if pinpoint:
+        c["pinpoint"] = pinpoint
     return c
 
 
@@ -88,8 +93,8 @@ def registry() -> list[dict]:
     snokrabbe = "HR-2023-491-P (Snøkrabbe II)"
     zones.append(zone("svalbard-fpz", "svalbard", ["watercolumn"],
                       "Fiskevernsonen ved Svalbard", "Fisheries protection zone around Svalbard",
-                      [cit("forskrift 3. juni 1977 nr. 6"), cit(snokrabbe)],
-                      [cit("forskrift 3. juni 1977 nr. 6"), cit(snokrabbe)],
+                      [cit("forskrift 3. juni 1977 nr. 6"), cit(snokrabbe, pinpoint="avsnitt 16")],
+                      [cit("forskrift 3. juni 1977 nr. 6"), cit(snokrabbe, pinpoint="avsnitt 16")],
                       contested=True,
                       notes=["A fisheries protection zone, not an exclusive economic zone (SPEC §2.3).",
                              "contested: true — owner instruction 2026-09-17 (neutral marker only, SPEC §1/§10.5)."]))
@@ -100,8 +105,8 @@ def registry() -> list[dict]:
                       notes=["A fisheries zone, not an exclusive economic zone (SPEC §2.3)."]))
     zones.append(zone("continental-shelf", "all", ["seabed", "subsoil"],
                       "Kontinentalsokkelen", "Continental shelf",
-                      [cit("kontinentalsokkelloven"), cit("petroleumsloven § 1-6"), unclos("arts 76–79"), cit(snokrabbe)],
-                      [cit("kontinentalsokkelloven"), cit("petroleumsloven § 1-6"), unclos("arts 76–79"), cit(snokrabbe)],
+                      [cit("kontinentalsokkelloven"), cit("petroleumsloven § 1-6"), unclos("arts 76–79"), cit(snokrabbe, pinpoint="avsnitt 220")],
+                      [cit("kontinentalsokkelloven"), cit("petroleumsloven § 1-6"), unclos("arts 76–79"), cit(snokrabbe, pinpoint="avsnitt 220")],
                       notes=["Neutral contested marker (SPEC §1/§10.5) within contestedExtent: the shelf generated from Svalbard, within 200 nm and the Nansen Basin beyond, as one extent (owner decision 2026-09-17, round 4)."]))
     zones.append(zone("high-seas", "all", ["watercolumn"],
                       "Det åpne hav", "High seas",
@@ -129,12 +134,58 @@ def overlays() -> list[dict]:
     return []
 
 
+# --------------------------------------------------------------------------- legal payloads
+def _legal_key(c: dict) -> str:
+    return c["source"] + (f" | {c['pinpoint']}" if c.get("pinpoint") else "")
+
+
+def fill_legal(zones: list[dict]) -> list[str]:
+    """Merge the extracted provisions (legal.json) into every citation and the approved summaries
+    (summaries.json) into every payload. Returns the problems found (unfilled citations, summaries
+    for unknown zones); --check turns them into failures."""
+    problems = []
+    provisions = {}
+    if LEGAL.exists():
+        for rec in json.loads(LEGAL.read_text(encoding="utf-8"))["provisions"]:
+            provisions[_legal_key(rec)] = rec
+    else:
+        problems.append(f"{LEGAL.relative_to(ROOT)} missing — run scripts/fetch_legal.py and scripts/build_legal.py")
+    summaries = json.loads(SUMMARIES.read_text(encoding="utf-8"))["zones"] if SUMMARIES.exists() else {}
+    for zid in summaries:
+        if zid not in {z["id"] for z in zones}:
+            problems.append(f"summaries.json: unknown zone {zid}")
+    for z in zones:
+        for lang in ("no", "en"):
+            for c in z["legal"][lang]["citations"]:
+                rec = provisions.get(_legal_key(c))
+                if not rec or not rec.get("quote"):
+                    problems.append(f"{z['id']}: no quote for citation {_legal_key(c)!r}")
+                    continue
+                if rec["quoteLang"] != c["quoteLang"]:
+                    problems.append(f"{z['id']}: {_legal_key(c)!r} quoteLang {rec['quoteLang']} != registry {c['quoteLang']}")
+                c.update({"title": rec["title"], "citedAs": rec["citedAs"], "quote": rec["quote"], "quoteLang": rec["quoteLang"],
+                          "url": rec["url"], "provenance": rec["provenance"]})
+                if lang == "en" and rec.get("translation"):
+                    c["translation"] = rec["translation"]
+                    c["translationUrl"] = rec["translationUrl"]
+                    c["translationNote"] = rec["translationNote"]
+            sm = summaries.get(z["id"], {})
+            if sm.get("status") == "approved":
+                z["legal"][lang]["summary"] = sm[lang]
+            else:
+                z["legal"][lang]["summary"] = ""
+                z["legal"][lang]["summaryStatus"] = sm.get("status", "missing")
+    return problems
+
+
 # --------------------------------------------------------------------------- build
-def build() -> tuple[dict, str]:
+def build() -> tuple[dict, str, list[str]]:
     geom_text = GEOMETRY.read_text(encoding="utf-8")
     geom = json.loads(geom_text)
     zones = []
-    for z in registry():
+    registry_zones = registry()
+    legal_problems = fill_legal(registry_zones)
+    for z in registry_zones:
         g = geom["zones"].get(z["id"])
         if g is None:
             z["horizontal"] = None
@@ -169,13 +220,15 @@ def build() -> tuple[dict, str]:
             "vertexCount": {"zones": geom["meta"]["zoneVertexCount"], "overlays": geom["meta"]["overlayVertexCount"], "budget": VERTEX_BUDGET},
             "attribution": {"data": "Kartverket — Norges maritime grenser; N1000 Kartdata (NLOD 2.0 / CC BY 4.0)", "coastline_svalbard": "Norsk Polarinstitutt via Kartverket"},
             "licence": "The zone geometry in this file is derived from Kartverket data under NLOD 2.0 / CC BY 4.0 and is not covered by the AGPL that applies to the application code. See data/LICENSE.md.",
+            "legal": {"attribution": "Lovdata (NLOD 2.0); United Nations, DOALOS (UNCLOS text); Norges Høyesterett (HR-2023-491-P)",
+                      **(json.loads(LEGAL.read_text(encoding="utf-8"))["meta"] if LEGAL.exists() else {})},
         },
         "zones": zones,
         "overlays": overlay_recs,
     }
     # Re-emit with the geometry's numeric text untouched: serialise everything except geometry normally,
     # then splice the compact geometry strings straight from geometry.json.
-    return out, geom_text
+    return out, geom_text, legal_problems
 
 
 def dump(out: dict, geom_text: str) -> str:
@@ -227,11 +280,24 @@ def check(path: Path) -> tuple[list[str], list[str], dict]:
     fails, warns, info = [], [], {}
     required = {"id", "geography", "strata", "horizontal", "contested", "legal"}
     ids = set()
+    n_cit = n_sum = 0
     for z in data["zones"]:
         missing = required - set(z)
         if missing:
             fails.append(f"{z.get('id')}: missing fields {sorted(missing)}")
         ids.add(z["id"])
+        for lang in ("no", "en"):
+            pl = z["legal"][lang]
+            for c in pl["citations"]:
+                n_cit += 1
+                if not c.get("quote") or not c.get("provenance"):
+                    fails.append(f"{z['id']} [{lang}]: citation {c['source']!r} has no fetched quote (SPEC §10.1)")
+                if c.get("_todo"):
+                    fails.append(f"{z['id']} [{lang}]: citation {c['source']!r} still carries a Phase 1 placeholder")
+            if pl.get("summary"):
+                n_sum += 1
+            else:
+                warns.append(f"{z['id']} [{lang}]: summary not shipped (status: {pl.get('summaryStatus')})")
         if z["horizontal"] is None:
             if not (z.get("derivedFrom") or "horizontal" in z.get("notModelled", [])):
                 fails.append(f"{z['id']}: no geometry and neither derivedFrom nor notModelled")
@@ -261,6 +327,8 @@ def check(path: Path) -> tuple[list[str], list[str], dict]:
         if not shp.is_valid:
             from shapely.validation import explain_validity
             fails.append(f"{z['id']}: invalid geometry — {explain_validity(shp)}")
+    info["citations"] = f"{n_cit} (every one with a quote from a fetched document)" if not any("no fetched quote" in f for f in fails) else str(n_cit)
+    info["summaries"] = f"{n_sum}/{2 * len(data['zones'])} approved and shipped"
     for z in data["zones"]:
         for d in z.get("derivedFrom", []):
             if d not in ids:
@@ -307,9 +375,9 @@ def write_report(out: dict, fails, warns, info):
     lines += ["", "| Overlay | Vertices |", "|---|---:|"] + [f"| `{o['id']}` | {o['vertexCount']} |" for o in out["overlays"]]
     lines += ["", f"**Zone polygon vertices:** {info.get('vertexCount')} (SPEC §8 target {VERTEX_BUDGET}); zones.json {info.get('fileBytes', 0)/1024:.0f} KB.", "",
               "## Checks", ""]
-    lines += [f"- FAIL: {f}" for f in fails] or ["- all hard checks passed (closure, validity, antimeridian, bbox, schema, byte-identity of layers 0/8/9/10)"]
+    lines += [f"- FAIL: {f}" for f in fails] or ["- all hard checks passed (closure, validity, antimeridian, bbox, schema, byte-identity of layers 0/8/9/10, every citation quoted from a fetched document)"]
     lines += [f"- WARN: {w}" for w in warns]
-    lines += [f"- {k}: {v}" for k, v in info.items() if k.startswith("verbatim")]
+    lines += [f"- {k}: {v}" for k, v in info.items() if k.startswith("verbatim") or k in ("citations", "summaries")]
     REPORT.write_text("\n".join(lines) + "\n", encoding="utf-8", newline="\n")
 
 
@@ -323,9 +391,11 @@ def main(argv=None) -> int:
     GEOMETRY, OUT = args.geometry, args.out
     if args.out != ROOT / "data/build/zones.json":
         REPORT = args.out.with_suffix(".REPORT.md")
-    out, geom_text = build()
+    out, geom_text, legal_problems = build()
     OUT.write_text(dump(out, geom_text), encoding="utf-8", newline="\n")
     print(f"wrote {OUT} ({OUT.stat().st_size/1024:.0f} KB), {len(out['zones'])} zones, {len(out['overlays'])} overlays")
+    for p in legal_problems:
+        print(f"  legal: {p}")
     if not args.check:
         return 0
     fails, warns, info = check(OUT)

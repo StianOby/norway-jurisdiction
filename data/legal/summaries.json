@@ -1,0 +1,86 @@
+{
+  "_about": [
+    "Zone summaries for the legal payload (SPEC §4: 2–3 sentences, what Norway may and may not do), in bokmål and English.",
+    "Hand-maintained; merged into data/build/zones.json by code/scripts/build_zones.py.",
+    "A summary ships only when its status is \"approved\" (SPEC §10.4: legal characterisation is the owner's call). Until then the app shows no summary for that zone.",
+    "Drafts were written 2026-09-17 from the quoted provisions in data/build/LEGAL.md only, with the provision cited in brackets; nothing in them comes from other sources.",
+    "Statuses: draft | approved."
+  ],
+  "zones": {
+    "mainland-internal-waters": {
+      "status": "draft",
+      "no": "Alt farvann innenfor grunnlinjene er indre farvann (territorialfarvannsloven § 3). Kyststatens suverenitet omfatter landterritoriet og de indre farvann og strekker seg derfra ut over sjøterritoriet (UNCLOS art. 2). Kongen kan fastsette regler om fremmede fartøyers adgang til norsk indre farvann (§ 3 annet ledd); der rette grunnlinjer har gjort tidligere ytre farvann til indre farvann, består retten til uskyldig gjennomfart (UNCLOS art. 8 nr. 2).",
+      "en": "All waters on the landward side of the baselines are internal waters (territorialfarvannsloven § 3). The coastal State's sovereignty covers its land territory and internal waters and extends from there over the territorial sea (UNCLOS art. 2). The King may lay down rules on foreign vessels' access to Norwegian internal waters (§ 3 second paragraph); where straight baselines have enclosed as internal waters areas not previously considered as such, the right of innocent passage continues (UNCLOS art. 8(2))."
+    },
+    "svalbard-internal-waters": {
+      "status": "draft",
+      "no": "Alt farvann innenfor grunnlinjene er indre farvann (territorialfarvannsloven § 3, som også gjelder for Svalbard, § 5). Kyststatens suverenitet omfatter landterritoriet og de indre farvann og strekker seg derfra ut over sjøterritoriet (UNCLOS art. 2). Kongen kan fastsette regler om fremmede fartøyers adgang til norsk indre farvann (§ 3 annet ledd); der rette grunnlinjer har gjort tidligere ytre farvann til indre farvann, består retten til uskyldig gjennomfart (UNCLOS art. 8 nr. 2).",
+      "en": "All waters on the landward side of the baselines are internal waters (territorialfarvannsloven § 3, which also applies to Svalbard, § 5). The coastal State's sovereignty covers its land territory and internal waters and extends from there over the territorial sea (UNCLOS art. 2). The King may lay down rules on foreign vessels' access to Norwegian internal waters (§ 3 second paragraph); where straight baselines have enclosed as internal waters areas not previously considered as such, the right of innocent passage continues (UNCLOS art. 8(2))."
+    },
+    "janmayen-internal-waters": {
+      "status": "draft",
+      "no": "Alt farvann innenfor grunnlinjene er indre farvann (territorialfarvannsloven § 3, som også gjelder for Jan Mayen, § 5). Kyststatens suverenitet omfatter landterritoriet og de indre farvann og strekker seg derfra ut over sjøterritoriet (UNCLOS art. 2). Kongen kan fastsette regler om fremmede fartøyers adgang til norsk indre farvann (§ 3 annet ledd); der rette grunnlinjer har gjort tidligere ytre farvann til indre farvann, består retten til uskyldig gjennomfart (UNCLOS art. 8 nr. 2).",
+      "en": "All waters on the landward side of the baselines are internal waters (territorialfarvannsloven § 3, which also applies to Jan Mayen, § 5). The coastal State's sovereignty covers its land territory and internal waters and extends from there over the territorial sea (UNCLOS art. 2). The King may lay down rules on foreign vessels' access to Norwegian internal waters (§ 3 second paragraph); where straight baselines have enclosed as internal waters areas not previously considered as such, the right of innocent passage continues (UNCLOS art. 8(2))."
+    },
+    "mainland-territorial-sea": {
+      "status": "draft",
+      "no": "Sjøterritoriet strekker seg fra grunnlinjene ut til 12 nautiske mil (territorialfarvannsloven § 2; UNCLOS art. 3). Norge har suverenitet over sjøterritoriet, luftrommet over det og havbunnen og undergrunnen under det (UNCLOS art. 2). Fremmede fartøyer har rett til uskyldig gjennomfart (territorialfarvannsloven § 2 annet ledd; UNCLOS art. 17).",
+      "en": "The territorial sea extends from the baselines to 12 nautical miles (territorialfarvannsloven § 2; UNCLOS art. 3). Norway has sovereignty over the territorial sea, the airspace above it and its bed and subsoil (UNCLOS art. 2). Foreign ships enjoy the right of innocent passage (territorialfarvannsloven § 2 second paragraph; UNCLOS art. 17)."
+    },
+    "svalbard-territorial-sea": {
+      "status": "draft",
+      "no": "Sjøterritoriet strekker seg fra grunnlinjene ut til 12 nautiske mil (territorialfarvannsloven § 2, som også gjelder for Svalbard, § 5; UNCLOS art. 3). Norge har suverenitet over sjøterritoriet, luftrommet over det og havbunnen og undergrunnen under det (UNCLOS art. 2). Fremmede fartøyer har rett til uskyldig gjennomfart (territorialfarvannsloven § 2 annet ledd; UNCLOS art. 17).",
+      "en": "The territorial sea extends from the baselines to 12 nautical miles (territorialfarvannsloven § 2, which also applies to Svalbard, § 5; UNCLOS art. 3). Norway has sovereignty over the territorial sea, the airspace above it and its bed and subsoil (UNCLOS art. 2). Foreign ships enjoy the right of innocent passage (territorialfarvannsloven § 2 second paragraph; UNCLOS art. 17)."
+    },
+    "janmayen-territorial-sea": {
+      "status": "draft",
+      "no": "Sjøterritoriet strekker seg fra grunnlinjene ut til 12 nautiske mil (territorialfarvannsloven § 2, som også gjelder for Jan Mayen, § 5; UNCLOS art. 3). Norge har suverenitet over sjøterritoriet, luftrommet over det og havbunnen og undergrunnen under det (UNCLOS art. 2). Fremmede fartøyer har rett til uskyldig gjennomfart (territorialfarvannsloven § 2 annet ledd; UNCLOS art. 17).",
+      "en": "The territorial sea extends from the baselines to 12 nautical miles (territorialfarvannsloven § 2, which also applies to Jan Mayen, § 5; UNCLOS art. 3). Norway has sovereignty over the territorial sea, the airspace above it and its bed and subsoil (UNCLOS art. 2). Foreign ships enjoy the right of innocent passage (territorialfarvannsloven § 2 second paragraph; UNCLOS art. 17)."
+    },
+    "mainland-contiguous-zone": {
+      "status": "draft",
+      "no": "Den tilstøtende sone støter opp mot sjøterritoriet og har yttergrense 24 nautiske mil fra nærmeste punkt på grunnlinjen (territorialfarvannsloven § 4; UNCLOS art. 33 nr. 2). I sonen kan Norge føre kontroll med lovgivning om vareførsel og tollavgift, skatt, innvandring og helse (§ 4 annet ledd; UNCLOS art. 33 nr. 1), og sonen likestilles med territorialfarvannet for lovgivning om fjerning av gjenstander av arkeologisk og historisk art (§ 4 tredje ledd; UNCLOS art. 303 nr. 2). Opprettelsen endrer ikke reglene for den økonomiske sone eller kontinentalsokkelen (§ 4 sjette ledd).",
+      "en": "The contiguous zone adjoins the territorial sea and has its outer limit 24 nautical miles from the nearest point of the baseline (territorialfarvannsloven § 4; UNCLOS art. 33(2)). In the zone Norway may exercise control over its legislation on customs and customs duties, taxes, immigration and health (§ 4 second paragraph; UNCLOS art. 33(1)), and the zone is treated as territorial waters for legislation on the removal of objects of an archaeological and historical nature (§ 4 third paragraph; UNCLOS art. 303(2)). Its establishment changes nothing in the rules for the economic zone or the continental shelf (§ 4 sixth paragraph)."
+    },
+    "mainland-eez": {
+      "status": "draft",
+      "no": "Norges økonomiske sone har yttergrense 200 nautiske mil fra grunnlinjene, men ikke ut over midtlinjen mot andre stater med mindre annet følger av overenskomst (lov om Norges økonomiske sone § 1; UNCLOS art. 57). I sonen har Norge suverene rettigheter til å utforske, utnytte, bevare og forvalte naturressursene, levende som ikke-levende, i vannmassene, og jurisdiksjon over blant annet kunstige øyer og innretninger, havforskning og vern av havmiljøet; rettighetene til havbunnen og undergrunnen utøves etter reglene om kontinentalsokkelen (UNCLOS art. 56). Alle stater beholder frihetene til skipsfart og overflyging og til å legge undersjøiske kabler og rørledninger (UNCLOS art. 58).",
+      "en": "Norway's economic zone has its outer limit 200 nautical miles from the baselines, but not beyond the median line towards other States unless otherwise agreed (lov om Norges økonomiske sone § 1; UNCLOS art. 57). In the zone Norway has sovereign rights to explore, exploit, conserve and manage the natural resources, living or non-living, of the waters, and jurisdiction over, among other things, artificial islands and installations, marine scientific research and the protection of the marine environment; the rights to the seabed and subsoil are exercised under the rules on the continental shelf (UNCLOS art. 56). All States retain the freedoms of navigation and overflight and of laying submarine cables and pipelines (UNCLOS art. 58)."
+    },
+    "svalbard-fpz": {
+      "status": "draft",
+      "no": "Fiskevernsonen ved Svalbard ble opprettet ved forskrift 3. juni 1977 nr. 6 for bevaring av de levende ressurser i havet og regulering av fiske og fangst, med yttergrense 200 nautiske mil fra grunnlinjene, begrenset av yttergrensen for Norges økonomiske sone og, mot andre staters myndighetsområder, trukket etter avtale (§ 1). Forbudet mot utenlandsk fiske i økonomiske soneloven § 3 er ikke gjort gjeldende i sonen (§ 2), og Høyesterett betegner den derfor som en ikke-diskriminerende sone (HR-2023-491-P avsnitt 16).",
+      "en": "The fisheries protection zone around Svalbard was established by regulation of 3 June 1977 no. 6 for the conservation of the living resources of the sea and the regulation of fishing and hunting, with an outer limit 200 nautical miles from the baselines, bounded by the outer limit of Norway's economic zone and, towards other States' areas, drawn by agreement (§ 1). The ban on foreign fishing in § 3 of the Economic Zone Act has not been made applicable in the zone (§ 2), and the Supreme Court therefore describes it as a non-discriminatory zone (HR-2023-491-P paragraph 16)."
+    },
+    "janmayen-fisheries-zone": {
+      "status": "draft",
+      "no": "Fiskerisonen ved Jan Mayen ble opprettet med hjemmel i lov om Norges økonomiske sone med virkning fra 29. mai 1980 (forskrift 23. mai 1980 nr. 4 nr. 1). Yttergrensen går 200 nautiske mil fra grunnlinjene for Jan Mayen, men ikke ut over midtlinjen mot Grønland eller yttergrensen for Islands økonomiske sone; mot Øst-Grønland trekkes delelinjen etter avtale (nr. 2–3). Fiskeridepartementet har fullmakt til å gi bestemmelser om forvaltningen av sonen, vern av fiskebestandene og begrensning av utenlandsk fiske (nr. 4).",
+      "en": "The fisheries zone around Jan Mayen was established under the Economic Zone Act with effect from 29 May 1980 (regulation of 23 May 1980 no. 4, item 1). Its outer limit runs 200 nautical miles from the baselines of Jan Mayen, but not beyond the median line towards Greenland or the outer limit of Iceland's economic zone; towards East Greenland the dividing line is drawn by agreement (items 2–3). The Ministry of Fisheries is authorised to lay down rules on the management of the zone, the protection of fish stocks and the limitation of foreign fishing (item 4)."
+    },
+    "continental-shelf": {
+      "status": "draft",
+      "no": "Norges kontinentalsokkel er havbunnen og undergrunnen utenfor sjøterritoriet gjennom hele den naturlige forlengelsen av landterritoriet til ytterkanten av kontinentalmarginen, og ikke kortere enn 200 nautiske mil fra grunnlinjene (lov om Norges kontinentalsokkel § 1; UNCLOS art. 76). Norge utøver suverene rettigheter over sokkelen for å undersøke den og utnytte dens naturforekomster; rettighetene er eksklusive og avhenger ikke av okkupasjon eller erklæring (UNCLOS art. 77). De berører ikke rettsstillingen til vannmassene og luftrommet over sokkelen, og alle stater kan legge undersjøiske kabler og rørledninger på den (UNCLOS art. 78–79).",
+      "en": "Norway's continental shelf is the seabed and subsoil beyond the territorial sea throughout the natural prolongation of the land territory to the outer edge of the continental margin, and never shorter than 200 nautical miles from the baselines (lov om Norges kontinentalsokkel § 1; UNCLOS art. 76). Norway exercises sovereign rights over the shelf for the purpose of exploring it and exploiting its natural resources; the rights are exclusive and do not depend on occupation or proclamation (UNCLOS art. 77). They do not affect the legal status of the superjacent waters or airspace, and all States may lay submarine cables and pipelines on the shelf (UNCLOS arts 78–79)."
+    },
+    "high-seas": {
+      "status": "draft",
+      "no": "Det åpne hav er alle deler av havet som ikke inngår i en stats økonomiske sone, sjøterritorium eller indre farvann (UNCLOS art. 86). Det er åpent for alle stater og omfatter blant annet frihet til skipsfart, overflyging, legging av undersjøiske kabler og rørledninger, fiske og vitenskapelig forskning, utøvd med tilbørlig hensyn til andre staters interesser (UNCLOS art. 87). Havbunnen under det åpne hav kan likevel være kontinentalsokkel underlagt en kyststats suverene rettigheter (UNCLOS art. 76–77).",
+      "en": "The high seas are all parts of the sea not included in a State's exclusive economic zone, territorial sea or internal waters (UNCLOS art. 86). They are open to all States and comprise, among other freedoms, navigation, overflight, the laying of submarine cables and pipelines, fishing and scientific research, exercised with due regard for the interests of other States (UNCLOS art. 87). The seabed beneath the high seas may nevertheless be continental shelf subject to a coastal State's sovereign rights (UNCLOS arts 76–77)."
+    },
+    "the-area": {
+      "status": "draft",
+      "no": "Området er havbunnen og undergrunnen utenfor grensene for nasjonal jurisdiksjon (UNCLOS art. 1 nr. 1 (1)). Området og dets ressurser er menneskehetens felles arv: ingen stat kan gjøre krav på eller utøve suverenitet eller suverene rettigheter over noen del av det, og alle rettigheter til ressursene tilligger menneskeheten som helhet, som Havbunnsmyndigheten handler på vegne av (UNCLOS art. 136–137).",
+      "en": "The Area is the seabed and ocean floor and subsoil thereof beyond the limits of national jurisdiction (UNCLOS art. 1(1)(1)). The Area and its resources are the common heritage of mankind: no State may claim or exercise sovereignty or sovereign rights over any part of it, and all rights in its resources are vested in mankind as a whole, on whose behalf the Authority acts (UNCLOS arts 136–137)."
+    },
+    "national-airspace": {
+      "status": "draft",
+      "no": "Luftfart i riket kan bare finne sted i samsvar med luftfartsloven og forskrifter gitt med hjemmel i den (luftfartsloven § 1-1). Kyststatens suverenitet omfatter luftrommet over sjøterritoriet, slik den omfatter luftrommet over landterritoriet og de indre farvann (UNCLOS art. 2 nr. 2).",
+      "en": "Aviation in the realm may take place only in accordance with the Aviation Act and regulations issued under it (luftfartsloven § 1-1). The coastal State's sovereignty extends to the airspace over the territorial sea, as it does over the land territory and internal waters (UNCLOS art. 2(2))."
+    },
+    "airspace-beyond-territorial-sea": {
+      "status": "draft",
+      "no": "Utenfor sjøterritoriet strekker kyststatens suverenitet seg ikke til luftrommet (UNCLOS art. 2 nr. 2). I den økonomiske sone nyter alle stater den friheten til overflyging som gjelder på det åpne hav (UNCLOS art. 58 nr. 1), og over det åpne hav er overflyging en del av havets frihet (UNCLOS art. 87 nr. 1 bokstav b).",
+      "en": "Beyond the territorial sea the coastal State's sovereignty does not extend to the airspace (UNCLOS art. 2(2)). In the exclusive economic zone all States enjoy the freedom of overflight referred to in article 87 (UNCLOS art. 58(1)), and over the high seas overflight is one of the freedoms of the high seas (UNCLOS art. 87(1)(b))."
+    }
+  }
+}

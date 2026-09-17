@@ -9,7 +9,7 @@
     "build": "vite build",
     "preview": "vite preview",
     "data:fetch": "python scripts/fetch_boundaries.py",
-    "data:build": "python scripts/polygonise.py && python scripts/build_zones.py --check"
+    "data:build": "python scripts/build_legal.py --check && python scripts/polygonise.py && python scripts/build_zones.py --check"
   },
   "license": "AGPL-3.0-only",
   "engines": {

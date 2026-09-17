@@ -18,7 +18,10 @@ Owner amendments to §1 are recorded at the top of §1 itself (dated).
 - `data/raw/geonorge/` holds the Route B (Geonorge) sources next to the Route A snapshot.
 - `code/scripts/` has, beyond §6's list: `fetch_geonorge.py` (Route B), `fetch_marineregions.py`
   (Russian 200 nm line, ECS polygons), `fetch_gebco.py` + `build_seabed.py` (schematic seabed class
-  map), `verify_geonorge.py` (Route A ↔ B cross-check), `gml.py` (GML reader), `proj.py` (transverse Mercator).
+  map), `build_legal.py` (provisions from `data/raw/legal/` → `data/build/legal.json` + `LEGAL.md`),
+  `verify_geonorge.py` (Route A ↔ B cross-check), `gml.py` (GML reader), `proj.py` (transverse Mercator).
+- `data/raw/legal/` — the fetched legal sources (Lovdata XHTML, DOALOS HTML, Supreme Court PDFs);
+  `data/legal/summaries.json` — hand-maintained zone summaries with an approval status.
 - `code/src/seabed.js` (not in §6's list): the schematic depth field sampled by `strata.js`.
 - `data/raw/gebco/` — coarse GEBCO 2020 subset (public domain), only for the seabed class map.
 - `data/raw/marineregions/` — third source (CC BY 4.0), used only where Kartverket has nothing.
@@ -33,7 +36,8 @@ Owner amendments to §1 are recorded at the top of §1 itself (dated).
 | Vite | 8.3.0 | `code/vite.config.js`, `vite-plugin-singlefile` 2.3.3 |
 | CesiumJS (CDN) | **1.145.0** exact | SPEC §6: never a floating tag. `https://cdn.jsdelivr.net/npm/cesium@1.145.0/Build/Cesium/` (fallback `cesium.com/downloads/cesiumjs/releases/1.145/`). Not an npm dependency; Vite treats `cesium` as an external global. |
 | Python | 3.13 (Microsoft Store build) | scripts only |
-| shapely | 2.1 | the only third-party Python dependency (`code/scripts/requirements.txt`) |
+| shapely | 2.1 | geometry (`code/scripts/requirements.txt`) |
+| pypdf | 6.x | `build_legal.py` only: paragraphs of HR-2023-491-P from the Court's PDFs (pure Python, so Application Control is not an issue) |
 
 **pyproj does not work on this machine**: Windows Application Control blocks its
 PROJ DLL wherever it is installed (user site, venv). `code/scripts/proj.py` implements
@@ -80,8 +84,14 @@ EPSG:25833 instead (Krüger series; validated in PROVENANCE §4). Don't add pypr
   vertex; exaggeration = recompute positions + swap primitives (≈ 60 ms desktop for 380k vertices).
 - Coincident surfaces are separated by `SEABED_CLEARANCE` (30 m nominal) to avoid z-fighting.
 - Bilingual strings: `no` / `en`. Norwegian statutory quotations stay Norwegian in both modes.
-  **No `quote` field is filled in before Phase 3's fetch** (§10.1) — not even statute titles
-  or act numbers: citation `source` strings are exactly SPEC §4.1's short forms.
+- **Legal text is never typed, only extracted** (§10.1). `fetch_legal.py` stores the source documents
+  verbatim; `build_legal.py::PROVISIONS` maps each citation `source` (SPEC §4.1 short form, plus
+  `pinpoint` for judgment paragraphs) to a selector in a fetched file and writes `legal.json`;
+  `build_zones.py::fill_legal` merges quotes by that key and `--check` fails on any citation without
+  one. Change a citation → add a PROVISIONS entry, never a string. `LEGAL.md` is the owner's review copy.
+- **Summaries ship only when approved**: `data/legal/summaries.json` entries with `status: "draft"`
+  are dropped by `build_zones.py` (summary = "" and `summaryStatus`). Legal characterisation is the
+  owner's (§10.4); drafts cite the quoted provision in every sentence.
 - Commit messages: imperative, English. Data re-fetches get their own commit with the date.
 
 ## Gotchas
@@ -139,5 +149,14 @@ requestRenderMode). Bundle 897 KB raw / 341 KB gzip. Verified in headless Chrome
 All Phase 1 questions are resolved (PROVENANCE §12/§15). Seabed levels and airspace exaggeration
 accepted for now. Still open: Canvas CSP allow-listing of github.io; Pages source setting.
 
-Next: Phase 3 (`scripts/fetch_legal.py`, Lovdata/UNCLOS/HR-2023-491-P quotes), then Phase 4
-(column query, cross-section, preset viewpoints, URL state), Phase 5 (device matrix, Canvas test).
+Phase 3 built (same day): `fetch_legal.py` (Lovdata packages → 8 documents, DOALOS UNCLOS parts,
+HR-2023-491-P PDFs, all verbatim with SHA-256 logs), `build_legal.py` (26 provisions → `legal.json`,
+review copy `LEGAL.md`, cross-checked against the DOALOS PDF and Lovdata's HTML of the judgment),
+`build_zones.py` merges them (82 citations, all quoted). Draft summaries for 15 zones in
+`data/legal/summaries.json`, none approved yet. **Awaiting the owner's review** of the selection
+choices (PROVENANCE §16.3: kontinentalsokkelloven = 2021 act § 1, petroleumsloven § 1-6 item l,
+regulation provisions, judgment paragraphs 16/220, English translation of the judgment) and of the
+summaries — the Phase 3 exit criterion. The UI does not yet show legal text (Phase 4).
+
+Next: Phase 4 (column query with citations + quotes + summaries, cross-section, preset viewpoints,
+URL state), Phase 5 (device matrix, Canvas test).

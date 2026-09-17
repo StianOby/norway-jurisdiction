@@ -35,8 +35,10 @@ python scripts/fetch_geonorge.py                           # Route B + N1000 coa
 python scripts/fetch_marineregions.py                      # Russian 200 nm line, ECS polygons (optional re-fetch)
 python scripts/fetch_gebco.py                              # coarse GEBCO 2020 grid for the schematic seabed (optional re-fetch)
 python scripts/build_seabed.py --render                    # data/build/seabed.json + docs/renders/seabed-schematic.png
+python scripts/fetch_legal.py                              # Lovdata acts/regulations, UNCLOS (DOALOS), HR-2023-491-P → data/raw/legal/ (optional re-fetch; --compare diffs)
+python scripts/build_legal.py --check                      # data/build/legal.json + LEGAL.md (the review copy of every quoted provision)
 python scripts/polygonise.py                               # data/build/geometry.json
-python scripts/build_zones.py --check                      # data/build/zones.json + REPORT.md
+python scripts/build_zones.py --check                      # data/build/zones.json + REPORT.md (fails if any citation lacks a fetched quote)
 npm run dev                                                # local dev server
 npm run build                                              # ../dist/index.html — the single-file bundle
 ```

@@ -1,0 +1,33 @@
+{
+  "fetched_at_utc": "2026-09-17T12:49:55+00:00",
+  "source": "Norges Høyesterett (Supreme Court of Norway), domstol.no",
+  "case": "HR-2023-491-P (sak nr. 22-134375SIV-HRET), dom 20. mars 2023",
+  "files": {
+    "hr-2023-491-p.pdf": {
+      "url": "https://www.domstol.no/globalassets/upload/hret/avgjorelser/2023/mars/hr-2023-491-p.pdf",
+      "page": "https://www.domstol.no/no/hoyesterett/avgjorelser/2023/hoyesterett-sivil/hr-2023-491-p/",
+      "lang": "no",
+      "note": "the judgment as published by the Supreme Court of Norway",
+      "bytes": 778249,
+      "sha256": "e196706e3928c126bd13fc17110b7021a50ef3a2f16aab9a2bf4e357e3fb716b",
+      "headers": {
+        "content-type": "application/pdf",
+        "etag": "\"1d98e1c5b8c3f89\"",
+        "last-modified": "Wed, 24 May 2023 08:47:23 GMT"
+      }
+    },
+    "hr-2023-491-p-eng.pdf": {
+      "url": "https://www.domstol.no/globalassets/upload/hret/translated-rulings/2023/hr-2023-491-p.pdf",
+      "page": "https://www.domstol.no/en/supremecourt/rulings/2023/supreme-court-civil-cases/hr-2023-491-p/",
+      "lang": "en",
+      "note": "the Supreme Court's own English translation",
+      "bytes": 435026,
+      "sha256": "b5f8228c5c1fa63284ec3c2be63586b9da2ac05f68c9e88402eb21c1aa66927c",
+      "headers": {
+        "content-type": "application/pdf",
+        "etag": "\"1d97e6f7c8f3352\"",
+        "last-modified": "Thu, 04 May 2023 10:02:08 GMT"
+      }
+    }
+  }
+}

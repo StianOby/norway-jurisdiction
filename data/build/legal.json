@@ -1,0 +1,660 @@
+{
+ "meta": {
+  "built_at_utc": "2026-09-17T13:00:57+00:00",
+  "sources": {
+   "lovdata": "2026-09-17T12:49:56+00:00",
+   "unclos": "2026-09-17T12:50:04+00:00",
+   "hr": "2026-09-17T12:49:55+00:00"
+  },
+  "rule": "SPEC §10.1 — every quote is extracted by this script from the files under data/raw/legal/; none is typed from memory"
+ },
+ "provisions": [
+  {
+   "source": "territorialfarvannsloven §§ 1–2",
+   "title": "Lov om Norges territorialfarvann og tilstøtende sone [territorialfarvannsloven]",
+   "citedAs": "lov 27. juni 2003 nr. 57",
+   "quote": "§ 1. Territorialfarvannet og grunnlinjene\nNorges territorialfarvann består av sjøterritoriet og de indre farvann.\nGrunnlinjene danner yttergrensen for de indre farvann og utgangspunktet for beregningen av sjøterritoriet og jurisdiksjonsområdene utenfor i samsvar med folkeretten.\nKongen fastsetter grunnlinjene i forskrift. Er grunnlinjen ikke fastsatt i forskrift, følger den lavvannslinjen langs kysten.\n§ 2. Sjøterritoriet\nSjøterritoriet omfatter havområdet fra grunnlinjene ut til 12 nautiske mil fra disse. Sjøterritoriets yttergrense er en linje trukket slik at hvert punkt på linjen ligger i en avstand av 12 nautiske mil (22 224 meter) fra nærmeste punkt på grunnlinjen. Sjøterritoriets grense mot annen stat følger av gjeldende overenskomster med staten.\nFremmede fartøyer har rett til uskyldig gjennomfart i sjøterritoriet og til stans eller ankring i sjøterritoriet når dette er nødvendig på grunn av force majeure eller havsnød, eller for å yte assistanse til personer, skip eller luftfartøyer som er i fare eller nød. Med uskyldig gjennomfart forstås navigasjon over sjøterritoriet, enten i transitt eller på vei til eller fra norsk indre farvann.\nKongen kan fastsette nærmere regler om fremmede fartøyers anløp av og ferdsel i sjøterritoriet.",
+   "quoteLang": "no",
+   "url": "https://lovdata.no/dokument/NL/lov/2003-06-27-57/§1",
+   "provenance": {
+    "publisher": "Lovdata",
+    "dokid": "NL/lov/2003-06-27-57",
+    "file": "data/raw/legal/lovdata/nl-20030627-057.xml",
+    "sha256": "eedeeee31d725a60250e47ce1e9ed6374fa630406ab70b3332ba4e5c77ef9ab1",
+    "lastChangeInForce": "2023-01-01",
+    "package": "gjeldende-lover.tar.bz2",
+    "packageLastModified": "2026-09-15T01:31:00Z",
+    "selector": [
+     "§1",
+     "§2"
+    ],
+    "items": null
+   }
+  },
+  {
+   "source": "territorialfarvannsloven § 3",
+   "title": "Lov om Norges territorialfarvann og tilstøtende sone [territorialfarvannsloven]",
+   "citedAs": "lov 27. juni 2003 nr. 57",
+   "quote": "§ 3. Indre farvann\nDe indre farvann er alt farvann som ligger innenfor grunnlinjene.\nKongen kan fastsette regler om fremmede fartøyers adgang til norsk indre farvann.",
+   "quoteLang": "no",
+   "url": "https://lovdata.no/dokument/NL/lov/2003-06-27-57/§3",
+   "provenance": {
+    "publisher": "Lovdata",
+    "dokid": "NL/lov/2003-06-27-57",
+    "file": "data/raw/legal/lovdata/nl-20030627-057.xml",
+    "sha256": "eedeeee31d725a60250e47ce1e9ed6374fa630406ab70b3332ba4e5c77ef9ab1",
+    "lastChangeInForce": "2023-01-01",
+    "package": "gjeldende-lover.tar.bz2",
+    "packageLastModified": "2026-09-15T01:31:00Z",
+    "selector": [
+     "§3"
+    ],
+    "items": null
+   }
+  },
+  {
+   "source": "territorialfarvannsloven § 4",
+   "title": "Lov om Norges territorialfarvann og tilstøtende sone [territorialfarvannsloven]",
+   "citedAs": "lov 27. juni 2003 nr. 57",
+   "quote": "§ 4. Tilstøtende sone\nDet opprettes en tilstøtende sone utenfor sjøterritoriet. Kongen fastsetter tidspunktet for opprettelsen av den tilstøtende sone, og hvilke havområder den skal omfatte.\nI den tilstøtende sone kan det føres kontroll med lovgivning om vareførsel og tollavgift, skatt, innvandring og helse. Den tilstøtende sone støter opp mot sjøterritoriet og har en yttergrense som ligger i en avstand av 24 nautiske mil (44 448 meter) fra nærmeste punkt på grunnlinjen.\nDen tilstøtende sone likestilles med territorialfarvannet for så vidt gjelder lovgivning om fjerning av gjenstander av arkeologisk og historisk art.\nDen tilstøtende sones avgrensning i forhold til fremmed stats jurisdiksjonsområde følger av overenskomst med fremmed stat. I mangel av overenskomst, følger avgrensningen midtlinjen i forhold til andre stater.\nKongen kan fastsette nærmere regler om etableringen av den tilstøtende sone og om utøvelse av kontrollmyndighet i denne.\nOpprettelsen av den tilstøtende sone medfører ingen endring i reglene for den økonomiske sone eller kontinentalsokkelen.",
+   "quoteLang": "no",
+   "url": "https://lovdata.no/dokument/NL/lov/2003-06-27-57/§4",
+   "provenance": {
+    "publisher": "Lovdata",
+    "dokid": "NL/lov/2003-06-27-57",
+    "file": "data/raw/legal/lovdata/nl-20030627-057.xml",
+    "sha256": "eedeeee31d725a60250e47ce1e9ed6374fa630406ab70b3332ba4e5c77ef9ab1",
+    "lastChangeInForce": "2023-01-01",
+    "package": "gjeldende-lover.tar.bz2",
+    "packageLastModified": "2026-09-15T01:31:00Z",
+    "selector": [
+     "§4"
+    ],
+    "items": null
+   }
+  },
+  {
+   "source": "lov om Norges økonomiske sone § 1",
+   "title": "Lov om Norges økonomiske sone [økonomiske soneloven]",
+   "citedAs": "lov 17. desember 1976 nr. 91",
+   "quote": "§ 1.\nDet opprettes en økonomisk sone i havområdene utenfor Kongeriket Norge. Kongen fastsetter tidspunktet for opprettelsen av den økonomiske sone, og hvilke havområder den skal omfatte.\nYttergrensen for den økonomiske sone trekkes i en avstand av 200 nautiske mil (én nautisk mil = 1852 meter) fra de grunnlinjer som til enhver tid er fastsatt, likevel ikke ut over midtlinjen i forhold til andre stater med mindre annet følger av overenskomst med vedkommende stat.\nOpprettelsen av økonomisk sone medfører ingen endring i reglene for Norges sjøterritorium.",
+   "quoteLang": "no",
+   "url": "https://lovdata.no/dokument/NL/lov/1976-12-17-91/§1",
+   "provenance": {
+    "publisher": "Lovdata",
+    "dokid": "NL/lov/1976-12-17-91",
+    "file": "data/raw/legal/lovdata/nl-19761217-091.xml",
+    "sha256": "df3bc88d1dc63879ea5fcc7ab2bd1fcf5058f929d51f60a66b161e8e91b62404",
+    "lastChangeInForce": "2017-07-01",
+    "package": "gjeldende-lover.tar.bz2",
+    "packageLastModified": "2026-09-15T01:31:00Z",
+    "selector": [
+     "§1"
+    ],
+    "items": null
+   }
+  },
+  {
+   "source": "forskrift 3. juni 1977 nr. 6",
+   "title": "Forskrift om fiskevernsone ved Svalbard.",
+   "citedAs": "forskrift 3. juni 1977 nr. 6",
+   "quote": "§ 1.\nDet opprettes en fiskevernsone i havområdene utenfor Svalbard for bevaring av de levende ressurser i havet og regulering av fiske og fangst.\nYttergrensen for fiskevernsonen skal gå i en avstand av 200 nautiske mil (én nautisk mil = 1.852 meter) fra de grunnlinjer som er fastsatt, eller der grunnlinjer ikke er fastsatt, fra linjer som forbinder øygruppenes ytterste punkter.\nFiskevernsonen begrenses videre av yttergrensen for den økonomiske sone utenfor det norske fastland, slik denne er fastsatt ved kgl.res. 17. desember 1976.\nDer fiskevernsonen støter opp mot annen stats myndighetsområde, skal grensen trekkes i samsvar med avtale.",
+   "quoteLang": "no",
+   "url": "https://lovdata.no/dokument/SF/forskrift/1977-06-03-6/§1",
+   "provenance": {
+    "publisher": "Lovdata",
+    "dokid": "SF/forskrift/1977-06-03-6",
+    "file": "data/raw/legal/lovdata/sf-19770603-0006.xml",
+    "sha256": "161e51921506d8e4078603c83a83418727ad8b242bc98af8086a143c320bb500",
+    "lastChangeInForce": "2001-03-02",
+    "package": "gjeldende-sentrale-forskrifter.tar.bz2",
+    "packageLastModified": "2026-09-17T01:32:00Z",
+    "selector": [
+     "§1"
+    ],
+    "items": null
+   },
+   "selectionNote": "SPEC §4.1 cites the regulation as a whole; § 1 (establishment and outer limit of the zone) is quoted. §§ 2–5 (non-application of the foreign-fishing ban, delegation, penalties, entry into force) are not."
+  },
+  {
+   "source": "forskrift 23. mai 1980 nr. 4",
+   "title": "Forskrift om opprettelse av fiskerisone ved Jan Mayen. Delegering av fullmakt.",
+   "citedAs": "forskrift 23. mai 1980 nr. 4",
+   "quote": "1\nMed hjemmel i lov av 17. desember 1976 nr. 91 om Norges økonomiske sone opprettes en fiskerisone i havområdene ved Jan Mayen med virkning fra 29. mai 1980.\n2\nYttergrensen for fiskerisonen skal trekkes i en avstand av 200 n. mil (en nautisk mil = 1.852 meter) fra de grunnlinjer som er fastsatt for Jan Mayen, likevel ikke ut over midtlinjen i forhold til Grønland eller ut over den linje som utgjør yttergrensen for Islands økonomiske sone, slik denne i dag er fastlagt i islandsk lov nr. 41 av 1. juni 1979.\n3\nHvor fiskerisonen støter opp mot sonen utenfor Øst-Grønland skal delelinjen trekkes i samsvar med avtale.",
+   "quoteLang": "no",
+   "url": "https://lovdata.no/dokument/SF/forskrift/1980-05-23-4/KAPITTEL_1",
+   "provenance": {
+    "publisher": "Lovdata",
+    "dokid": "SF/forskrift/1980-05-23-4",
+    "file": "data/raw/legal/lovdata/sf-19800523-0004.xml",
+    "sha256": "97783e16c0c8b1c4a46749b76de588ddc3307ca4d251a511bf6f89dc984dff3d",
+    "lastChangeInForce": "",
+    "package": "gjeldende-sentrale-forskrifter.tar.bz2",
+    "packageLastModified": "2026-09-17T01:32:00Z",
+    "selector": [
+     "kap1",
+     "kap2",
+     "kap3"
+    ],
+    "items": null
+   },
+   "selectionNote": "SPEC §4.1 cites the regulation as a whole; its provisions are numbered 1–5 without §. 1–3 (establishment, outer limit, delimitation towards East Greenland) are quoted; 4–5 (delegations to the ministry) are not."
+  },
+  {
+   "source": "kontinentalsokkelloven",
+   "title": "Lov om Norges kontinentalsokkel",
+   "citedAs": "lov 18. juni 2021 nr. 89",
+   "quote": "§ 1. Norges kontinentalsokkel\nNorges kontinentalsokkel er havbunnen og undergrunnen i de undersjøiske områder som strekker seg ut over norsk sjøterritorium gjennom hele den naturlige forlengelse av landterritoriet til ytterkanten av kontinentalmarginen, men ikke kortere enn 200 nautiske mil fra grunnlinjene som sjøterritoriets bredde er målt fra. Avgrensningslinjen for kontinentalsokkelen mot en annen stat følger av overenskomst med vedkommende stat. Hvor intet er avtalt, følger avgrensningslinjen midtlinjen eller den linje som følger av folkerettens regler for kontinentalsokkel utenfor 200 nautiske mil fra grunnlinjene.",
+   "quoteLang": "no",
+   "url": "https://lovdata.no/dokument/NL/lov/2021-06-18-89/§1",
+   "provenance": {
+    "publisher": "Lovdata",
+    "dokid": "NL/lov/2021-06-18-89",
+    "file": "data/raw/legal/lovdata/nl-20210618-089.xml",
+    "sha256": "cdc3f7c3936dab7d743f9ade9b695acfb7c86432701fb51bdd3feb4b7dafc75a",
+    "lastChangeInForce": "",
+    "package": "gjeldende-lover.tar.bz2",
+    "packageLastModified": "2026-09-15T01:31:00Z",
+    "selector": [
+     "§1"
+    ],
+    "items": null
+   },
+   "selectionNote": "SPEC §4.1 says 'kontinentalsokkelloven' without a provision. Lovdata's current-acts package holds two acts on the shelf: lov 18. juni 2021 nr. 89 om Norges kontinentalsokkel (short title on Lovdata: 'Lov om Norges kontinentalsokkel'), whose § 1 defines the shelf, and lov 21. juni 1963 nr. 12 (scientific research and exploitation of other subsea natural resources), whose § 1 now refers to the 2021 act for the definition. § 1 of the 2021 act is quoted; the 1963 act is fetched (data/raw/legal/lovdata/nl-19630621-012.xml) but not cited."
+  },
+  {
+   "source": "petroleumsloven § 1-6",
+   "title": "Lov om petroleumsvirksomhet [petroleumsloven]",
+   "citedAs": "lov 29. november 1996 nr. 72",
+   "quote": "§ 1-6. Definisjoner\nI denne lov forstås med:\n[…]\nl. kontinentalsokkelen, Norges kontinentalsokkel som fastsatt i lov 18. juni 2021 nr. 89.\n[…]",
+   "quoteLang": "no",
+   "url": "https://lovdata.no/dokument/NL/lov/1996-11-29-72/§1-6",
+   "provenance": {
+    "publisher": "Lovdata",
+    "dokid": "NL/lov/1996-11-29-72",
+    "file": "data/raw/legal/lovdata/nl-19961129-072.xml",
+    "sha256": "2b4f9b95c2f115bd82f497216e4ed7b2ddf30a3e4113337a3e20aabf27f63056",
+    "lastChangeInForce": "2026-01-01",
+    "package": "gjeldende-lover.tar.bz2",
+    "packageLastModified": "2026-09-15T01:31:00Z",
+    "selector": [
+     "§1-6"
+    ],
+    "items": [
+     "l."
+    ]
+   },
+   "selectionNote": "§ 1-6 is the definitions list (a–o). Only the chapeau and item l ('kontinentalsokkelen') are quoted; the other definitions are replaced by [...]."
+  },
+  {
+   "source": "luftfartsloven § 1-1",
+   "title": "Lov om luftfart (luftfartsloven)",
+   "citedAs": "lov 11. juni 1993 nr. 101",
+   "quote": "§ 1-1. Lovens generelle virkeområde\nLuftfart kan her i riket bare finne sted i samsvar med denne lov og forskrifter gitt med hjemmel i loven.\nFor luftfart som omfattes av EØS-avtalens bestemmelser, gjelder regler om utfylling og gjennomføring av EØS-avtalen på luftfartens område i denne lov foran lovens øvrige bestemmelser.",
+   "quoteLang": "no",
+   "url": "https://lovdata.no/dokument/NL/lov/1993-06-11-101/§1-1",
+   "provenance": {
+    "publisher": "Lovdata",
+    "dokid": "NL/lov/1993-06-11-101",
+    "file": "data/raw/legal/lovdata/nl-19930611-101.xml",
+    "sha256": "a779977aa8fb6be1dc5818c7632af04a97ba8365e6d1b6ba7e3b0274daa01c6d",
+    "lastChangeInForce": "2026-07-01",
+    "package": "gjeldende-lover.tar.bz2",
+    "packageLastModified": "2026-09-15T01:31:00Z",
+    "selector": [
+     "§1-1"
+    ],
+    "items": null
+   }
+  },
+  {
+   "source": "UNCLOS art. 1(1)(1)",
+   "title": "United Nations Convention on the Law of the Sea",
+   "citedAs": "UNCLOS art. 1(1)(1)",
+   "quote": "Article 1 Use of terms and scope\n1. For the purposes of this Convention:\n(1) \"Area\" means the seabed and ocean floor and subsoil thereof, beyond the limits of national jurisdiction;\n[…]",
+   "quoteLang": "en",
+   "url": "https://www.un.org/depts/los/convention_agreements/texts/unclos/part1.htm",
+   "provenance": {
+    "publisher": "UN DOALOS",
+    "files": [
+     "data/raw/legal/unclos/part1.htm"
+    ],
+    "sha256": [
+     "fcf6cfd7f8015b4648909b83bbc97aff9f2e3c8325ae0871043274d1f21595c1"
+    ],
+    "selector": [
+     [
+      1,
+      1,
+      "1"
+     ]
+    ]
+   }
+  },
+  {
+   "source": "UNCLOS art. 2",
+   "title": "United Nations Convention on the Law of the Sea",
+   "citedAs": "UNCLOS art. 2",
+   "quote": "Article 2 Legal status of the territorial sea, of the air space over the territorial sea and of its bed and subsoil\n1. The sovereignty of a coastal State extends, beyond its land territory and internal waters and, in the case of an archipelagic State, its archipelagic waters, to an adjacent belt of sea, described as the territorial sea.\n2. This sovereignty extends to the air space over the territorial sea as well as to its bed and subsoil.\n3. The sovereignty over the territorial sea is exercised subject to this Convention and to other rules of international law.",
+   "quoteLang": "en",
+   "url": "https://www.un.org/depts/los/convention_agreements/texts/unclos/part2.htm",
+   "provenance": {
+    "publisher": "UN DOALOS",
+    "files": [
+     "data/raw/legal/unclos/part2.htm"
+    ],
+    "sha256": [
+     "3ac2030f00afa24a28a9f37cdbe4e66b8d87c44fae305da9456bacd765c93d53"
+    ],
+    "selector": [
+     [
+      2,
+      null,
+      null
+     ]
+    ]
+   }
+  },
+  {
+   "source": "UNCLOS art. 2(2)",
+   "title": "United Nations Convention on the Law of the Sea",
+   "citedAs": "UNCLOS art. 2(2)",
+   "quote": "Article 2 Legal status of the territorial sea, of the air space over the territorial sea and of its bed and subsoil\n2. This sovereignty extends to the air space over the territorial sea as well as to its bed and subsoil.\n[…]",
+   "quoteLang": "en",
+   "url": "https://www.un.org/depts/los/convention_agreements/texts/unclos/part2.htm",
+   "provenance": {
+    "publisher": "UN DOALOS",
+    "files": [
+     "data/raw/legal/unclos/part2.htm"
+    ],
+    "sha256": [
+     "3ac2030f00afa24a28a9f37cdbe4e66b8d87c44fae305da9456bacd765c93d53"
+    ],
+    "selector": [
+     [
+      2,
+      2,
+      null
+     ]
+    ]
+   }
+  },
+  {
+   "source": "UNCLOS art. 3",
+   "title": "United Nations Convention on the Law of the Sea",
+   "citedAs": "UNCLOS art. 3",
+   "quote": "Article 3 Breadth of the territorial sea\nEvery State has the right to establish the breadth of its territorial sea up to a limit not exceeding 12 nautical miles, measured from baselines determined in accordance with this Convention.",
+   "quoteLang": "en",
+   "url": "https://www.un.org/depts/los/convention_agreements/texts/unclos/part2.htm",
+   "provenance": {
+    "publisher": "UN DOALOS",
+    "files": [
+     "data/raw/legal/unclos/part2.htm"
+    ],
+    "sha256": [
+     "3ac2030f00afa24a28a9f37cdbe4e66b8d87c44fae305da9456bacd765c93d53"
+    ],
+    "selector": [
+     [
+      3,
+      null,
+      null
+     ]
+    ]
+   }
+  },
+  {
+   "source": "UNCLOS art. 8",
+   "title": "United Nations Convention on the Law of the Sea",
+   "citedAs": "UNCLOS art. 8",
+   "quote": "Article 8 Internal waters\n1. Except as provided in Part IV, waters on the landward side of the baseline of the territorial sea form part of the internal waters of the State.\n2. Where the establishment of a straight baseline in accordance with the method set forth in article 7 has the effect of enclosing as internal waters areas which had not previously been considered as such, a right of innocent passage as provided in this Convention shall exist in those waters.",
+   "quoteLang": "en",
+   "url": "https://www.un.org/depts/los/convention_agreements/texts/unclos/part2.htm",
+   "provenance": {
+    "publisher": "UN DOALOS",
+    "files": [
+     "data/raw/legal/unclos/part2.htm"
+    ],
+    "sha256": [
+     "3ac2030f00afa24a28a9f37cdbe4e66b8d87c44fae305da9456bacd765c93d53"
+    ],
+    "selector": [
+     [
+      8,
+      null,
+      null
+     ]
+    ]
+   }
+  },
+  {
+   "source": "UNCLOS art. 17",
+   "title": "United Nations Convention on the Law of the Sea",
+   "citedAs": "UNCLOS art. 17",
+   "quote": "Article 17 Right of innocent passage\nSubject to this Convention, ships of all States, whether coastal or land-locked, enjoy the right of innocent passage through the territorial sea.",
+   "quoteLang": "en",
+   "url": "https://www.un.org/depts/los/convention_agreements/texts/unclos/part2.htm",
+   "provenance": {
+    "publisher": "UN DOALOS",
+    "files": [
+     "data/raw/legal/unclos/part2.htm"
+    ],
+    "sha256": [
+     "3ac2030f00afa24a28a9f37cdbe4e66b8d87c44fae305da9456bacd765c93d53"
+    ],
+    "selector": [
+     [
+      17,
+      null,
+      null
+     ]
+    ]
+   }
+  },
+  {
+   "source": "UNCLOS art. 33",
+   "title": "United Nations Convention on the Law of the Sea",
+   "citedAs": "UNCLOS art. 33",
+   "quote": "Article 33 Contiguous zone\n1. In a zone contiguous to its territorial sea, described as the contiguous zone, the coastal State may exercise the control necessary to:\n(a) prevent infringement of its customs, fiscal, immigration or sanitary laws and regulations within its territory or territorial sea;\n(b) punish infringement of the above laws and regulations committed within its territory or territorial sea.\n2. The contiguous zone may not extend beyond 24 nautical miles from the baselines from which the breadth of the territorial sea is measured.",
+   "quoteLang": "en",
+   "url": "https://www.un.org/depts/los/convention_agreements/texts/unclos/part2.htm",
+   "provenance": {
+    "publisher": "UN DOALOS",
+    "files": [
+     "data/raw/legal/unclos/part2.htm"
+    ],
+    "sha256": [
+     "3ac2030f00afa24a28a9f37cdbe4e66b8d87c44fae305da9456bacd765c93d53"
+    ],
+    "selector": [
+     [
+      33,
+      null,
+      null
+     ]
+    ]
+   }
+  },
+  {
+   "source": "UNCLOS arts 55–58",
+   "title": "United Nations Convention on the Law of the Sea",
+   "citedAs": "UNCLOS arts 55–58",
+   "quote": "Article 55 Specific legal regime of the exclusive economic zone\nThe exclusive economic zone is an area beyond and adjacent to the territorial sea, subject to the specific legal regime established in this Part, under which the rights and jurisdiction of the coastal State and the rights and freedoms of other States are governed by the relevant provisions of this Convention.\n\nArticle 56 Rights, jurisdiction and duties of the coastal State in the exclusive economic zone\n1. In the exclusive economic zone, the coastal State has:\n(a) sovereign rights for the purpose of exploring and exploiting, conserving and managing the natural resources, whether living or non-living, of the waters superjacent to the seabed and of the seabed and its subsoil, and with regard to other activities for the economic exploitation and exploration of the zone, such as the production of energy from the water, currents and winds;\n(b) jurisdiction as provided for in the relevant provisions of this Convention with regard to:\n(i) the establishment and use of artificial islands, installations and structures;\n(ii) marine scientific research;\n(iii) the protection and preservation of the marine environment;\n(c) other rights and duties provided for in this Convention.\n2. In exercising its rights and performing its duties under this Convention in the exclusive economic zone, the coastal State shall have due regard to the rights and duties of other States and shall act in a manner compatible with the provisions of this Convention.\n3. The rights set out in this article with respect to the seabed and subsoil shall be exercised in accordance with Part VI.\n\nArticle 57 Breadth of the exclusive economic zone\nThe exclusive economic zone shall not extend beyond 200 nautical miles from the baselines from which the breadth of the territorial sea is measured.\n\nArticle 58 Rights and duties of other States in the exclusive economic zone\n1. In the exclusive economic zone, all States, whether coastal or land-locked, enjoy, subject to the relevant provisions of this Convention, the freedoms referred to in article 87 of navigation and overflight and of the laying of submarine cables and pipelines, and other internationally lawful uses of the sea related to these freedoms, such as those associated with the operation of ships, aircraft and submarine cables and pipelines, and compatible with the other provisions of this Convention.\n2. Articles 88 to 115 and other pertinent rules of international law apply to the exclusive economic zone in so far as they are not incompatible with this Part.\n3. In exercising their rights and performing their duties under this Convention in the exclusive economic zone, States shall have due regard to the rights and duties of the coastal State and shall comply with the laws and regulations adopted by the coastal State in accordance with the provisions of this Convention and other rules of international law in so far as they are not incompatible with this Part.",
+   "quoteLang": "en",
+   "url": "https://www.un.org/depts/los/convention_agreements/texts/unclos/part5.htm",
+   "provenance": {
+    "publisher": "UN DOALOS",
+    "files": [
+     "data/raw/legal/unclos/part5.htm"
+    ],
+    "sha256": [
+     "9a1058bffaa5c3ef9b99bcd301f3a07274976e0e8e77ec63f68c49f0ed3a36f4"
+    ],
+    "selector": [
+     [
+      55,
+      null,
+      null
+     ],
+     [
+      56,
+      null,
+      null
+     ],
+     [
+      57,
+      null,
+      null
+     ],
+     [
+      58,
+      null,
+      null
+     ]
+    ]
+   }
+  },
+  {
+   "source": "UNCLOS art. 58(1)",
+   "title": "United Nations Convention on the Law of the Sea",
+   "citedAs": "UNCLOS art. 58(1)",
+   "quote": "Article 58 Rights and duties of other States in the exclusive economic zone\n1. In the exclusive economic zone, all States, whether coastal or land-locked, enjoy, subject to the relevant provisions of this Convention, the freedoms referred to in article 87 of navigation and overflight and of the laying of submarine cables and pipelines, and other internationally lawful uses of the sea related to these freedoms, such as those associated with the operation of ships, aircraft and submarine cables and pipelines, and compatible with the other provisions of this Convention.\n[…]",
+   "quoteLang": "en",
+   "url": "https://www.un.org/depts/los/convention_agreements/texts/unclos/part5.htm",
+   "provenance": {
+    "publisher": "UN DOALOS",
+    "files": [
+     "data/raw/legal/unclos/part5.htm"
+    ],
+    "sha256": [
+     "9a1058bffaa5c3ef9b99bcd301f3a07274976e0e8e77ec63f68c49f0ed3a36f4"
+    ],
+    "selector": [
+     [
+      58,
+      1,
+      null
+     ]
+    ]
+   }
+  },
+  {
+   "source": "UNCLOS arts 76–79",
+   "title": "United Nations Convention on the Law of the Sea",
+   "citedAs": "UNCLOS arts 76–79",
+   "quote": "Article 76 Definition of the continental shelf\n1. The continental shelf of a coastal State comprises the seabed and subsoil of the submarine areas that extend beyond its territorial sea throughout the natural prolongation of its land territory to the outer edge of the continental margin, or to a distance of 200 nautical miles from the baselines from which the breadth of the territorial sea is measured where the outer edge of the continental margin does not extend up to that distance.\n2. The continental shelf of a coastal State shall not extend beyond the limits provided for in paragraphs 4 to 6.\n3. The continental margin comprises the submerged prolongation of the land mass of the coastal State, and consists of the seabed and subsoil of the shelf, the slope and the rise. It does not include the deep ocean floor with its oceanic ridges or the subsoil thereof.\n4. (a) For the purposes of this Convention, the coastal State shall establish the outer edge of the continental margin wherever the margin extends beyond 200 nautical miles from the baselines from which the breadth of the territorial sea is measured, by either:\n(i) a line delineated in accordance with paragraph 7 by reference to the outermost fixed points at each of which the thickness of sedimentary rocks is at least 1 per cent of the shortest distance from such point to the foot of the continental slope; or\n(ii) a line delineated in accordance with paragraph 7 by reference to fixed points not more than 60 nautical miles from the foot of the continental slope.\n(b) In the absence of evidence to the contrary, the foot of the continental slope shall be determined as the point of maximum change in the gradient at its base.\n5. The fixed points comprising the line of the outer limits of the continental shelf on the seabed, drawn in accordance with paragraph 4 (a)(i) and (ii), either shall not exceed 350 nautical miles from the baselines from which the breadth of the territorial sea is measured or shall not exceed 100 nautical miles from the 2,500 metre isobath, which is a line connecting the depth of 2,500 metres.\n6. Notwithstanding the provisions of paragraph 5, on submarine ridges, the outer limit of the continental shelf shall not exceed 350 nautical miles from the baselines from which the breadth of the territorial sea is measured. This paragraph does not apply to submarine elevations that are natural components of the continental margin, such as its plateaux, rises, caps, banks and spurs.\n7. The coastal State shall delineate the outer limits of its continental shelf, where that shelf extends beyond 200 nautical miles from the baselines from which the breadth of the territorial sea is measured, by straight lines not exceeding 60 nautical miles in length, connecting fixed points, defined by coordinates of latitude and longitude.\n8. Information on the limits of the continental shelf beyond 200 nautical miles from the baselines from which the breadth of the territorial sea is measured shall be submitted by the coastal State to the Commission on the Limits of the Continental Shelf set up under Annex II on the basis of equitable geographical representation. The Commission shall make recommendations to coastal States on matters related to the establishment of the outer limits of their continental shelf. The limits of the shelf established by a coastal State on the basis of these recommendations shall be final and binding.\n9. The coastal State shall deposit with the Secretary-General of the United Nations charts and relevant information, including geodetic data, permanently describing the outer limits of its continental shelf. The Secretary-General shall give due publicity thereto.\n10. The provisions of this article are without prejudice to the question of delimitation of the continental shelf between States with opposite or adjacent coasts.\n\nArticle 77 Rights of the coastal State over the continental shelf\n1. The coastal State exercises over the continental shelf sovereign rights for the purpose of exploring it and exploiting its natural resources.\n2. The rights referred to in paragraph 1 are exclusive in the sense that if the coastal State does not explore the continental shelf or exploit its natural resources, no one may undertake these activities without the express consent of the coastal State.\n3. The rights of the coastal State over the continental shelf do not depend on occupation, effective or notional, or on any express proclamation.\n4. The natural resources referred to in this Part consist of the mineral and other non-living resources of the seabed and subsoil together with living organisms belonging to sedentary species, that is to say, organisms which, at the harvestable stage, either are immobile on or under the seabed or are unable to move except in constant physical contact with the seabed or the subsoil.\n\nArticle 78 Legal status of the superjacent waters and air space and the rights and freedoms of other States\n1. The rights of the coastal State over the continental shelf do not affect the legal status of the superjacent waters or of the air space above those waters.\n2. The exercise of the rights of the coastal State over the continental shelf must not infringe or result in any unjustifiable interference with navigation and other rights and freedoms of other States as provided for in this Convention.\n\nArticle 79 Submarine cables and pipelines on the continental shelf\n1. All States are entitled to lay submarine cables and pipelines on the continental shelf, in accordance with the provisions of this article.\n2. Subject to its right to take reasonable measures for the exploration of the continental shelf, the exploitation of its natural resources and the prevention, reduction and control of pollution from pipelines, the coastal State may not impede the laying or maintenance of such cables or pipelines.\n3. The delineation of the course for the laying of such pipelines on the continental shelf is subject to the consent of the coastal State.\n4. Nothing in this Part affects the right of the coastal State to establish conditions for cables or pipelines entering its territory or territorial sea, or its jurisdiction over cables and pipelines constructed or used in connection with the exploration of its continental shelf or exploitation of its resources or the operations of artificial islands, installations and structures under its jurisdiction.\n5. When laying submarine cables or pipelines, States shall have due regard to cables or pipelines already in position. In particular, possibilities of repairing existing cables or pipelines shall not be prejudiced.",
+   "quoteLang": "en",
+   "url": "https://www.un.org/depts/los/convention_agreements/texts/unclos/part6.htm",
+   "provenance": {
+    "publisher": "UN DOALOS",
+    "files": [
+     "data/raw/legal/unclos/part6.htm"
+    ],
+    "sha256": [
+     "32fcb195f3dfaa60b62769aec0ec86e27b364a8a489e8bccb0d9bba63367f40e"
+    ],
+    "selector": [
+     [
+      76,
+      null,
+      null
+     ],
+     [
+      77,
+      null,
+      null
+     ],
+     [
+      78,
+      null,
+      null
+     ],
+     [
+      79,
+      null,
+      null
+     ]
+    ]
+   }
+  },
+  {
+   "source": "UNCLOS art. 86",
+   "title": "United Nations Convention on the Law of the Sea",
+   "citedAs": "UNCLOS art. 86",
+   "quote": "Article 86 Application of the provisions of this Part\nThe provisions of this Part apply to all parts of the sea that are not included in the exclusive economic zone, in the territorial sea or in the internal waters of a State, or in the archipelagic waters of an archipelagic State. This article does not entail any abridgement of the freedoms enjoyed by all States in the exclusive economic zone in accordance with article 58.",
+   "quoteLang": "en",
+   "url": "https://www.un.org/depts/los/convention_agreements/texts/unclos/part7.htm",
+   "provenance": {
+    "publisher": "UN DOALOS",
+    "files": [
+     "data/raw/legal/unclos/part7.htm"
+    ],
+    "sha256": [
+     "87ae8b2617f6ef0645b87e4bcdd91ce83576dded3db4ef654155f44654bf266e"
+    ],
+    "selector": [
+     [
+      86,
+      null,
+      null
+     ]
+    ]
+   }
+  },
+  {
+   "source": "UNCLOS art. 87",
+   "title": "United Nations Convention on the Law of the Sea",
+   "citedAs": "UNCLOS art. 87",
+   "quote": "Article 87 Freedom of the high seas\n1. The high seas are open to all States, whether coastal or land-locked. Freedom of the high seas is exercised under the conditions laid down by this Convention and by other rules of international law. It comprises, inter alia, both for coastal and land-locked States:\n(a) freedom of navigation;\n(b) freedom of overflight;\n(c) freedom to lay submarine cables and pipelines, subject to Part VI;\n(d) freedom to construct artificial islands and other installations permitted under international law, subject to Part VI;\n(e) freedom of fishing, subject to the conditions laid down in section 2;\n(f) freedom of scientific research, subject to Parts VI and XIII.\n2. These freedoms shall be exercised by all States with due regard for the interests of other States in their exercise of the freedom of the high seas, and also with due regard for the rights under this Convention with respect to activities in the Area.",
+   "quoteLang": "en",
+   "url": "https://www.un.org/depts/los/convention_agreements/texts/unclos/part7.htm",
+   "provenance": {
+    "publisher": "UN DOALOS",
+    "files": [
+     "data/raw/legal/unclos/part7.htm"
+    ],
+    "sha256": [
+     "87ae8b2617f6ef0645b87e4bcdd91ce83576dded3db4ef654155f44654bf266e"
+    ],
+    "selector": [
+     [
+      87,
+      null,
+      null
+     ]
+    ]
+   }
+  },
+  {
+   "source": "UNCLOS art. 87(1)(b)",
+   "title": "United Nations Convention on the Law of the Sea",
+   "citedAs": "UNCLOS art. 87(1)(b)",
+   "quote": "Article 87 Freedom of the high seas\n1. The high seas are open to all States, whether coastal or land-locked. Freedom of the high seas is exercised under the conditions laid down by this Convention and by other rules of international law. It comprises, inter alia, both for coastal and land-locked States:\n[…]\n(b) freedom of overflight;\n[…]",
+   "quoteLang": "en",
+   "url": "https://www.un.org/depts/los/convention_agreements/texts/unclos/part7.htm",
+   "provenance": {
+    "publisher": "UN DOALOS",
+    "files": [
+     "data/raw/legal/unclos/part7.htm"
+    ],
+    "sha256": [
+     "87ae8b2617f6ef0645b87e4bcdd91ce83576dded3db4ef654155f44654bf266e"
+    ],
+    "selector": [
+     [
+      87,
+      1,
+      "b"
+     ]
+    ]
+   }
+  },
+  {
+   "source": "UNCLOS arts 136–137",
+   "title": "United Nations Convention on the Law of the Sea",
+   "citedAs": "UNCLOS arts 136–137",
+   "quote": "Article 136 Common heritage of mankind\nThe Area and its resources are the common heritage of mankind.\n\nArticle 137 Legal status of the Area and its resources\n1. No State shall claim or exercise sovereignty or sovereign rights over any part of the Area or its resources, nor shall any State or natural or juridical person appropriate any part thereof. No such claim or exercise of sovereignty or sovereign rights nor such appropriation shall be recognized.\n2. All rights in the resources of the Area are vested in mankind as a whole, on whose behalf the Authority shall act. These resources are not subject to alienation. The minerals recovered from the Area, however, may only be alienated in accordance with this Part and the rules, regulations and procedures of the Authority.\n3. No State or natural or juridical person shall claim, acquire or exercise rights with respect to the minerals recovered from the Area except in accordance with this Part. Otherwise, no such claim, acquisition or exercise of such rights shall be recognized.",
+   "quoteLang": "en",
+   "url": "https://www.un.org/depts/los/convention_agreements/texts/unclos/part11-2.htm",
+   "provenance": {
+    "publisher": "UN DOALOS",
+    "files": [
+     "data/raw/legal/unclos/part11-2.htm"
+    ],
+    "sha256": [
+     "ab0e4819be75f9f7db9c3973a6fc0489f9c268eecce38c10571facc332b3b843"
+    ],
+    "selector": [
+     [
+      136,
+      null,
+      null
+     ],
+     [
+      137,
+      null,
+      null
+     ]
+    ]
+   }
+  },
+  {
+   "source": "UNCLOS art. 303",
+   "title": "United Nations Convention on the Law of the Sea",
+   "citedAs": "UNCLOS art. 303",
+   "quote": "Article 303 Archaeological and historical objects found at sea\n1. States have the duty to protect objects of an archaeological and historical nature found at sea and shall cooperate for this purpose.\n2. In order to control traffic in such objects, the coastal State may, in applying article 33, presume that their removal from the seabed in the zone referred to in that article without its approval would result in an infringement within its territory or territorial sea of the laws and regulations referred to in that article.\n3. Nothing in this article affects the rights of identifiable owners, the law of salvage or other rules of admiralty, or laws and practices with respect to cultural exchanges.\n4. This article is without prejudice to other international agreements and rules of international law regarding the protection of objects of an archaeological and historical nature.",
+   "quoteLang": "en",
+   "url": "https://www.un.org/depts/los/convention_agreements/texts/unclos/part16.htm",
+   "provenance": {
+    "publisher": "UN DOALOS",
+    "files": [
+     "data/raw/legal/unclos/part16.htm"
+    ],
+    "sha256": [
+     "d57f72f74b1ac8726ffef03bf0efbe5b4d57e95b98d348b12191db70b5a1b49e"
+    ],
+    "selector": [
+     [
+      303,
+      null,
+      null
+     ]
+    ]
+   }
+  },
+  {
+   "source": "HR-2023-491-P (Snøkrabbe II)",
+   "pinpoint": "avsnitt 16",
+   "title": "Høyesteretts dom 20. mars 2023, HR-2023-491-P (Snøkrabbe II)",
+   "citedAs": "HR-2023-491-P avsnitt 16",
+   "quote": "(16) Etter lov 17. desember 1976 nr. 91 om Norges økonomiske sone § 1 første ledd første punktum «opprettes en økonomisk sone i havområdene utenfor Kongeriket Norge» med en yttergrense på 200 nautiske mil fra grunnlinjene, se § 1 andre ledd. I havområdene utenfor Svalbard ble det ved kongelig resolusjon 3. juni 1977 opprettet en særskilt fiskevernsone på 200 nautiske mil fra grunnlinjene. Forbudet mot utenlandsk fiske i § 3 første ledd i økonomisk soneloven er ikke gjort gjeldende for fiskevernsonen. Den betegnes derfor som en ikke-diskriminerende sone, jf. Rt-2006-1498 avsnitt 38.",
+   "quoteLang": "no",
+   "url": "https://www.domstol.no/globalassets/upload/hret/avgjorelser/2023/mars/hr-2023-491-p.pdf",
+   "translation": "(16) According to section 1 subsection 1 first sentence of the Act of 17 December 1976 no. 91 on Norway’s economic zone, “an economic zone shall be established in the seas adjacent to the coast of the Kingdom of Norway” with an outer limit of 200 nautical miles from the baselines, see section 1 subsection 2. In the seas adjacent to the coast of Svalbard, a special fisheries protection zone was established by Royal decree of 3 June 1977, which extended 200 nautical miles from the baselines. The prohibition of foreign fishing in section 3 subsection 1 of the Economic Zone Act has not been invoked for the fishing protection zone. It is therefore referred to as a non-discrimination zone, see the Supreme Court judgment in Rt-2006-1498 paragraph 38.",
+   "translationUrl": "https://www.domstol.no/globalassets/upload/hret/translated-rulings/2023/hr-2023-491-p.pdf",
+   "translationNote": "the Supreme Court's own English translation, 'provided for information purposes only'",
+   "provenance": {
+    "publisher": "Norges Høyesterett",
+    "files": [
+     "data/raw/legal/hr/hr-2023-491-p.pdf",
+     "data/raw/legal/hr/hr-2023-491-p-eng.pdf"
+    ],
+    "sha256": [
+     "e196706e3928c126bd13fc17110b7021a50ef3a2f16aab9a2bf4e357e3fb716b",
+     "b5f8228c5c1fa63284ec3c2be63586b9da2ac05f68c9e88402eb21c1aa66927c"
+    ],
+    "selector": [
+     16
+    ]
+   },
+   "selectionNote": "Cited on svalbard-fpz. Paragraph 16 (the Court's account of how the fisheries protection zone was established and why it is called non-discriminatory) is proposed; paragraph 17 states the parties' positions on the Treaty's application in the zone and is NOT quoted (SPEC §10.5: no characterising text). Owner to confirm."
+  },
+  {
+   "source": "HR-2023-491-P (Snøkrabbe II)",
+   "pinpoint": "avsnitt 220",
+   "title": "Høyesteretts dom 20. mars 2023, HR-2023-491-P (Snøkrabbe II)",
+   "citedAs": "HR-2023-491-P avsnitt 220",
+   "quote": "(220) Konklusjonen er at Svalbardtraktatens artikkel 2 gjelder i Svalbards indre farvann og sjøterritorium, men ikke på kontinentalsokkelen utenfor Svalbard hvor Norge etter havrettskonvensjonen artikkel 77 har eksklusive rettigheter til utnyttelse av naturforekomstene.",
+   "quoteLang": "no",
+   "url": "https://www.domstol.no/globalassets/upload/hret/avgjorelser/2023/mars/hr-2023-491-p.pdf",
+   "translation": "(220) The conclusion is that Article 2 of the Svalbard Treaty applies in Svalbard’s internal waters and territorial sea, but not on the continental shelf outside Svalbard where Norway has exclusive rights to exploitation of the natural resources under UNCLOS Article 77.",
+   "translationUrl": "https://www.domstol.no/globalassets/upload/hret/translated-rulings/2023/hr-2023-491-p.pdf",
+   "translationNote": "the Supreme Court's own English translation, 'provided for information purposes only'",
+   "provenance": {
+    "publisher": "Norges Høyesterett",
+    "files": [
+     "data/raw/legal/hr/hr-2023-491-p.pdf",
+     "data/raw/legal/hr/hr-2023-491-p-eng.pdf"
+    ],
+    "sha256": [
+     "e196706e3928c126bd13fc17110b7021a50ef3a2f16aab9a2bf4e357e3fb716b",
+     "b5f8228c5c1fa63284ec3c2be63586b9da2ac05f68c9e88402eb21c1aa66927c"
+    ],
+    "selector": [
+     220
+    ]
+   },
+   "selectionNote": "Cited on continental-shelf. Paragraph 220 (the Court's conclusion on Article 2 of the Treaty and Article 77 of UNCLOS) is proposed; 227 is the overall conclusion. Owner to confirm."
+  }
+ ]
+}

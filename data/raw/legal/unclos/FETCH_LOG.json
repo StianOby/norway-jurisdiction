@@ -1,0 +1,87 @@
+{
+  "fetched_at_utc": "2026-09-17T12:50:04+00:00",
+  "base": "https://www.un.org/depts/los/convention_agreements/texts/unclos/",
+  "source": "United Nations Convention on the Law of the Sea, text as published by the UN Division for Ocean Affairs and the Law of the Sea (DOALOS), un.org/depts/los",
+  "files": {
+    "UNCLOS-TOC.htm": {
+      "url": "https://www.un.org/depts/los/convention_agreements/texts/unclos/UNCLOS-TOC.htm",
+      "bytes": 56455,
+      "sha256": "2597bda74984e301cd405a2a176aee24e4685714dd29af83292720c5580930d6",
+      "headers": {
+        "Content-Type": "text/html",
+        "Last-Modified": "Fri, 24 Apr 2026 15:00:32 GMT",
+        "ETag": "\"dc87-6503606c26860\""
+      }
+    },
+    "part1.htm": {
+      "url": "https://www.un.org/depts/los/convention_agreements/texts/unclos/part1.htm",
+      "bytes": 3849,
+      "sha256": "fcf6cfd7f8015b4648909b83bbc97aff9f2e3c8325ae0871043274d1f21595c1",
+      "headers": {
+        "Content-Type": "text/html",
+        "Last-Modified": "Fri, 24 Apr 2026 15:00:30 GMT",
+        "ETag": "\"f09-6503606a94ab0\""
+      }
+    },
+    "part2.htm": {
+      "url": "https://www.un.org/depts/los/convention_agreements/texts/unclos/part2.htm",
+      "bytes": 30486,
+      "sha256": "3ac2030f00afa24a28a9f37cdbe4e66b8d87c44fae305da9456bacd765c93d53",
+      "headers": {
+        "Content-Type": "text/html",
+        "Last-Modified": "Fri, 24 Apr 2026 15:00:31 GMT",
+        "ETag": "\"7716-6503606ba0008\""
+      }
+    },
+    "part5.htm": {
+      "url": "https://www.un.org/depts/los/convention_agreements/texts/unclos/part5.htm",
+      "bytes": 35006,
+      "sha256": "9a1058bffaa5c3ef9b99bcd301f3a07274976e0e8e77ec63f68c49f0ed3a36f4",
+      "headers": {
+        "Content-Type": "text/html",
+        "Last-Modified": "Fri, 24 Apr 2026 15:00:31 GMT",
+        "ETag": "\"88be-6503606bd9600\""
+      }
+    },
+    "part6.htm": {
+      "url": "https://www.un.org/depts/los/convention_agreements/texts/unclos/part6.htm",
+      "bytes": 14246,
+      "sha256": "32fcb195f3dfaa60b62769aec0ec86e27b364a8a489e8bccb0d9bba63367f40e",
+      "headers": {
+        "Content-Type": "text/html",
+        "Last-Modified": "Fri, 24 Apr 2026 15:00:31 GMT",
+        "ETag": "\"37a6-6503606bdd098\""
+      }
+    },
+    "part7.htm": {
+      "url": "https://www.un.org/depts/los/convention_agreements/texts/unclos/part7.htm",
+      "bytes": 32838,
+      "sha256": "87ae8b2617f6ef0645b87e4bcdd91ce83576dded3db4ef654155f44654bf266e",
+      "headers": {
+        "Content-Type": "text/html",
+        "Last-Modified": "Fri, 24 Apr 2026 15:00:31 GMT",
+        "ETag": "\"8046-6503606bf4798\""
+      }
+    },
+    "part11-2.htm": {
+      "url": "https://www.un.org/depts/los/convention_agreements/texts/unclos/part11-2.htm",
+      "bytes": 15927,
+      "sha256": "ab0e4819be75f9f7db9c3973a6fc0489f9c268eecce38c10571facc332b3b843",
+      "headers": {
+        "Content-Type": "text/html",
+        "Last-Modified": "Fri, 24 Apr 2026 15:00:30 GMT",
+        "ETag": "\"3e37-6503606ac57f0\""
+      }
+    },
+    "part16.htm": {
+      "url": "https://www.un.org/depts/los/convention_agreements/texts/unclos/part16.htm",
+      "bytes": 4507,
+      "sha256": "d57f72f74b1ac8726ffef03bf0efbe5b4d57e95b98d348b12191db70b5a1b49e",
+      "headers": {
+        "Content-Type": "text/html",
+        "Last-Modified": "Fri, 24 Apr 2026 15:00:31 GMT",
+        "ETag": "\"119b-6503606b83ed0\""
+      }
+    }
+  }
+}

@@ -337,3 +337,76 @@ seabed is schematic and indicative. GEBCO attribution is in `data/LICENSE.md` an
    whether the sliver stays high-seas water column (as now, consistent with both states' lines) or
    is removed from the model. **Decision (owner, same day): keep it; the caveat is removed** and §11
    now records the segment as verified against the chart.
+
+## 16. Legal sources (Phase 3, SPEC §4.1, §6.1 step 4, §10.1)
+
+Every `quote` in `data/build/zones.json` is extracted by `code/scripts/build_legal.py` from a file
+under `data/raw/legal/` that `code/scripts/fetch_legal.py` fetched verbatim on 2026-09-17. No
+provision, title or act number was typed from memory; the DokIDs in `fetch_legal.py` were found by
+searching the titles inside the fetched Lovdata packages.
+
+### 16.1 Sources
+
+| Directory | Source | What is kept | Licence / terms |
+|---|---|---|---|
+| `raw/legal/lovdata/` | Lovdata, free data packages via `api.lovdata.no/v1/publicData` (`gjeldende-lover` 2026-09-15, `gjeldende-sentrale-forskrifter` 2026-09-17) | the eight documents cited (XHTML, byte for byte); `publicData-list.json`; `FETCH_LOG.json` with the archives' SHA-256 | NLOD 2.0 (Lovdata, lovdata.no/info/api) |
+| `raw/legal/unclos/` | UN Division for Ocean Affairs and the Law of the Sea, `un.org/depts/los/convention_agreements/texts/unclos/` | Parts I, II, V, VI, VII, XI s. 2 and XVI as one HTML file each, plus the table of contents | UN publication of the Convention text; the owner records the terms |
+| `raw/legal/hr/` | Norges Høyesterett, domstol.no | HR-2023-491-P: the judgment (PDF) and the Court's English translation (PDF, "provided for information purposes only") | published by the Court; the owner records the terms |
+
+Documents fetched from Lovdata: `NL/lov/2003-06-27-57` (territorialfarvannsloven),
+`NL/lov/1976-12-17-91` (økonomiske soneloven), `NL/lov/2021-06-18-89` (lov om Norges
+kontinentalsokkel), `NL/lov/1963-06-21-12` (lov om undersjøiske naturforekomster, fetched, not
+cited), `NL/lov/1996-11-29-72` (petroleumsloven), `NL/lov/1993-06-11-101` (luftfartsloven),
+`SF/forskrift/1977-06-03-6` (fiskevernsonen), `SF/forskrift/1980-05-23-4` (fiskerisonen ved Jan Mayen).
+
+### 16.2 Extraction
+
+`build_legal.py` writes `data/build/legal.json` (26 provisions) and the review copy
+`data/build/LEGAL.md`. Lovdata provisions are taken element by element from the XHTML
+(`article.legalArticle` / `section` by `data-name`), keeping headings, ledd and list markers and
+dropping amendment notes and footnote markers. UNCLOS articles are parsed from the DOALOS pages
+(article heading, numbered paragraphs, lettered items); a sub-reference such as art. 87(1)(b) keeps
+the chapeau and the item and marks what is left out with `[…]`. Judgment paragraphs are read from
+the PDFs with pypdf by their `(n)` numbers, page furniture removed.
+
+Cross-checks made once, outside the pipeline (2026-09-17): every UNCLOS line quoted was found
+verbatim in the DOALOS PDF (`unclos_e.pdf`, only a page-number artefact inside art. 76(6));
+paragraphs 16 and 220 of HR-2023-491-P extracted from the Court's PDF are identical, after
+whitespace normalisation, to Lovdata's HTML publication of the judgment.
+
+`build_zones.py` merges the provisions into every citation by `source` (+ `pinpoint`) and fails
+`--check` if any citation lacks a fetched quote. 82 citations, all filled. zones.json 941 KB
+(bundle 355 KB gzip).
+
+### 16.3 Selection choices — for the owner to confirm (SPEC §9 Phase 3 exit criterion)
+
+Recorded as `selectionNote` in `legal.json` and shown in `LEGAL.md`:
+
+1. **kontinentalsokkelloven.** SPEC §4.1 names no provision. Lovdata's current acts contain lov
+   18. juni 2021 nr. 89 om Norges kontinentalsokkel (§ 1 defines the shelf) and lov 21. juni 1963
+   nr. 12, whose § 1 now refers to the 2021 act. **§ 1 of the 2021 act is quoted**; the 1963 act
+   is fetched but not cited.
+2. **petroleumsloven § 1-6** is the definitions list; only the chapeau and item l
+   ("kontinentalsokkelen, Norges kontinentalsokkel som fastsatt i lov 18. juni 2021 nr. 89") are
+   quoted, the rest shown as `[…]`.
+3. **forskrift 3. juni 1977 nr. 6:** § 1 quoted (establishment, outer limit, delimitation); §§ 2–5 not.
+4. **forskrift 23. mai 1980 nr. 4:** items 1–3 quoted; 4–5 (delegations) not.
+5. **HR-2023-491-P** on `svalbard-fpz`: paragraph 16 (how the zone was established; "ikke-
+   diskriminerende sone"). Paragraph 17 (the parties' positions on the Treaty in the zone) is not
+   quoted: SPEC §10.5. On `continental-shelf`: paragraph 220 (conclusion on Treaty art. 2 and
+   UNCLOS art. 77); 227 is the overall conclusion. The `en` payload also carries the Court's own
+   English translation of the same paragraph as `translation` (the `quote` stays Norwegian, SPEC
+   §4); whether the UI shows it is the owner's call.
+6. **luftfartsloven § 1-1** is quoted as cited. Its neighbour § 1-2 ("Lovens virkeområde på
+   kontinentalsokkelen og utenfor norsk område") is in the fetched file if the owner wants it.
+7. **Summaries.** Drafts for all 15 zones are in `data/legal/summaries.json` with
+   `status: "draft"`, written only from the quoted provisions (each sentence cites its provision).
+   None ships until the owner sets `status: "approved"`; until then the app has no summaries.
+
+### 16.4 Citation record (SPEC §4 interface, extended)
+
+Each citation: `source` (SPEC §4.1 short form, unchanged), `pinpoint` (judgments only), `title`
+(document title as fetched), `citedAs` (e.g. `lov 27. juni 2003 nr. 57`, built from Lovdata's
+`legacyID`), `quote`, `quoteLang`, `url` (Lovdata `dokument/…/§n`, DOALOS part page, or the Court's
+PDF), `provenance` (publisher, file, SHA-256, selector, and for Lovdata `lastChangeInForce` and the
+package date), and on `en` judgment citations `translation` / `translationUrl` / `translationNote`.

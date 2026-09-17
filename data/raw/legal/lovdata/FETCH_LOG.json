@@ -1,0 +1,109 @@
+{
+  "fetched_at_utc": "2026-09-17T12:49:56+00:00",
+  "api": "https://api.lovdata.no/v1/publicData/list",
+  "licence": "NLOD 2.0 (Lovdata: 'Deling av datasett via API ... under en NLOD 2.0-lisens', lovdata.no/info/api)",
+  "packages": {
+    "gjeldende-lover.tar.bz2": {
+      "lastModified": "2026-09-15T01:31:00Z",
+      "sizeBytes": 5809088,
+      "sha256": "3db4488101530248b37fe181fdc094bff8313a0c4e1ff43ac14335c52c38ab66",
+      "description": "Gjeldende lover, ajourført med endringer"
+    },
+    "gjeldende-sentrale-forskrifter.tar.bz2": {
+      "lastModified": "2026-09-17T01:32:00Z",
+      "sizeBytes": 21316845,
+      "sha256": "ccdddb496570b5ee5af5b5e3a6be9948a56e1bb93aa90cbd1be33356130c92ff",
+      "description": "Gjeldende sentrale forskrifter, ajourført med endringer"
+    }
+  },
+  "files": {
+    "nl-19630621-012.xml": {
+      "dokid": "NL/lov/1963-06-21-12",
+      "package": "gjeldende-lover.tar.bz2",
+      "member": "nl/nl-19630621-012.xml",
+      "bytes": 8007,
+      "sha256": "b94e1faee621328be076dde64ea841e242a201278179f7cbe8cf0823d06fa9c6",
+      "title": "Lov om vitenskapelig utforskning og undersøkelse etter og utnyttelse av andre undersjøiske naturforekomster enn petroleumsforekomster og mineralforekomster",
+      "legacyID": "LOV-1963-06-21-12",
+      "lastChangeInForce": "2021-06-18",
+      "label": "lov om undersjøiske naturforekomster (1963)"
+    },
+    "nl-19761217-091.xml": {
+      "dokid": "NL/lov/1976-12-17-91",
+      "package": "gjeldende-lover.tar.bz2",
+      "member": "nl/nl-19761217-091.xml",
+      "bytes": 19049,
+      "sha256": "df3bc88d1dc63879ea5fcc7ab2bd1fcf5058f929d51f60a66b161e8e91b62404",
+      "title": "Lov om Norges økonomiske sone [økonomiske soneloven]",
+      "legacyID": "LOV-1976-12-17-91",
+      "lastChangeInForce": "2017-07-01",
+      "label": "økonomiske soneloven"
+    },
+    "nl-19930611-101.xml": {
+      "dokid": "NL/lov/1993-06-11-101",
+      "package": "gjeldende-lover.tar.bz2",
+      "member": "nl/nl-19930611-101.xml",
+      "bytes": 810927,
+      "sha256": "a779977aa8fb6be1dc5818c7632af04a97ba8365e6d1b6ba7e3b0274daa01c6d",
+      "title": "Lov om luftfart (luftfartsloven)",
+      "legacyID": "LOV-1993-06-11-101",
+      "lastChangeInForce": "2026-07-01",
+      "label": "luftfartsloven"
+    },
+    "nl-19961129-072.xml": {
+      "dokid": "NL/lov/1996-11-29-72",
+      "package": "gjeldende-lover.tar.bz2",
+      "member": "nl/nl-19961129-072.xml",
+      "bytes": 155769,
+      "sha256": "2b4f9b95c2f115bd82f497216e4ed7b2ddf30a3e4113337a3e20aabf27f63056",
+      "title": "Lov om petroleumsvirksomhet [petroleumsloven]",
+      "legacyID": "LOV-1996-11-29-72",
+      "lastChangeInForce": "2026-01-01",
+      "label": "petroleumsloven"
+    },
+    "nl-20030627-057.xml": {
+      "dokid": "NL/lov/2003-06-27-57",
+      "package": "gjeldende-lover.tar.bz2",
+      "member": "nl/nl-20030627-057.xml",
+      "bytes": 10185,
+      "sha256": "eedeeee31d725a60250e47ce1e9ed6374fa630406ab70b3332ba4e5c77ef9ab1",
+      "title": "Lov om Norges territorialfarvann og tilstøtende sone [territorialfarvannsloven]",
+      "legacyID": "LOV-2003-06-27-57",
+      "lastChangeInForce": "2023-01-01",
+      "label": "territorialfarvannsloven"
+    },
+    "nl-20210618-089.xml": {
+      "dokid": "NL/lov/2021-06-18-89",
+      "package": "gjeldende-lover.tar.bz2",
+      "member": "nl/nl-20210618-089.xml",
+      "bytes": 7908,
+      "sha256": "cdc3f7c3936dab7d743f9ade9b695acfb7c86432701fb51bdd3feb4b7dafc75a",
+      "title": "Lov om Norges kontinentalsokkel",
+      "legacyID": "LOV-2021-06-18-89",
+      "lastChangeInForce": "",
+      "label": "lov om Norges kontinentalsokkel"
+    },
+    "sf-19770603-0006.xml": {
+      "dokid": "SF/forskrift/1977-06-03-6",
+      "package": "gjeldende-sentrale-forskrifter.tar.bz2",
+      "member": "sf/sf-19770603-0006.xml",
+      "bytes": 9822,
+      "sha256": "161e51921506d8e4078603c83a83418727ad8b242bc98af8086a143c320bb500",
+      "title": "Forskrift om fiskevernsone ved Svalbard.",
+      "legacyID": "FOR-1977-06-03-6",
+      "lastChangeInForce": "2001-03-02",
+      "label": "forskrift om fiskevernsone ved Svalbard"
+    },
+    "sf-19800523-0004.xml": {
+      "dokid": "SF/forskrift/1980-05-23-4",
+      "package": "gjeldende-sentrale-forskrifter.tar.bz2",
+      "member": "sf/sf-19800523-0004.xml",
+      "bytes": 4126,
+      "sha256": "97783e16c0c8b1c4a46749b76de588ddc3307ca4d251a511bf6f89dc984dff3d",
+      "title": "Forskrift om opprettelse av fiskerisone ved Jan Mayen. Delegering av fullmakt.",
+      "legacyID": "FOR-1980-05-23-4",
+      "lastChangeInForce": "",
+      "label": "forskrift om opprettelse av fiskerisone ved Jan Mayen"
+    }
+  }
+}
