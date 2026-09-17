@@ -93,16 +93,18 @@ def registry() -> list[dict]:
     snokrabbe = "HR-2023-491-P (Snøkrabbe II)"
     zones.append(zone("svalbard-fpz", "svalbard", ["watercolumn"],
                       "Fiskevernsonen ved Svalbard", "Fisheries protection zone around Svalbard",
-                      [cit("forskrift 3. juni 1977 nr. 6")],
-                      [cit("forskrift 3. juni 1977 nr. 6")],
+                      [unclos("arts 55–58"), cit("forskrift 3. juni 1977 nr. 6")],
+                      [unclos("arts 55–58"), cit("forskrift 3. juni 1977 nr. 6")],
                       contested=True,
                       notes=["A fisheries protection zone, not an exclusive economic zone (SPEC §2.3).",
+                             "UNCLOS arts 55–58 added by the owner (2026-09-17); SPEC §4.1 had no UNCLOS column entry.",
                              "contested: true — owner instruction 2026-09-17 (neutral marker only, SPEC §1/§10.5)."]))
     zones.append(zone("janmayen-fisheries-zone", "janmayen", ["watercolumn"],
                       "Fiskerisonen ved Jan Mayen", "Fisheries zone around Jan Mayen",
-                      [cit("forskrift 23. mai 1980 nr. 4")],
-                      [cit("forskrift 23. mai 1980 nr. 4")],
-                      notes=["A fisheries zone, not an exclusive economic zone (SPEC §2.3)."]))
+                      [unclos("arts 55–58"), cit("forskrift 23. mai 1980 nr. 4")],
+                      [unclos("arts 55–58"), cit("forskrift 23. mai 1980 nr. 4")],
+                      notes=["A fisheries zone, not an exclusive economic zone (SPEC §2.3).",
+                             "UNCLOS arts 55–58 added by the owner (2026-09-17); SPEC §4.1 had no UNCLOS column entry."]))
     zones.append(zone("continental-shelf", "all", ["seabed", "subsoil"],
                       "Kontinentalsokkelen", "Continental shelf",
                       [cit("kontinentalsokkelloven"), unclos("arts 76–79"), cit(snokrabbe, pinpoint="avsnitt 220")],
@@ -121,8 +123,8 @@ def registry() -> list[dict]:
                       "Nasjonalt luftrom", "National airspace",
                       [unclos("art. 2(2)")],
                       [unclos("art. 2(2)")]))
-    zones.append(zone("airspace-beyond-territorial-sea", "all", ["airspace"],
-                      "Luftrom utenfor sjøterritoriet", "Airspace beyond the territorial sea",
+    zones.append(zone("international-airspace", "all", ["airspace"],      # was airspace-beyond-territorial-sea (renamed by the owner 2026-09-17)
+                      "Internasjonalt luftrom", "International airspace",
                       [unclos("art. 58(1)"), unclos("art. 87(1)(b)")], [unclos("art. 58(1)"), unclos("art. 87(1)(b)")],
                       derivedFrom=["mainland-contiguous-zone", "mainland-eez", "svalbard-fpz", "janmayen-fisheries-zone", "high-seas"],
                       notes=["Horizontal extent is the union of derivedFrom; no geometry is duplicated (mainland-contiguous-zone lies inside mainland-eez)."]))

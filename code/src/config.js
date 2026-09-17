@@ -71,7 +71,7 @@ export const ZONE_COLOURS = {
   'high-seas': '#9fb7c9',
   'the-area': '#4b4b4b',
   'national-airspace': '#6fc3f7',
-  'airspace-beyond-territorial-sea': '#c5b8f0',
+  'international-airspace': '#c5b8f0',
 };
 export const STRATUM_ALPHA = { airspace: 0.07, watercolumn: 0.32, seabed: 0.85, subsoil: 0.28 };
 

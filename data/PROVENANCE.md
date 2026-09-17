@@ -376,7 +376,7 @@ paragraphs 16 and 220 of HR-2023-491-P extracted from the Court's PDF are identi
 whitespace normalisation, to Lovdata's HTML publication of the judgment.
 
 `build_zones.py` merges the provisions into every citation by `source` (+ `pinpoint`) and fails
-`--check` if any citation lacks a fetched quote. 74 citations, all filled.
+`--check` if any citation lacks a fetched quote. 78 citations, all filled.
 
 ### 16.3 Selection choices — for the owner to confirm (SPEC §9 Phase 3 exit criterion)
 
@@ -406,6 +406,11 @@ Recorded as `selectionNote` in `legal.json` and shown in `LEGAL.md`:
 6b. Summaries cite the public-international-law source first and the Norwegian provision second
    (owner, 2026-09-17); the "ikke-diskriminerende sone" label on `svalbard-fpz` is the owner's
    characterisation, derived from § 2 of the 1977 regulation.
+6c. **UNCLOS arts 55–58** added to `svalbard-fpz` and `janmayen-fisheries-zone` (owner, 2026-09-17;
+   SPEC §4.1 had no UNCLOS entry for them). The summary drafts state the Convention's EEZ regime
+   (arts 56(1)(a), 57, 58) and then what the Norwegian regulation established — pending approval.
+6d. Zone `airspace-beyond-territorial-sea` renamed **`international-airspace`**, labelled
+   "Internasjonalt luftrom" / "International airspace" (owner, 2026-09-17).
 7. **Summaries.** Drafts for all 15 zones are in `data/legal/summaries.json` with
    `status: "draft"`, written only from the quoted provisions (each sentence cites its provision).
    None ships until the owner sets `status: "approved"`; until then the app has no summaries.

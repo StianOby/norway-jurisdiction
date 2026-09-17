@@ -61,9 +61,10 @@ EPSG:25833 instead (Krüger series; validated in PROVENANCE §4). Don't add pypr
 - **Topology in EPSG:25833, output in EPSG:4326** (§6.1). Output coordinates are never taken
   from a projection round-trip; they come from source text or from `%.6f` of the inverse.
 - **Zone ids** are stable kebab-case (`mainland-territorial-sea`, `svalbard-fpz`, …); the
-  registry is `build_zones.py::registry()`. Renaming one is a breaking change. Extensions to
+  registry is `build_zones.py::registry()`. Renaming one is a breaking change (last one:
+  `airspace-beyond-territorial-sea` → `international-airspace`, owner, 2026-09-17, before any release). Extensions to
   the SPEC §4 interface: `geography: 'all'` (shelf, high seas, the Area, airspace zones),
-  `derivedFrom` (airspace beyond the TS = union of member zones, no duplicated geometry),
+  `derivedFrom` (international airspace = union of member zones, no duplicated geometry),
   `notModelled` (`the-area`: beyond-model-extent; `high-seas`: beyond-outer-limit), `contestedExtent` on
   `continental-shelf` (neutral marker inside the extent: the Svalbard-generated shelf incl. the
   Nansen Basin, one extent, no readings distinguished — owner decision round 4), `provenance`, `notes`. `contested: true` = whole zone.
@@ -152,7 +153,7 @@ accepted for now. Still open: Canvas CSP allow-listing of github.io; Pages sourc
 Phase 3 built (same day): `fetch_legal.py` (Lovdata packages → 8 documents, DOALOS UNCLOS parts,
 HR-2023-491-P PDFs, all verbatim with SHA-256 logs), `build_legal.py` (22 provisions → `legal.json`,
 review copy `LEGAL.md`, cross-checked against the DOALOS PDF and Lovdata's HTML of the judgment),
-`build_zones.py` merges them (74 citations, all quoted; petroleumsloven § 1-6, luftfartsloven § 1-1, UNCLOS art. 303 and judgment paragraph 16 dropped by the owner; the two zone regulations quoted in full; summaries cite UNCLOS first). Draft summaries for 15 zones in
+`build_zones.py` merges them (78 citations, all quoted; UNCLOS arts 55–58 added to both fisheries zones; petroleumsloven § 1-6, luftfartsloven § 1-1, UNCLOS art. 303 and judgment paragraph 16 dropped by the owner; the two zone regulations quoted in full; summaries cite UNCLOS first). Draft summaries for 15 zones in
 `data/legal/summaries.json`, none approved yet. **Awaiting the owner's review** of the selection
 choices (PROVENANCE §16.3: kontinentalsokkelloven = 2021 act § 1, judgment paragraph 220, English translation of the judgment) and of the
 summaries — the Phase 3 exit criterion. The UI does not yet show legal text (Phase 4).

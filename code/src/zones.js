@@ -20,7 +20,7 @@ export function partsOf(geom) {
 }
 
 /**
- * The polygons a zone occupies. A zone with `derivedFrom` (airspace beyond the territorial sea)
+ * The polygons a zone occupies. A zone with `derivedFrom` (international airspace)
  * has no geometry of its own: it is the union of its members, so their parts are returned.
  */
 export function footprint(z) {
