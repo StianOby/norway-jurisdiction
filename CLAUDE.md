@@ -172,8 +172,8 @@ toggles, NO/EN toggle, scope note, persistent attribution incl. Cesium credits),
 (EllipsoidTerrainProvider + OSM, translucent globe inside the bbox, camera may go underground,
 requestRenderMode). Bundle 897 KB raw / 341 KB gzip. Verified in headless Chrome.
 
-All Phase 1 questions are resolved (PROVENANCE §12/§15). Seabed levels and airspace exaggeration
-accepted for now. Still open: Canvas CSP allow-listing of github.io; Pages source setting.
+All Phase 1 questions are resolved (PROVENANCE §12/§15). Seabed levels accepted; the airspace
+exaggeration was later removed (see Conventions). The Pages source setting is done.
 
 Phase 3 built (same day): `fetch_legal.py` (Lovdata packages → 8 documents, DOALOS UNCLOS parts,
 HR-2023-491-P PDFs, all verbatim with SHA-256 logs), `build_legal.py` (22 provisions → `legal.json`,
@@ -198,5 +198,11 @@ carry both amendments, dated. Verified in headless Chrome at 1400×900 and
 restores from the URL. Bundle 1 032 KB raw / 385 KB gzip — over SPEC §8's 900 KB raw target
 (the zone geometry alone is ~700 KB); gzip is what the wire carries. Not yet reviewed by the owner.
 
-Next: owner review of Phase 4 (labels, presets, section readability), then Phase 5 (device
-matrix incl. Firefox mobile, Canvas iframe test, CSP allow-list).
+**Owner review of Phase 4 done (2026-09-17 evening):** approved, with the two amendments above. The
+owner has set Pages → Source: GitHub Actions (the duplicate "pages build and deployment" run is gone).
+Owner decisions the same evening: Phase 5 device testing skipped for now; the 900 KB bundle target
+does not matter; the DOALOS licence wording and the "arts 1 and 8" remark are dropped — do not raise
+them again.
+
+Next: nothing scheduled. Remaining on the owner's side: the UiO Canvas CSP allow-list for
+`stianoby.github.io` and the `<iframe>` per SPEC §9. Code work resumes only on a new request.
