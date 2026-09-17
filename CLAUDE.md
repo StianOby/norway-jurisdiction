@@ -17,8 +17,10 @@ Owner amendments to §1 are recorded at the top of §1 itself (dated).
 - `docs/renders/` holds the visual-check PNGs (coastline sources, tolerance comparisons, zone overview).
 - `data/raw/geonorge/` holds the Route B (Geonorge) sources next to the Route A snapshot.
 - `code/scripts/` has, beyond §6's list: `fetch_geonorge.py` (Route B), `fetch_marineregions.py`
-  (Russian 200 nm line, ECS polygons), `verify_geonorge.py` (Route A ↔ B cross-check),
-  `gml.py` (GML reader), `proj.py` (transverse Mercator).
+  (Russian 200 nm line, ECS polygons), `fetch_gebco.py` + `build_seabed.py` (schematic seabed class
+  map), `verify_geonorge.py` (Route A ↔ B cross-check), `gml.py` (GML reader), `proj.py` (transverse Mercator).
+- `code/src/seabed.js` (not in §6's list): the schematic depth field sampled by `strata.js`.
+- `data/raw/gebco/` — coarse GEBCO 2020 subset (public domain), only for the seabed class map.
 - `data/raw/marineregions/` — third source (CC BY 4.0), used only where Kartverket has nothing.
 - Hosting: GitHub Pages from `.github/workflows/pages.yml` (builds `code/`, deploys `dist/`).
 - Everything else follows §6.
@@ -69,6 +71,16 @@ EPSG:25833 instead (Krüger series; validated in PROVENANCE §4). Don't add pypr
   Svalbard 200 nm line is an old Kartverket version, up to 2.5 km off.
 - **No overlays.** Layers 1–4 (1/4/6/10 nm) are indexed but nothing is emitted from them.
 - Numeric constants for Phase 2 (stratum depths, detents, colours) live in `code/src/config.js` only.
+  `build_seabed.py` *reads* `config.js` (regex on `SEABED.levels`) for its verification render, so
+  the levels have one home.
+- **Cesium is the CDN global `globalThis.Cesium`**, never `import`ed: Vite emits ES modules, so a
+  bare `import 'cesium'` would fail in the browser. Custom appearances must declare
+  `in float batchId;` (Cesium's Primitive injects a batch table) or the vertex shader fails to compile.
+- **Volumes are custom `Geometry`** (strata.js): polygon → earcut (`Cesium.PolygonPipeline.triangulate`)
+  → midpoint subdivision to `MESH.maxEdgeDeg` → rows at per-vertex heights + walls along boundary
+  edges (edges used by exactly one triangle, so holes get walls too). Nominal heights are cached per
+  vertex; exaggeration = recompute positions + swap primitives (≈ 60 ms desktop for 380k vertices).
+- Coincident surfaces are separated by `SEABED_CLEARANCE` (30 m nominal) to avoid z-fighting.
 - Bilingual strings: `no` / `en`. Norwegian statutory quotations stay Norwegian in both modes.
   **No `quote` field is filled in before Phase 3's fetch** (§10.1) — not even statute titles
   or act numbers: citation `source` strings are exactly SPEC §4.1's short forms.
@@ -103,29 +115,31 @@ EPSG:25833 instead (Krüger series; validated in PROVENANCE §4). Don't add pypr
   scripts with the Write tool and run them, rather than fighting the shell.
 - Three IndreFarvann features share the name "Indre farvann ved Jan Mayen": never key
   Route B features by name alone.
+- Headless rendering for checks: Chrome `--headless=new --use-angle=swiftshader --enable-unsafe-swiftshader
+  --virtual-time-budget=40000 --screenshot=…` against `python -m http.server --directory dist`; it
+  takes minutes in software GL and console messages come via `--enable-logging=stderr`.
 
 ## State of play
 
 _Update this section at the end of every session._
 
-**2026-09-17 (session 1) — Phase 1 complete after three review rounds; awaiting owner review of
-the remaining questions.**
+**2026-09-17 (session 1, continued) — Phase 1 committed and pushed; Phase 2 geometry built.**
 
-Done: repo laid out per §6; Vite 8 + singlefile skeleton (src stubs only, no Cesium code);
-Route A fetch script reproduces the snapshot byte-for-byte; Route B fetched and cross-checked
-(max 0.062 m); N1000 coastline at 300 m / islands ≥ 3 km²; Marine Regions fetched for the Loop
-Hole and verified against Russia's UN-deposited chart (`docs/renders/loop-hole-chart-overlay.png`);
-`polygonise.py` + `build_zones.py --check` produce a validated `data/build/zones.json`
-(15 zones, no overlays, 32 396 vertices, 856 KB raw / ~330 KB gzip) with byte-identical
-baselines/delimitation lines; `PROVENANCE.md` §1–13 records everything incl. three rounds of
-owner decisions; SPEC §1 carries the amendment box (§4.1 EEZ strata, §8 budget, scope, lines).
-Nothing committed yet — the owner reviews first.
+Phase 1 is on `main` (4 commits, pushed). Repo restructured so all AGPL material is under `code/`
+(root `LICENSE.md` maps code/docs/data); GitHub Pages workflow added (`.github/workflows/pages.yml`)
+— the owner must set Settings → Pages → Source: GitHub Actions once.
 
-Open questions for the owner (PROVENANCE §12): the Area candidate (assert or keep as candidate);
-confirm the two contested readings; the Loop Hole sliver caveat.
+Phase 2 done in this session: schematic seabed (GEBCO 2020 class map, levels in `config.js`,
+verification render `docs/renders/seabed-schematic.png`, PROVENANCE §14); `seabed.js`, `zones.js`,
+`strata.js` (custom-geometry volumes: airspace fence with top fade, water column to the seabed,
+seabed surface, bounded-but-open subsoil; hatched contested markers for `svalbard-fpz` and the
+shelf's contestedExtent / interval), `ui.js` (log slider with detents + readout, stratum and zone
+toggles, NO/EN toggle, scope note, persistent attribution incl. Cesium credits), `main.js`
+(EllipsoidTerrainProvider + OSM, translucent globe inside the bbox, camera may go underground,
+requestRenderMode). Bundle 897 KB raw / 341 KB gzip. Verified in headless Chrome.
 
-Next (Phase 2, SPEC §9): `code/src/config.js` constants, viewer bootstrap, extruded volumes,
-exaggeration slider; seabed profile figures from GEBCO for the owner to sanity-check. UI must
-carry a scope note (mainland, Svalbard, Jan Mayen only) and attribution to Kartverket, Norsk
-Polarinstitutt and Marine Regions. Phase 3 fills every `quote` from Lovdata/UNCLOS/HR-2023-491-P
-via `code/scripts/fetch_legal.py`.
+Open for the owner: sanity-check the seabed levels (PROVENANCE §14); the Phase 1 questions
+(PROVENANCE §12) still stand; Canvas CSP allow-listing of github.io.
+
+Next: Phase 3 (`scripts/fetch_legal.py`, Lovdata/UNCLOS/HR-2023-491-P quotes), then Phase 4
+(column query, cross-section, preset viewpoints, URL state), Phase 5 (device matrix, Canvas test).

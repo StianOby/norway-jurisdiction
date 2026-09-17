@@ -11,12 +11,13 @@ of this directory, nor to the zone geometry that the build inlines into
 | `raw/geonorge/*NorgesMaritimeGrenser*.zip` | Kartverket, "Norges maritime grenser", via Geonorge (Svalbard coastline therein: Norsk Polarinstitutt) | NLOD 2.0 / CC BY 4.0 |
 | `raw/geonorge/n1000-coast.geojson` | Kartverket, "N1000 Kartdata" (Kystkontur, Havflate), via Geonorge | NLOD 2.0 / CC BY 4.0 |
 | `raw/marineregions/*.json` | Flanders Marine Institute, Maritime Boundaries Geodatabase v12 / Extended Continental Shelves v2, via the Marine Regions WFS | CC BY 4.0 |
+| `raw/gebco/*.json` | GEBCO Compilation Group (2020) GEBCO 2020 Grid, via NOAA CoastWatch ERDDAP — coarse subset used only to derive the schematic seabed class map | GEBCO terms of use: public domain, attribution requested |
 | `build/*` | Derived from the above by `code/scripts/` | CC BY 4.0-compatible terms of the sources; derivation is documented in `PROVENANCE.md` |
 
 **Attribution required:** "Kartverket" (and, for Svalbard coastlines, "Norsk
 Polarinstitutt") and "Marine Regions / Flanders Marine Institute" (Russian 200 nm limit,
 extended-shelf polygons) must be credited wherever the data or derived geometry is
-displayed — SPEC §2.4 requires a persistent attribution line in the UI.
+displayed, and GEBCO 2020 wherever the schematic seabed is shown — SPEC §2.4 requires a persistent attribution line in the UI.
 
 NLOD 2.0: <https://data.norge.no/nlod/no/2.0> · CC BY 4.0: <https://creativecommons.org/licenses/by/4.0/>
 

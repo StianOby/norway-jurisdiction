@@ -16,7 +16,7 @@ not included.
 |---|---|---|
 | Application code and scripts | `code/` | GNU AGPL v3 ([code/LICENSE](code/LICENSE)) |
 | Documentation | `docs/`, this file, `CLAUDE.md` | GNU AGPL v3, aligned with the code |
-| Geodata (raw and derived) | `data/` and the geometry inlined into `dist/index.html` | © Kartverket, NLOD 2.0 / CC BY 4.0; © Marine Regions / Flanders Marine Institute, CC BY 4.0 ([data/LICENSE.md](data/LICENSE.md)) |
+| Geodata (raw and derived) | `data/` and the geometry inlined into `dist/index.html` | © Kartverket, NLOD 2.0 / CC BY 4.0; © Marine Regions / Flanders Marine Institute, CC BY 4.0; GEBCO 2020 (public domain, attribution) ([data/LICENSE.md](data/LICENSE.md)) |
 
 The AGPL does not extend to the data; the bundle is an aggregation of the two.
 [LICENSE.md](LICENSE.md) explains the relationship. Attribution to Kartverket,
@@ -33,6 +33,8 @@ pip install -r scripts/requirements.txt
 python scripts/fetch_boundaries.py --compare ../data/raw   # re-fetch Route A and diff (optional)
 python scripts/fetch_geonorge.py                           # Route B + N1000 coast (optional re-fetch)
 python scripts/fetch_marineregions.py                      # Russian 200 nm line, ECS polygons (optional re-fetch)
+python scripts/fetch_gebco.py                              # coarse GEBCO 2020 grid for the schematic seabed (optional re-fetch)
+python scripts/build_seabed.py --render                    # data/build/seabed.json + docs/renders/seabed-schematic.png
 python scripts/polygonise.py                               # data/build/geometry.json
 python scripts/build_zones.py --check                      # data/build/zones.json + REPORT.md
 npm run dev                                                # local dev server

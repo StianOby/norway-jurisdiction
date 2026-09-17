@@ -142,8 +142,8 @@ with full double precision, so agreement is measured, not byte-level.
       identical. → §4.
 - [x] Record coastline source and generalisation level once chosen. → **N1000, 750 m /
       10 km²** (§5); Svalbard/Jan Mayen from the maritime dataset's NPI coastline.
-- [ ] Record source for the schematic seabed depth figures. → **Phase 2** (SPEC §3.3): derive
-      from GEBCO cross-sections; owner to sanity-check.
+- [x] Record source for the schematic seabed depth figures. → **GEBCO 2020 via NOAA ERDDAP**,
+      class map + named levels (§14); owner to sanity-check the levels.
 
 ## 8. Neighbouring states — UN DOALOS survey (2026-09-17)
 
@@ -251,3 +251,49 @@ Kartverket data: NLOD 2.0 / CC BY 4.0 — attribution required in the UI (SPEC �
 coastline inside the maritime dataset is credited by Kartverket to Norsk Polarinstitutt.
 Marine Regions (Flanders Marine Institute): CC BY 4.0 — attribution required (§11).
 Code and data licences are separated: see `data/LICENSE.md` and the repository `LICENSE`.
+
+## 14. Schematic seabed (Phase 2, SPEC §3.3 and §5.2)
+
+The seabed is schematic by decision (SPEC §1). To make its depths *defensible rather than
+invented*, `code/scripts/fetch_gebco.py` fetched a coarse subset of **GEBCO 2020** (GEBCO
+Compilation Group (2020) GEBCO 2020 Grid, doi:10.5285/a29c5465-b138-234d-e053-6c86abc040b9)
+from NOAA CoastWatch's ERDDAP server (dataset `GEBCO_2020`, 15″ grid read with a stride):
+0.25° × 0.5° cell centres over the model bbox, 15375 cells, 807667 bytes, SHA-256
+`68f446ff4d1d46dcee8072476d6d02f4a715a08ba5e2b859d3fc13a7204fc11b`, fetched 2026-09-17T11:42:37+00:00, kept verbatim in `data/raw/gebco/`.
+
+`code/scripts/build_seabed.py` median-filters the grid (3 × 3) and classifies every cell:
+
+| Class | Rule (z = filtered GEBCO elevation, m) |
+|---|---|
+| L land | z ≥ 0 |
+| T Norwegian Trench | z < −250 inside lon 2–12°E, lat 56.5–62.5°N (a nearshore deep — SPEC §5.2 asks for special handling) |
+| S continental shelf | −500 ≤ z < 0 |
+| P slope / plateau | −2500 ≤ z < −500 |
+| A abyssal plain | −3900 ≤ z < −2500 |
+| N deep Arctic basin | z < −3900 |
+
+The class map is `data/build/seabed.json` (one letter per cell). **The depths the model draws
+are not in the data**: they are the named constants `SEABED.levels` in `code/src/config.js`,
+one per class, and the model smooths the level field with a Gaussian
+(`SEABED.smoothingSigmaCells`, currently 0.8 cells ≈ 20–25 km) — that smoothing *is* the
+continental slope. Change a level and the model, the cross-section and the verification render
+follow. The verification render `docs/renders/seabed-schematic.png` overlays the schematic
+surface on GEBCO along seven cross-sections (Møre, Lofoten, Bergen/Norwegian Trench, Skagerrak,
+Barents Sea to the Nansen Basin, Svalbard west coast/Fram Strait, Jan Mayen).
+
+GEBCO statistics per class versus the level currently drawn (for the owner's sanity check):
+
+| Class | cells | GEBCO mean (m) | 10th … 90th percentile | config level (m) |
+|---|---|---|---|---|
+| S | 5112 | -191 | -351 … -44 | -250 |
+| T | 68 | -318 | -393 … -257 | -500 |
+| P | 2508 | -1594 | -2373 … -769 | -1500 |
+| A | 3014 | -3225 | -3794 … -2661 | -3300 |
+| N | 660 | -3987 | -4076 … -3914 | -4000 |
+
+Notes for the owner: (i) the shelf level −250 m sits between the class mean (−191 m, pulled up
+by the shallow North Sea plateau) and the typical Norwegian shelf (200–400 m); (ii) the trench
+level −500 m is deeper than the coarse-cell mean (−318 m) because 0.25° cells average the trench
+axis with its flanks — the axis is 300–700 m; (iii) subsoil thickness 10 km and the airspace
+top 100 km / fade from 80 km are SPEC §5.2 nominal values, in `config.js`. The UI states that the
+seabed is schematic and indicative. GEBCO attribution is in `data/LICENSE.md` and the UI line.

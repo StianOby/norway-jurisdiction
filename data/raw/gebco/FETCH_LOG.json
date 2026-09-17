@@ -1,0 +1,23 @@
+{
+  "fetched_at_utc": "2026-09-17T11:42:37+00:00",
+  "url": "https://coastwatch.pfeg.noaa.gov/erddap/griddap/GEBCO_2020.json?elevation[(55.0):60:(86.0)][(-15.0):120:(46.0)]",
+  "citation": "GEBCO Compilation Group (2020) GEBCO 2020 Grid (doi:10.5285/a29c5465-b138-234d-e053-6c86abc040b9), via NOAA CoastWatch ERDDAP dataset GEBCO_2020",
+  "licence": "GEBCO grids are placed in the public domain and may be used free of charge (GEBCO terms of use); attribution requested",
+  "files": {
+    "gebco2020_0p25x0p5deg.json": {
+      "rows": 15375,
+      "bytes": 807667,
+      "sha256": "68f446ff4d1d46dcee8072476d6d02f4a715a08ba5e2b859d3fc13a7204fc11b",
+      "lat": [
+        55.0,
+        86.0,
+        60
+      ],
+      "lon": [
+        -15.0,
+        46.0,
+        120
+      ]
+    }
+  }
+}

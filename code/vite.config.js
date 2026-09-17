@@ -3,8 +3,8 @@ import { viteSingleFile } from 'vite-plugin-singlefile';
 
 // SPEC §6: single self-contained HTML file. Everything is inlined except
 // CesiumJS, which is loaded from CDN at a pinned exact version in index.html
-// and referenced as the global `Cesium` — it is deliberately not an npm
-// dependency (see CLAUDE.md).
+// and read as the global `Cesium` (globalThis.Cesium) — it is deliberately not
+// an npm dependency and nothing imports 'cesium' (see CLAUDE.md).
 //
 // The Vite root is this directory (code/). The zone data is imported from
 // ../data/build/zones.json — a separately licensed tree (see ../LICENSE.md) —
@@ -13,6 +13,7 @@ import { viteSingleFile } from 'vite-plugin-singlefile';
 export default defineConfig({
   base: './',
   plugins: [viteSingleFile()],
+  json: { stringify: true }, // big JSON (zones.json) inlined as a JSON.parse string: smaller and faster
   server: { fs: { allow: ['..'] } },
   build: {
     outDir: '../dist',
@@ -21,9 +22,5 @@ export default defineConfig({
     assetsInlineLimit: 100_000_000,
     cssCodeSplit: false,
     reportCompressedSize: true,
-    rollupOptions: {
-      external: ['cesium'],
-      output: { globals: { cesium: 'Cesium' } },
-    },
   },
 });
