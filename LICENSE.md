@@ -6,7 +6,7 @@ kept in separate directory trees so that each carries only its own terms.
 | Tree | What it is | Licence | Full terms |
 |---|---|---|---|
 | `code/` | The application (Vite/CesiumJS front end in `code/src/`, `code/index.html`) and the data-pipeline scripts (`code/scripts/`) | **GNU Affero General Public License v3.0** | [`code/LICENSE`](code/LICENSE) |
-| `docs/` | Project brief (`docs/SPEC.md`) and visual-check renders | **GNU AGPL v3.0**, aligned with the code (owner decision 2026-09-17) | [`code/LICENSE`](code/LICENSE) |
+| `docs/` | Project brief (`docs/SPEC.md`) and visual-check renders | **GNU Affero General Public License v3.0** | [`code/LICENSE`](code/LICENSE) |
 | `data/` | Geodata — raw snapshots from Kartverket (via Fiskeridirektoratet and Geonorge), Norsk Polarinstitutt and Marine Regions, and the zone geometry derived from them | **NLOD 2.0 / CC BY 4.0** (Kartverket, Norsk Polarinstitutt) and **CC BY 4.0** (Marine Regions / Flanders Marine Institute) — attribution required | [`data/LICENSE.md`](data/LICENSE.md) |
 
 `README.md` and `CLAUDE.md` at the root are documentation of the code and follow the code's licence.
