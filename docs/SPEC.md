@@ -22,7 +22,7 @@ These are settled. Do not re-litigate them without asking.
 > - Neighbouring states' lines: UN DOALOS deposits first; where DOALOS holds charts only, Marine Regions (CC BY 4.0) verified against the deposited chart. Attribution to Marine Regions is required in the UI.
 > - The Area: the 16 806 km² patch in the north-west Banana Hole in no shelf polygon of any status is asserted as the Area (PROVENANCE §15.1); it continues beyond the model extent.
 > - Contested shelf marker: one neutral extent = the shelf generated from Svalbard, within 200 nm and the Nansen Basin beyond, with no distinction between them; the Svalbard Treaty dispute is not litigated on the map (PROVENANCE §15.2).
-> - §4.1 citations: petroleumsloven § 1-6 and forskrift 3. juni 1977 nr. 6 are dropped (owner, 2026-09-17); forskrift 23. mai 1980 nr. 4 is quoted in full. Kontinentalsokkelen cites lov 18. juni 2021 nr. 89 § 1 for "kontinentalsokkelloven" (PROVENANCE §16.3, pending confirmation).
+> - §4.1 citations: petroleumsloven § 1-6 is dropped (owner, 2026-09-17); the two zone regulations (1977 nr. 6, 1980 nr. 4) are quoted in full. Kontinentalsokkelen cites lov 18. juni 2021 nr. 89 § 1 for "kontinentalsokkelloven" (PROVENANCE §16.3, pending confirmation).
 > - §6 layout: everything AGPL-licensed (front end, scripts, `package.json`, the AGPL text) lives under `code/`; `data/` (NLOD/CC BY) and `docs/` (AGPL, aligned with the code) stay at the root; the root `LICENSE.md` maps the three. `npm` runs inside `code/`; `dist/` is written at the root. Hosting: GitHub Pages via GitHub Actions.
 
 | Decision | Choice |

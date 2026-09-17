@@ -1,5 +1,5 @@
 {
-  "fetched_at_utc": "2026-09-17T13:10:34+00:00",
+  "fetched_at_utc": "2026-09-17T13:12:25+00:00",
   "api": "https://api.lovdata.no/v1/publicData/list",
   "licence": "NLOD 2.0 (Lovdata: 'Deling av datasett via API ... under en NLOD 2.0-lisens', lovdata.no/info/api)",
   "packages": {
@@ -71,6 +71,17 @@
       "legacyID": "LOV-2021-06-18-89",
       "lastChangeInForce": "",
       "label": "lov om Norges kontinentalsokkel"
+    },
+    "sf-19770603-0006.xml": {
+      "dokid": "SF/forskrift/1977-06-03-6",
+      "package": "gjeldende-sentrale-forskrifter.tar.bz2",
+      "member": "sf/sf-19770603-0006.xml",
+      "bytes": 9822,
+      "sha256": "161e51921506d8e4078603c83a83418727ad8b242bc98af8086a143c320bb500",
+      "title": "Forskrift om fiskevernsone ved Svalbard.",
+      "legacyID": "FOR-1977-06-03-6",
+      "lastChangeInForce": "2001-03-02",
+      "label": "forskrift om fiskevernsone ved Svalbard"
     },
     "sf-19800523-0004.xml": {
       "dokid": "SF/forskrift/1980-05-23-4",

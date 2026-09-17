@@ -1,8 +1,8 @@
 {
  "meta": {
-  "built_at_utc": "2026-09-17T13:10:42+00:00",
+  "built_at_utc": "2026-09-17T13:12:32+00:00",
   "sources": {
-   "lovdata": "2026-09-17T13:10:34+00:00",
+   "lovdata": "2026-09-17T13:12:25+00:00",
    "unclos": "2026-09-17T12:50:04+00:00",
    "hr": "2026-09-17T12:49:55+00:00"
   },
@@ -136,6 +136,32 @@
     ],
     "items": null
    }
+  },
+  {
+   "source": "forskrift 3. juni 1977 nr. 6",
+   "title": "Forskrift om fiskevernsone ved Svalbard.",
+   "citedAs": "forskrift 3. juni 1977 nr. 6",
+   "quote": "§ 1.\nDet opprettes en fiskevernsone i havområdene utenfor Svalbard for bevaring av de levende ressurser i havet og regulering av fiske og fangst.\nYttergrensen for fiskevernsonen skal gå i en avstand av 200 nautiske mil (én nautisk mil = 1.852 meter) fra de grunnlinjer som er fastsatt, eller der grunnlinjer ikke er fastsatt, fra linjer som forbinder øygruppenes ytterste punkter.\nFiskevernsonen begrenses videre av yttergrensen for den økonomiske sone utenfor det norske fastland, slik denne er fastsatt ved kgl.res. 17. desember 1976.\nDer fiskevernsonen støter opp mot annen stats myndighetsområde, skal grensen trekkes i samsvar med avtale.\n§ 2.\nBestemmelsene i § 3 i lov av 17. desember 1976 nr. 91 om Norges økonomiske sone kommer foreløpig ikke til anvendelse i fiskevernsonen.\n§ 3.\nFiskeridepartementet gis fullmakt til å fastsette:\n1. Forbud mot å drive fiske i nærmere bestemte områder for å beskytte oppveksten av ungfisk og sikre rekruttering til bestandene.\nForbudet kan gjelde hele året eller deler av året.\n2. Bestemmelser om redskapsreguleringer og minstemål for fisk.\n3. Største årlige tillatte fangstmengde og fiskeinnsats for hvert enkelt fiskeslag.\nFangstmengden og fiskeinnsatsen kan på hensiktsmessig måte fordeles over året, og på land som kan delta i fisket.\n4. Bestemmelser om hvilke lands fartøy som har adgang til drive fiske.\n5. Bestemmelser om registrering og andre vilkår for å delta i fisket.\n6. Bestemmelser om maskevidde, dimensjoner og utforming av fiskeredskaper.\n7. Bestemmelser om tillatt bifangst.\n8. Forbud mot eller regulering av fangstmåter og bruk av redskaper.\n9. Forbud mot en bestemt anvendelse av fangsten.\n10. Forbud mot å ha bestemte redskaper om bord og oppbevaring av fiskeredskaper som ikke kan nyttes i det område fartøyet befinner seg.\n11. Bestemmelser om oppgaveplikt og rapporteringsplikt vedrørende fangstkvantum, fiskeslag, fangsttid, fangstområde, fiskeredskap o.l.\n12. Bestemmelser om gjennomføring av kontroll, herunder plikter for fartøyets fører/eier.\n13. Bestemmelser om plikt til å ha og anvende bestemt utstyr for kontroll, rapportering og posisjonsbestemmelse. Departementet kan bestemme i hvilken utstrekning fartøy skal dekke kostnadene ved anskaffelse, installasjon og bruk av slikt utstyr.\n§ 4.\nForsettlig eller uaktsom overtredelse av bestemmelser gitt i eller i medhold av denne forskrift er gjenstand for straff og inndragning etter bestemmelsene i § 8 og § 9 i lov av 17. desember 1976 nr. 91 om Norges økonomiske sone.\n§ 5.\nDisse forskrifter trer i kraft 15. juni 1977.",
+   "quoteLang": "no",
+   "url": "https://lovdata.no/dokument/SF/forskrift/1977-06-03-6/§1",
+   "provenance": {
+    "publisher": "Lovdata",
+    "dokid": "SF/forskrift/1977-06-03-6",
+    "file": "data/raw/legal/lovdata/sf-19770603-0006.xml",
+    "sha256": "161e51921506d8e4078603c83a83418727ad8b242bc98af8086a143c320bb500",
+    "lastChangeInForce": "2001-03-02",
+    "package": "gjeldende-sentrale-forskrifter.tar.bz2",
+    "packageLastModified": "2026-09-17T01:32:00Z",
+    "selector": [
+     "§1",
+     "§2",
+     "§3",
+     "§4",
+     "§5"
+    ],
+    "items": null
+   },
+   "selectionNote": "Quoted in full (§§ 1–5); owner instruction 2026-09-17."
   },
   {
    "source": "forskrift 23. mai 1980 nr. 4",

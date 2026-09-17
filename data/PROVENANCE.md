@@ -349,20 +349,20 @@ searching the titles inside the fetched Lovdata packages.
 
 | Directory | Source | What is kept | Licence / terms |
 |---|---|---|---|
-| `raw/legal/lovdata/` | Lovdata, free data packages via `api.lovdata.no/v1/publicData` (`gjeldende-lover` 2026-09-15, `gjeldende-sentrale-forskrifter` 2026-09-17) | the six documents kept (XHTML, byte for byte); `publicData-list.json`; `FETCH_LOG.json` with the archives' SHA-256 | NLOD 2.0 (Lovdata, lovdata.no/info/api) |
+| `raw/legal/lovdata/` | Lovdata, free data packages via `api.lovdata.no/v1/publicData` (`gjeldende-lover` 2026-09-15, `gjeldende-sentrale-forskrifter` 2026-09-17) | the seven documents kept (XHTML, byte for byte); `publicData-list.json`; `FETCH_LOG.json` with the archives' SHA-256 | NLOD 2.0 (Lovdata, lovdata.no/info/api) |
 | `raw/legal/unclos/` | UN Division for Ocean Affairs and the Law of the Sea, `un.org/depts/los/convention_agreements/texts/unclos/` | Parts I, II, V, VI, VII, XI s. 2 and XVI as one HTML file each, plus the table of contents | UN publication of the Convention text; the owner records the terms |
 | `raw/legal/hr/` | Norges Høyesterett, domstol.no | HR-2023-491-P: the judgment (PDF) and the Court's English translation (PDF, "provided for information purposes only") | published by the Court; the owner records the terms |
 
 Documents fetched from Lovdata: `NL/lov/2003-06-27-57` (territorialfarvannsloven),
 `NL/lov/1976-12-17-91` (økonomiske soneloven), `NL/lov/2021-06-18-89` (lov om Norges
 kontinentalsokkel), `NL/lov/1963-06-21-12` (lov om undersjøiske naturforekomster, fetched, not
-cited), `NL/lov/1993-06-11-101` (luftfartsloven), `SF/forskrift/1980-05-23-4` (fiskerisonen ved
-Jan Mayen). petroleumsloven and the Svalbard fisheries-protection-zone regulation were fetched at
-first and dropped by the owner (§16.3).
+cited), `NL/lov/1993-06-11-101` (luftfartsloven), `SF/forskrift/1977-06-03-6` (fiskevernsonen),
+`SF/forskrift/1980-05-23-4` (fiskerisonen ved Jan Mayen). petroleumsloven was fetched at first and
+dropped by the owner (§16.3).
 
 ### 16.2 Extraction
 
-`build_legal.py` writes `data/build/legal.json` (24 provisions) and the review copy
+`build_legal.py` writes `data/build/legal.json` (25 provisions) and the review copy
 `data/build/LEGAL.md`. Lovdata provisions are taken element by element from the XHTML
 (`article.legalArticle` / `section` by `data-name`), keeping headings, ledd and list markers and
 dropping amendment notes and footnote markers. UNCLOS articles are parsed from the DOALOS pages
@@ -376,7 +376,7 @@ paragraphs 16 and 220 of HR-2023-491-P extracted from the Court's PDF are identi
 whitespace normalisation, to Lovdata's HTML publication of the judgment.
 
 `build_zones.py` merges the provisions into every citation by `source` (+ `pinpoint`) and fails
-`--check` if any citation lacks a fetched quote. 78 citations, all filled.
+`--check` if any citation lacks a fetched quote. 80 citations, all filled.
 
 ### 16.3 Selection choices — for the owner to confirm (SPEC §9 Phase 3 exit criterion)
 
@@ -388,8 +388,8 @@ Recorded as `selectionNote` in `legal.json` and shown in `LEGAL.md`:
    is fetched but not cited.
 2. ~~petroleumsloven § 1-6~~ — **dropped by the owner (2026-09-17)**; the shelf cites the 2021
    act, UNCLOS arts 76–79 and HR-2023-491-P.
-3. ~~forskrift 3. juni 1977 nr. 6~~ — **dropped by the owner (2026-09-17)**; `svalbard-fpz`
-   cites HR-2023-491-P avsnitt 16 only. The document was removed from `data/raw/legal/lovdata/`.
+3. **forskrift 3. juni 1977 nr. 6** — dropped and reinstated the same day; **quoted in full**
+   (§§ 1–5) on `svalbard-fpz`.
 4. **forskrift 23. mai 1980 nr. 4** — dropped and reinstated the same day; **quoted in full**
    (items 1–5) on `janmayen-fisheries-zone`.
 5. **HR-2023-491-P** on `svalbard-fpz`: paragraph 16 (how the zone was established; "ikke-

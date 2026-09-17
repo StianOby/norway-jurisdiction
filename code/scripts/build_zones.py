@@ -93,8 +93,8 @@ def registry() -> list[dict]:
     snokrabbe = "HR-2023-491-P (Snøkrabbe II)"
     zones.append(zone("svalbard-fpz", "svalbard", ["watercolumn"],
                       "Fiskevernsonen ved Svalbard", "Fisheries protection zone around Svalbard",
-                      [cit(snokrabbe, pinpoint="avsnitt 16")],
-                      [cit(snokrabbe, pinpoint="avsnitt 16")],
+                      [cit("forskrift 3. juni 1977 nr. 6"), cit(snokrabbe, pinpoint="avsnitt 16")],
+                      [cit("forskrift 3. juni 1977 nr. 6"), cit(snokrabbe, pinpoint="avsnitt 16")],
                       contested=True,
                       notes=["A fisheries protection zone, not an exclusive economic zone (SPEC §2.3).",
                              "contested: true — owner instruction 2026-09-17 (neutral marker only, SPEC §1/§10.5)."]))
