@@ -80,6 +80,52 @@ export const HATCH = { period: 14, width: 5 }; // pixels
 
 export const CAMERA_HOME = { lon: 12.0, lat: 60.0, height: 5_500_000, heading: 0, pitch: -70 };
 
+// Order of the strata in a vertical column, top to bottom (SPEC §4.2, §7 column query).
+export const STRATA_ORDER = ['airspace', 'watercolumn', 'seabed', 'subsoil'];
+
+// Preset viewpoints (SPEC §7): a camera and, where the view is about a profile, the transect the
+// cross-section shows. Transect endpoints are viewing choices, not legal geometry: each was chosen
+// so that the profile crosses the zones named in the comment (checked against zones.json).
+export const VIEWS = {
+  'mainland-section': { // Møre → north-west: internal waters, TS, contiguous zone, EEZ, high seas over the shelf
+    camera: { lon: 6.0, lat: 54.0, height: 3_800_000, heading: 0, pitch: -68 },
+    transect: [[8.5, 63.4], [-1.5, 68.5]],
+  },
+  svalbard: { // Isfjorden → north: TS, fisheries protection zone, shelf, high seas beyond 200 nm (Nansen Basin)
+    camera: { lon: 16.0, lat: 68.0, height: 4_000_000, heading: 0, pitch: -68 },
+    transect: [[15.0, 78.2], [15.0, 85.5]],
+  },
+  janmayen: { // Jan Mayen → north-east: TS, fisheries zone over the shelf, high seas over the Area
+    camera: { lon: -6.0, lat: 62.0, height: 3_500_000, heading: 0, pitch: -68 },
+    transect: [[-8.7, 71.0], [-1.0, 74.8]],
+  },
+  'barents-delimitation': { // Finnmark → north across the Loop Hole, then the Svalbard zone; the 2010 treaty line to the east
+    camera: { lon: 33.0, lat: 63.0, height: 4_000_000, heading: 0, pitch: -68 },
+    transect: [[28.0, 71.0], [30.0, 75.5]],
+  },
+  'shelf-outer-limit': { // Lofoten → north-west: EEZ, high seas over the shelf beyond 200 nm (Banana Hole), Jan Mayen zone
+    camera: { lon: 5.0, lat: 58.0, height: 4_200_000, heading: 0, pitch: -68 },
+    transect: [[14.5, 68.0], [2.0, 71.5]],
+  },
+};
+
+// Cross-section drawing (SPEC §7). The water column and seabed profile are drawn at the slider's
+// exaggeration with the same horizontal scale as the distance axis (capped to what fits the
+// height, and labelled so); the airspace and subsoil bands are fixed shares of the plot height —
+// the airspace marked as not to scale (a scale break), the subsoil fading out with no floor.
+export const SECTION = {
+  samples: 480, // points along the transect
+  airspaceShare: 0.22, // of the plot height, at least
+  subsoilShare: 0.2, // of the plot height: the open-ended subsoil band
+  minHeight: 120, // px — the canvas fills its box; never smaller than this
+  seabedBand: 6, // px — the seabed stratum drawn as a band of this thickness on the profile
+  margin: { top: 18, right: 14, bottom: 34, left: 46 }, // px
+  hatch: { period: 9, width: 3 }, // px, contested marker (visual only, SPEC §1)
+};
+
+// The column-query probe on the globe: a vertical line through the whole column.
+export const PROBE = { colour: '#ffffff', width: 2 };
+
 // Globe translucency inside MODEL_BBOX so volumes below the sea surface are visible.
 export const GLOBE = { frontFaceAlpha: 0.55, backFaceAlpha: 1.0, undergroundColor: '#5b7f9b', translucentInsideBboxOnly: false };
 

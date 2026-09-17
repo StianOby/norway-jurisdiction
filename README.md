@@ -43,6 +43,14 @@ npm run dev                                                # local dev server
 npm run build                                              # ../dist/index.html — the single-file bundle
 ```
 
+## Using it
+
+Click anywhere in the model for the **column** at that point — every regime from the airspace down
+to the subsoil, each with its summary and the verbatim provisions. **Tverrsnitt / Cross-section**
+draws a profile along a preset transect or two points you click; clicking in the profile queries
+that column. **Del lenke / Share link** copies a URL that reopens the current view, layers,
+exaggeration, language, column and section — use it for course links.
+
 ## Hosting
 
 `main` is built and deployed to GitHub Pages by `.github/workflows/pages.yml`

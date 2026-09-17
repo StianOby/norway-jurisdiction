@@ -23,6 +23,8 @@ Owner amendments to §1 are recorded at the top of §1 itself (dated).
 - `data/raw/legal/` — the fetched legal sources (Lovdata XHTML, DOALOS HTML, Supreme Court PDFs);
   `data/legal/summaries.json` — hand-maintained zone summaries with an approval status.
 - `code/src/seabed.js` (not in §6's list): the schematic depth field sampled by `strata.js`.
+- `code/src/urlState.js` (not in §6's list; §6 puts share-state in `ui.js`): read/write of the query
+  string. `ui.js` only builds the panels.
 - `data/raw/gebco/` — coarse GEBCO 2020 subset (public domain), only for the seabed class map.
 - `data/raw/marineregions/` — third source (CC BY 4.0), used only where Kartverket has nothing.
 - Hosting: GitHub Pages from `.github/workflows/pages.yml` (builds `code/`, deploys `dist/`).
@@ -93,6 +95,22 @@ EPSG:25833 instead (Krüger series; validated in PROVENANCE §4). Don't add pypr
 - **Summaries ship only when approved**: `data/legal/summaries.json` entries with `status: "draft"`
   are dropped by `build_zones.py` (summary = "" and `summaryStatus`). Legal characterisation is the
   owner's (§10.4); drafts cite the quoted provision in every sentence.
+- **Column query is point-in-polygon in lon/lat** (`columnQuery.js`), not Cesium picking: the volumes
+  are not pickable and a click must report the whole stack. Order is `STRATA_ORDER` (config.js), top
+  to bottom; a stratum may hold several zones (contiguous zone + EEZ). `stack.marked` carries the
+  ids whose `contestedExtent` covers the point — hatched swatch/band, no text (SPEC §1/§10.5).
+- **Cross-section scale** (`crossSection.js`): horizontal = distance axis; water column and seabed
+  profile at the slider's exaggeration, capped to what fits the canvas height and then labelled
+  "fitted"; the airspace is a fixed band with a scale break ("not to scale"); the subsoil is a fixed
+  fading band with no floor. Transect endpoints in `config.js::VIEWS` are viewing choices, not
+  geometry — each was checked to cross the zones its comment names.
+- **URL state** (`urlState.js`): `view`, `cam=lon,lat,height,heading,pitch`, `ex`, `hide=…`, `lang`,
+  `q=lon,lat` (column query), `xs=lon,lat,lon,lat` (transect), `panel=0`. Written with
+  `replaceState` after every change (camera `moveEnd`, debounced); "Del lenke" copies it. `q` and
+  `xs` are only written while their panel is open.
+- **Panel budget on phones** (≤ 600 px): the column and section panels share one bottom sheet of
+  40 vh above the attribution (whose height is measured into `--attr-h`; it is clamped to two lines
+  and expands on tap); opening a sheet collapses the main panel.
 - Commit messages: imperative, English. Data re-fetches get their own commit with the date.
 
 ## Gotchas
@@ -156,9 +174,19 @@ review copy `LEGAL.md`, cross-checked against the DOALOS PDF and Lovdata's HTML 
 `build_zones.py` merges them (78 citations, all quoted; UNCLOS arts 55–58 added to both fisheries zones; petroleumsloven § 1-6, luftfartsloven § 1-1, UNCLOS art. 303 and judgment paragraph 16 dropped by the owner; the two zone regulations quoted in full; summaries cite UNCLOS first). Summaries for all 15 zones in
 `data/legal/summaries.json` reviewed and **approved by the owner** (30/30 payloads ship); judgment
 paragraph 220 confirmed. **Phase 3 exit criterion met.** All §16.3 choices confirmed by the owner
-(kontinentalsokkelloven = 2021 act § 1; the Court's English translation stays on `en`, to be shown
-with the Court's caveat in Phase 4; the Court's PDFs are public domain as official government
-documents). Still open: licence wording for the DOALOS text in `data/LICENSE.md`. The UI does not yet show legal text (Phase 4).
+(kontinentalsokkelloven = 2021 act § 1; the Court's English translation stays on `en`, shown with
+the Court's caveat; the Court's PDFs are public domain as official government documents). Still
+open: licence wording for the DOALOS text in `data/LICENSE.md`.
 
-Next: Phase 4 (column query with citations + quotes + summaries, cross-section, preset viewpoints,
-URL state), Phase 5 (device matrix, Canvas test).
+**Phase 4 built (same day, on the owner's go):** column query (`columnQuery.js`: click → probe line
++ panel with every regime top to bottom, summary, `<details>` quotes, source links; on `en` the
+Court's translation under its own caveat), cross-section (`crossSection.js`: canvas profile along
+a transect, presets or two clicks in the model, click in the section → column there), preset
+views (`config.js::VIEWS`, cameras above the 20x airspace), URL state + "Del lenke"
+(`urlState.js`), phone layout (one 40 vh sheet). Verified in headless Chrome at 1400×900 and
+375×667 (`docs/renders/app-section-*.png`, `app-phone-section.png`): no page errors, state
+restores from the URL. Bundle 1 032 KB raw / 385 KB gzip — over SPEC §8's 900 KB raw target
+(the zone geometry alone is ~700 KB); gzip is what the wire carries. Not yet reviewed by the owner.
+
+Next: owner review of Phase 4 (labels, presets, section readability), then Phase 5 (device
+matrix incl. Firefox mobile, Canvas iframe test, CSP allow-list).
