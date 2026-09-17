@@ -1,0 +1,2 @@
+/* Phase 2+. Touch-first; panels ≤ ~40% of a 375 px viewport (SPEC §7). */
+html, body, #cesiumContainer { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; }

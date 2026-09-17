@@ -1,0 +1,131 @@
+# CLAUDE.md — working notes for this repo
+
+The project brief is [docs/SPEC.md](docs/SPEC.md). Read it before doing anything.
+**§1 (fixed decisions) and §10 (standing rules) are binding.** This file does not
+restate the spec; it records conventions, gotchas and where the work stands.
+Owner amendments to §1 are recorded at the top of §1 itself (dated).
+
+## Layout deviations from SPEC §6
+
+- **All AGPL material lives under `code/`** (owner decision 2026-09-17, for clean licence
+  separation): `code/src/`, `code/index.html`, `code/scripts/`, `code/package.json`,
+  `code/vite.config.js`, `code/LICENSE`. `data/` (NLOD/CC BY) and `docs/` (AGPL, aligned
+  with the code) stay at the root; the root `LICENSE.md` maps the three trees. `npm` commands
+  run inside `code/`; the scripts anchor `data/` to the repo root (`ROOT`), so they run from
+  anywhere; `vite build` writes `../dist/`.
+- `SPEC.md` lives at `docs/SPEC.md` (owner's choice, commit `8af848d`), not at root.
+- `docs/renders/` holds the visual-check PNGs (coastline sources, tolerance comparisons, zone overview).
+- `data/raw/geonorge/` holds the Route B (Geonorge) sources next to the Route A snapshot.
+- `code/scripts/` has, beyond §6's list: `fetch_geonorge.py` (Route B), `fetch_marineregions.py`
+  (Russian 200 nm line, ECS polygons), `verify_geonorge.py` (Route A ↔ B cross-check),
+  `gml.py` (GML reader), `proj.py` (transverse Mercator).
+- `data/raw/marineregions/` — third source (CC BY 4.0), used only where Kartverket has nothing.
+- Hosting: GitHub Pages from `.github/workflows/pages.yml` (builds `code/`, deploys `dist/`).
+- Everything else follows §6.
+
+## Toolchain (pinned)
+
+| Thing | Version | Notes |
+|---|---|---|
+| Node | 24.x (Vite 8 needs ≥22.12) | |
+| Vite | 8.3.0 | `code/vite.config.js`, `vite-plugin-singlefile` 2.3.3 |
+| CesiumJS (CDN) | **1.145.0** exact | SPEC §6: never a floating tag. `https://cdn.jsdelivr.net/npm/cesium@1.145.0/Build/Cesium/` (fallback `cesium.com/downloads/cesiumjs/releases/1.145/`). Not an npm dependency; Vite treats `cesium` as an external global. |
+| Python | 3.13 (Microsoft Store build) | scripts only |
+| shapely | 2.1 | the only third-party Python dependency (`code/scripts/requirements.txt`) |
+
+**pyproj does not work on this machine**: Windows Application Control blocks its
+PROJ DLL wherever it is installed (user site, venv). `code/scripts/proj.py` implements
+EPSG:25833 instead (Krüger series; validated in PROVENANCE §4). Don't add pyproj back.
+
+## Conventions
+
+- **Python scripts are idempotent CLIs** with `--help`; they read `data/raw/` and write
+  `data/build/`. Never write into `data/raw/` except from the fetch scripts, deliberately.
+- **Raw snapshot is byte-exact.** `data/raw/*.geojson` are ArcGIS response bodies verbatim
+  (compact JSON, UTF-8, no BOM, no trailing newline). `fetch_boundaries.py --compare data/raw`
+  must report "all files byte-identical" after a re-fetch. Never re-serialise these files.
+- **Coordinates are text, not floats, all the way through.** `polygonise.py` indexes the
+  Route A coordinate *tokens* and re-emits them verbatim; computed vertices (coastline,
+  intersections) are `%.6f`. `build_zones.py --check` proves every vertex of layers 0/8/9/10
+  that bounds a modelled zone appears byte-identical in `zones.json`. Anything that would
+  round-trip those numbers through `float` → `json.dumps` is a bug.
+- **Simplification is per source line, shared by every polygon** (`SourceIndex.keep`), so
+  polygons that share the 12 nm line get the same vertices — no slivers. Exempt layers:
+  0 (baselines), 8/10 (delimitation), 9 (shelf outer limit), 11 (other states' 200 nm).
+- **Topology in EPSG:25833, output in EPSG:4326** (§6.1). Output coordinates are never taken
+  from a projection round-trip; they come from source text or from `%.6f` of the inverse.
+- **Zone ids** are stable kebab-case (`mainland-territorial-sea`, `svalbard-fpz`, …); the
+  registry is `build_zones.py::registry()`. Renaming one is a breaking change. Extensions to
+  the SPEC §4 interface: `geography: 'all'` (shelf, high seas, the Area, airspace zones),
+  `derivedFrom` (airspace beyond the TS = union of member zones, no duplicated geometry),
+  `notModelled` (`the-area`: horizontal; `high-seas`: beyond-outer-limit), `contestedExtent` /
+  `contestedExtentInterval` on `continental-shelf` (marker inside the extent; the interval is the
+  difference between two readings and renders as "disputed extent" with a one-line neutral
+  mention of both readings — owner instruction), `candidateExtent` on `the-area` (a data
+  finding, not an asserted extent), `provenance`, `notes`. `contested: true` = whole zone.
+- **Three geodata sources, in order of authority**: Kartverket (Route B polygons, Route A text),
+  UN DOALOS (checked; charts only for Russia), Marine Regions (only the Russian 200 nm line, the
+  Special Area ring and ECS polygons). Never take Norwegian lines from Marine Regions — their
+  Svalbard 200 nm line is an old Kartverket version, up to 2.5 km off.
+- **No overlays.** Layers 1–4 (1/4/6/10 nm) are indexed but nothing is emitted from them.
+- Numeric constants for Phase 2 (stratum depths, detents, colours) live in `code/src/config.js` only.
+- Bilingual strings: `no` / `en`. Norwegian statutory quotations stay Norwegian in both modes.
+  **No `quote` field is filled in before Phase 3's fetch** (§10.1) — not even statute titles
+  or act numbers: citation `source` strings are exactly SPEC §4.1's short forms.
+- Commit messages: imperative, English. Data re-fetches get their own commit with the date.
+
+## Gotchas
+
+- **Route B ≠ Route A in scope.** The Geonorge GML has official zone *polygons*
+  (`Sjøterritorium`, `IndreFarvann`, `TilstøtendeSone`, `NorgesØkonomiskeSone`,
+  `Fiskevernsone`, `Fiskerisone`, `Kontinentalsokkel`, `Territorialområde`), `Riksgrense`,
+  coarse `Kystkontur`/`Landareal`, a Bouvetøya baseline, and `grensestatus`/`gyldigFra`
+  per feature. The ArcGIS mirror has only the 12 line layers. Route B is the source of
+  truth for zone extents (owner decision); Route A supplies full-precision coordinates.
+- Route B GML is EPSG:4258 with **lat lon axis order**, 6 decimals; rings are
+  `gml:LinearRing` *or* `gml:Ring` of several `curveMember` LineStrings — `gml.py` handles both.
+- Kartverket's polygons contain nodes *on* delimitation lines that are not vertices of the
+  line (e.g. `[38.000000, 77.322179]` where EEZ and FPZ meet the Norway–Russia line).
+  `polygonise.py` accepts those if within 1 m of an exempt segment and logs them in `stats`.
+- Line ends that should meet differ by ~0.1 mm between layers 7 and 11; the high-seas
+  network snaps them (1 m) or `polygonize` never closes the Banana Hole.
+- Jan Mayen's baseline is partly the low-water line: its territorial-sea inner ring and
+  internal-waters polygons contain coast vertices. Handled explicitly (`coast=True`).
+- N1000/N250 cover the mainland only. Svalbard/Jan Mayen coastlines come from the maritime
+  dataset (Norsk Polarinstitutt). Kartverket's own mainland `Kystkontur` there is crude (1997).
+- Route A layer 9 has 3 vertices east of the Norway–Russia line and layer 10 ends at treaty
+  point 8 beyond the outer limit; they bound nothing Norwegian and are not emitted (WARN, not FAIL).
+- The Fiskeridirektoratet mirror returns `MultiLineString` for some features; layer 11
+  carries the full Kartverket attribute schema; `NAVN` is truncated at ~60 chars.
+- Windows: `core.autocrlf=true`; `.gitattributes` forces LF for data and source files.
+  The PowerShell console mangles `ø/å`; set `PYTHONIOENCODING=utf-8` when printing them.
+- The Bash tool's heredocs choke on some multi-line Python with quotes — write patch
+  scripts with the Write tool and run them, rather than fighting the shell.
+- Three IndreFarvann features share the name "Indre farvann ved Jan Mayen": never key
+  Route B features by name alone.
+
+## State of play
+
+_Update this section at the end of every session._
+
+**2026-09-17 (session 1) — Phase 1 complete after three review rounds; awaiting owner review of
+the remaining questions.**
+
+Done: repo laid out per §6; Vite 8 + singlefile skeleton (src stubs only, no Cesium code);
+Route A fetch script reproduces the snapshot byte-for-byte; Route B fetched and cross-checked
+(max 0.062 m); N1000 coastline at 300 m / islands ≥ 3 km²; Marine Regions fetched for the Loop
+Hole and verified against Russia's UN-deposited chart (`docs/renders/loop-hole-chart-overlay.png`);
+`polygonise.py` + `build_zones.py --check` produce a validated `data/build/zones.json`
+(15 zones, no overlays, 32 396 vertices, 856 KB raw / ~330 KB gzip) with byte-identical
+baselines/delimitation lines; `PROVENANCE.md` §1–13 records everything incl. three rounds of
+owner decisions; SPEC §1 carries the amendment box (§4.1 EEZ strata, §8 budget, scope, lines).
+Nothing committed yet — the owner reviews first.
+
+Open questions for the owner (PROVENANCE §12): the Area candidate (assert or keep as candidate);
+confirm the two contested readings; the Loop Hole sliver caveat.
+
+Next (Phase 2, SPEC §9): `code/src/config.js` constants, viewer bootstrap, extruded volumes,
+exaggeration slider; seabed profile figures from GEBCO for the owner to sanity-check. UI must
+carry a scope note (mainland, Svalbard, Jan Mayen only) and attribution to Kartverket, Norsk
+Polarinstitutt and Marine Regions. Phase 3 fills every `quote` from Lovdata/UNCLOS/HR-2023-491-P
+via `code/scripts/fetch_legal.py`.
