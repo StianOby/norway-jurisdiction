@@ -39,17 +39,6 @@
       "lastChangeInForce": "2017-07-01",
       "label": "økonomiske soneloven"
     },
-    "nl-19930611-101.xml": {
-      "dokid": "NL/lov/1993-06-11-101",
-      "package": "gjeldende-lover.tar.bz2",
-      "member": "nl/nl-19930611-101.xml",
-      "bytes": 810927,
-      "sha256": "a779977aa8fb6be1dc5818c7632af04a97ba8365e6d1b6ba7e3b0274daa01c6d",
-      "title": "Lov om luftfart (luftfartsloven)",
-      "legacyID": "LOV-1993-06-11-101",
-      "lastChangeInForce": "2026-07-01",
-      "label": "luftfartsloven"
-    },
     "nl-20030627-057.xml": {
       "dokid": "NL/lov/2003-06-27-57",
       "package": "gjeldende-lover.tar.bz2",

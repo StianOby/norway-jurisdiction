@@ -82,8 +82,8 @@ def registry() -> list[dict]:
                           [cit(f"{tfl} §§ 1–2"), unclos("art. 2"), unclos("art. 3"), unclos("art. 17")]))
     zones.append(zone("mainland-contiguous-zone", "mainland", ["watercolumn"],
                       "Tilstøtende sone", "Contiguous zone",
-                      [cit(f"{tfl} § 4"), unclos("art. 33"), unclos("art. 303")],
-                      [cit(f"{tfl} § 4"), unclos("art. 33"), unclos("art. 303")],
+                      [cit(f"{tfl} § 4"), unclos("art. 33")],
+                      [cit(f"{tfl} § 4"), unclos("art. 33")],
                       notes=["Mainland only: no contiguous zone has been established for Svalbard or Jan Mayen (SPEC §2.3)."]))
     eez = "lov om Norges økonomiske sone § 1"
     zones.append(zone("mainland-eez", "mainland", ["watercolumn"],
@@ -119,8 +119,8 @@ def registry() -> list[dict]:
                       notes=["Extent asserted by the owner (2026-09-17, round 4): high seas (Marine Regions) inside the model extent whose seabed lies in no extended-continental-shelf polygon of any status (Marine Regions ECS v2) and outside Norway's shelf (Kartverket) — one 16 806 km² patch in the north-west Banana Hole. The Area continues beyond the model extent — see data/PROVENANCE.md §10.10, §15."]))
     zones.append(zone("national-airspace", "all", ["airspace"],
                       "Nasjonalt luftrom", "National airspace",
-                      [cit("luftfartsloven § 1-1"), unclos("art. 2(2)")],
-                      [cit("luftfartsloven § 1-1"), unclos("art. 2(2)")]))
+                      [unclos("art. 2(2)")],
+                      [unclos("art. 2(2)")]))
     zones.append(zone("airspace-beyond-territorial-sea", "all", ["airspace"],
                       "Luftrom utenfor sjøterritoriet", "Airspace beyond the territorial sea",
                       [unclos("art. 58(1)"), unclos("art. 87(1)(b)")], [unclos("art. 58(1)"), unclos("art. 87(1)(b)")],

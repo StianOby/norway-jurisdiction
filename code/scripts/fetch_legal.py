@@ -43,25 +43,24 @@ USER_AGENT = "norway-jurisdiction/0.1 (teaching model, UiO)"
 LOVDATA_API = "https://api.lovdata.no/v1/publicData"
 LOVDATA_PACKAGES = ("gjeldende-lover.tar.bz2", "gjeldende-sentrale-forskrifter.tar.bz2")
 # DokIDs found by searching the titles in the fetched packages on 2026-09-17 (not from memory):
-# "territorialfarvann", "økonomiske sone", "kontinentalsokkel", "luftfart", "fiskevernsone",
-# "fiskerisone". The label is a reading aid only; the title that ships comes from the document
-# itself. (petroleumsloven was fetched at first and dropped by the owner, 2026-09-17.)
+# "territorialfarvann", "økonomiske sone", "kontinentalsokkel", "fiskevernsone", "fiskerisone".
+# The label is a reading aid only; the title that ships comes from the document itself.
+# (petroleumsloven and luftfartsloven were fetched at first and dropped by the owner, 2026-09-17.)
 LOVDATA_DOCS = {
     "NL/lov/2003-06-27-57": "territorialfarvannsloven",
     "NL/lov/1976-12-17-91": "økonomiske soneloven",
     "NL/lov/2021-06-18-89": "lov om Norges kontinentalsokkel",
     "NL/lov/1963-06-21-12": "lov om undersjøiske naturforekomster (1963)",
-    "NL/lov/1993-06-11-101": "luftfartsloven",
     "SF/forskrift/1977-06-03-6": "forskrift om fiskevernsone ved Svalbard",
     "SF/forskrift/1980-05-23-4": "forskrift om opprettelse av fiskerisone ved Jan Mayen",
 }
 
 # ---- UNCLOS -------------------------------------------------------------------------------
 UNCLOS_BASE = "https://www.un.org/depts/los/convention_agreements/texts/unclos/"
-# Part files that contain the articles cited in SPEC §4.1 (art. 1; 2, 3, 8, 17, 33; 55–58;
-# 76–79; 86, 87; 136, 137; 303) plus the table of contents.
+# Part files that contain the cited articles (SPEC §4.1: art. 1; 2, 3, 8, 17, 33; 55–58; 76–79;
+# 86, 87; 136, 137; art. 303 in Part XVI was dropped by the owner 2026-09-17) plus the table of contents.
 UNCLOS_PARTS = ("UNCLOS-TOC.htm", "part1.htm", "part2.htm", "part5.htm", "part6.htm", "part7.htm",
-                "part11-2.htm", "part16.htm")
+                "part11-2.htm")
 
 # ---- Høyesterett --------------------------------------------------------------------------
 HR_DOCS = {

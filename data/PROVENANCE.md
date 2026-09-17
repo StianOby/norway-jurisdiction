@@ -349,20 +349,20 @@ searching the titles inside the fetched Lovdata packages.
 
 | Directory | Source | What is kept | Licence / terms |
 |---|---|---|---|
-| `raw/legal/lovdata/` | Lovdata, free data packages via `api.lovdata.no/v1/publicData` (`gjeldende-lover` 2026-09-15, `gjeldende-sentrale-forskrifter` 2026-09-17) | the seven documents kept (XHTML, byte for byte); `publicData-list.json`; `FETCH_LOG.json` with the archives' SHA-256 | NLOD 2.0 (Lovdata, lovdata.no/info/api) |
-| `raw/legal/unclos/` | UN Division for Ocean Affairs and the Law of the Sea, `un.org/depts/los/convention_agreements/texts/unclos/` | Parts I, II, V, VI, VII, XI s. 2 and XVI as one HTML file each, plus the table of contents | UN publication of the Convention text; the owner records the terms |
+| `raw/legal/lovdata/` | Lovdata, free data packages via `api.lovdata.no/v1/publicData` (`gjeldende-lover` 2026-09-15, `gjeldende-sentrale-forskrifter` 2026-09-17) | the six documents kept (XHTML, byte for byte); `publicData-list.json`; `FETCH_LOG.json` with the archives' SHA-256 | NLOD 2.0 (Lovdata, lovdata.no/info/api) |
+| `raw/legal/unclos/` | UN Division for Ocean Affairs and the Law of the Sea, `un.org/depts/los/convention_agreements/texts/unclos/` | Parts I, II, V, VI, VII and XI s. 2 as one HTML file each, plus the table of contents | UN publication of the Convention text; the owner records the terms |
 | `raw/legal/hr/` | Norges Høyesterett, domstol.no | HR-2023-491-P: the judgment (PDF) and the Court's English translation (PDF, "provided for information purposes only") | published by the Court; the owner records the terms |
 
 Documents fetched from Lovdata: `NL/lov/2003-06-27-57` (territorialfarvannsloven),
 `NL/lov/1976-12-17-91` (økonomiske soneloven), `NL/lov/2021-06-18-89` (lov om Norges
 kontinentalsokkel), `NL/lov/1963-06-21-12` (lov om undersjøiske naturforekomster, fetched, not
-cited), `NL/lov/1993-06-11-101` (luftfartsloven), `SF/forskrift/1977-06-03-6` (fiskevernsonen),
-`SF/forskrift/1980-05-23-4` (fiskerisonen ved Jan Mayen). petroleumsloven was fetched at first and
-dropped by the owner (§16.3).
+cited), `SF/forskrift/1977-06-03-6` (fiskevernsonen), `SF/forskrift/1980-05-23-4` (fiskerisonen
+ved Jan Mayen). petroleumsloven and luftfartsloven were fetched at first and dropped by the owner
+(§16.3).
 
 ### 16.2 Extraction
 
-`build_legal.py` writes `data/build/legal.json` (24 provisions) and the review copy
+`build_legal.py` writes `data/build/legal.json` (22 provisions) and the review copy
 `data/build/LEGAL.md`. Lovdata provisions are taken element by element from the XHTML
 (`article.legalArticle` / `section` by `data-name`), keeping headings, ledd and list markers and
 dropping amendment notes and footnote markers. UNCLOS articles are parsed from the DOALOS pages
@@ -376,7 +376,7 @@ paragraphs 16 and 220 of HR-2023-491-P extracted from the Court's PDF are identi
 whitespace normalisation, to Lovdata's HTML publication of the judgment.
 
 `build_zones.py` merges the provisions into every citation by `source` (+ `pinpoint`) and fails
-`--check` if any citation lacks a fetched quote. 78 citations, all filled.
+`--check` if any citation lacks a fetched quote. 74 citations, all filled.
 
 ### 16.3 Selection choices — for the owner to confirm (SPEC §9 Phase 3 exit criterion)
 
@@ -388,9 +388,9 @@ Recorded as `selectionNote` in `legal.json` and shown in `LEGAL.md`:
    is fetched but not cited.
 2. ~~petroleumsloven § 1-6~~ — **dropped by the owner (2026-09-17)**; the shelf cites the 2021
    act, UNCLOS arts 76–79 and HR-2023-491-P.
-3. **forskrift 3. juni 1977 nr. 6** — dropped and reinstated the same day; **quoted in full**
+3. **forskrift 3. juni 1977 nr. 6** ; **quoted in full**
    (§§ 1–5) on `svalbard-fpz`.
-4. **forskrift 23. mai 1980 nr. 4** — dropped and reinstated the same day; **quoted in full**
+4. **forskrift 23. mai 1980 nr. 4** ; **quoted in full**
    (items 1–5) on `janmayen-fisheries-zone`.
 5. **HR-2023-491-P** (not in SPEC §4.1; added with the contested marker in Phase 1). On
    `svalbard-fpz`: ~~paragraph 16~~ — **dropped by the owner (2026-09-17)**, it only restates the
@@ -398,8 +398,14 @@ Recorded as `selectionNote` in `legal.json` and shown in `LEGAL.md`:
    UNCLOS art. 77), **confirmed by the owner (2026-09-17)**; 227 is the overall conclusion. The
    `en` payload also carries the Court's own English translation of the paragraph as `translation`
    (the `quote` stays Norwegian, SPEC §4); whether the UI shows it is the owner's call.
-6. **luftfartsloven § 1-1** is quoted as cited. Its neighbour § 1-2 ("Lovens virkeområde på
-   kontinentalsokkelen og utenfor norsk område") is in the fetched file if the owner wants it.
+6. ~~luftfartsloven § 1-1~~ — **dropped by the owner (2026-09-17)**: it says nothing about the
+   extent of national airspace; `national-airspace` cites UNCLOS art. 2(2) alone. The document was
+   removed from `data/raw/legal/lovdata/`.
+6a. ~~UNCLOS art. 303~~ — **dropped by the owner (2026-09-17)** as unnecessary detail for teaching;
+   `mainland-contiguous-zone` cites art. 33 alone. `part16.htm` was removed from `data/raw/legal/unclos/`.
+6b. Summaries cite the public-international-law source first and the Norwegian provision second
+   (owner, 2026-09-17); the "ikke-diskriminerende sone" label on `svalbard-fpz` is the owner's
+   characterisation, derived from § 2 of the 1977 regulation.
 7. **Summaries.** Drafts for all 15 zones are in `data/legal/summaries.json` with
    `status: "draft"`, written only from the quoted provisions (each sentence cites its provision).
    None ships until the owner sets `status: "approved"`; until then the app has no summaries.

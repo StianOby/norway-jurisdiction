@@ -1,6 +1,6 @@
 {
  "meta": {
-  "built_at_utc": "2026-09-17T13:26:05+00:00",
+  "built_at_utc": "2026-09-17T13:33:30+00:00",
   "sources": {
    "lovdata": "2026-09-17T13:12:25+00:00",
    "unclos": "2026-09-17T12:50:04+00:00",
@@ -115,27 +115,6 @@
     "items": null
    },
    "selectionNote": "SPEC §4.1 says 'kontinentalsokkelloven' without a provision. Lovdata's current-acts package holds two acts on the shelf: lov 18. juni 2021 nr. 89 om Norges kontinentalsokkel (short title on Lovdata: 'Lov om Norges kontinentalsokkel'), whose § 1 defines the shelf, and lov 21. juni 1963 nr. 12 (scientific research and exploitation of other subsea natural resources), whose § 1 now refers to the 2021 act for the definition. § 1 of the 2021 act is quoted; the 1963 act is fetched (data/raw/legal/lovdata/nl-19630621-012.xml) but not cited."
-  },
-  {
-   "source": "luftfartsloven § 1-1",
-   "title": "Lov om luftfart (luftfartsloven)",
-   "citedAs": "lov 11. juni 1993 nr. 101",
-   "quote": "§ 1-1. Lovens generelle virkeområde\nLuftfart kan her i riket bare finne sted i samsvar med denne lov og forskrifter gitt med hjemmel i loven.\nFor luftfart som omfattes av EØS-avtalens bestemmelser, gjelder regler om utfylling og gjennomføring av EØS-avtalen på luftfartens område i denne lov foran lovens øvrige bestemmelser.",
-   "quoteLang": "no",
-   "url": "https://lovdata.no/dokument/NL/lov/1993-06-11-101/§1-1",
-   "provenance": {
-    "publisher": "Lovdata",
-    "dokid": "NL/lov/1993-06-11-101",
-    "file": "data/raw/legal/lovdata/nl-19930611-101.xml",
-    "sha256": "a779977aa8fb6be1dc5818c7632af04a97ba8365e6d1b6ba7e3b0274daa01c6d",
-    "lastChangeInForce": "2026-07-01",
-    "package": "gjeldende-lover.tar.bz2",
-    "packageLastModified": "2026-09-15T01:31:00Z",
-    "selector": [
-     "§1-1"
-    ],
-    "items": null
-   }
   },
   {
    "source": "forskrift 3. juni 1977 nr. 6",
@@ -554,30 +533,6 @@
      ],
      [
       137,
-      null,
-      null
-     ]
-    ]
-   }
-  },
-  {
-   "source": "UNCLOS art. 303",
-   "title": "United Nations Convention on the Law of the Sea",
-   "citedAs": "UNCLOS art. 303",
-   "quote": "Article 303 Archaeological and historical objects found at sea\n1. States have the duty to protect objects of an archaeological and historical nature found at sea and shall cooperate for this purpose.\n2. In order to control traffic in such objects, the coastal State may, in applying article 33, presume that their removal from the seabed in the zone referred to in that article without its approval would result in an infringement within its territory or territorial sea of the laws and regulations referred to in that article.\n3. Nothing in this article affects the rights of identifiable owners, the law of salvage or other rules of admiralty, or laws and practices with respect to cultural exchanges.\n4. This article is without prejudice to other international agreements and rules of international law regarding the protection of objects of an archaeological and historical nature.",
-   "quoteLang": "en",
-   "url": "https://www.un.org/depts/los/convention_agreements/texts/unclos/part16.htm",
-   "provenance": {
-    "publisher": "UN DOALOS",
-    "files": [
-     "data/raw/legal/unclos/part16.htm"
-    ],
-    "sha256": [
-     "d57f72f74b1ac8726ffef03bf0efbe5b4d57e95b98d348b12191db70b5a1b49e"
-    ],
-    "selector": [
-     [
-      303,
       null,
       null
      ]

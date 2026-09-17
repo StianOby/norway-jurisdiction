@@ -52,7 +52,8 @@ PROVISIONS = [
                       "kontinentalsokkel'), whose § 1 defines the shelf, and lov 21. juni 1963 nr. 12 (scientific research and "
                       "exploitation of other subsea natural resources), whose § 1 now refers to the 2021 act for the definition. "
                       "§ 1 of the 2021 act is quoted; the 1963 act is fetched (data/raw/legal/lovdata/nl-19630621-012.xml) but not cited."},
-    {"source": "luftfartsloven § 1-1", "kind": "lovdata", "doc": "NL/lov/1993-06-11-101", "articles": ["§1-1"]},
+    # luftfartsloven § 1-1 (SPEC §4.1, national airspace) was dropped by the owner 2026-09-17: it says
+    # nothing about the extent of national airspace; the zone cites UNCLOS art. 2(2) alone.
     {"source": "forskrift 3. juni 1977 nr. 6", "kind": "lovdata", "doc": "SF/forskrift/1977-06-03-6",
      "articles": ["§1", "§2", "§3", "§4", "§5"],
      "selectionNote": "Quoted in full (§§ 1–5); owner instruction 2026-09-17."},
@@ -74,7 +75,7 @@ PROVISIONS = [
     {"source": "UNCLOS art. 87", "kind": "unclos", "articles": [(87, None, None)]},
     {"source": "UNCLOS art. 87(1)(b)", "kind": "unclos", "articles": [(87, 1, "b")]},
     {"source": "UNCLOS arts 136–137", "kind": "unclos", "articles": [(136, None, None), (137, None, None)]},
-    {"source": "UNCLOS art. 303", "kind": "unclos", "articles": [(303, None, None)]},
+    # UNCLOS art. 303 (SPEC §4.1, contiguous zone) was dropped by the owner 2026-09-17 as unnecessary detail.
 
     # Paragraph 16 (how the fisheries protection zone was established) was quoted on svalbard-fpz at
     # first; the owner dropped it (2026-09-17): it only restates the 1977 regulation, which is quoted in full.
@@ -84,7 +85,7 @@ PROVISIONS = [
 ]
 
 UNCLOS_PART_OF = {}   # article number → part file, filled from the fetched table of contents order below
-UNCLOS_FILES = ("part1.htm", "part2.htm", "part5.htm", "part6.htm", "part7.htm", "part11-2.htm", "part16.htm")
+UNCLOS_FILES = ("part1.htm", "part2.htm", "part5.htm", "part6.htm", "part7.htm", "part11-2.htm")
 UNCLOS_URL = "https://www.un.org/depts/los/convention_agreements/texts/unclos/"
 UNCLOS_TITLE = "United Nations Convention on the Law of the Sea"
 NO_MONTHS = ["januar", "februar", "mars", "april", "mai", "juni", "juli", "august", "september", "oktober", "november", "desember"]
