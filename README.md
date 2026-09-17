@@ -7,6 +7,8 @@ built on CesiumJS for use in university courses on the law of jurisdiction.
 **Scope:** mainland Norway, Svalbard and Jan Mayen. Bouvetøya is deliberately
 not included.
 
+**Live version:** <https://stianoby.github.io/norway-jurisdiction/>
+
 - Project brief: [docs/SPEC.md](docs/SPEC.md) · working notes: [CLAUDE.md](CLAUDE.md)
 - Data provenance and verification: [data/PROVENANCE.md](data/PROVENANCE.md)
 
@@ -53,6 +55,6 @@ exaggeration, language, column and section — use it for course links.
 
 ## Hosting
 
-`main` is built and deployed to GitHub Pages by `.github/workflows/pages.yml`
-(Settings → Pages → Source: *GitHub Actions*). The app is then embedded in
+`main` is built and deployed to <https://stianoby.github.io/norway-jurisdiction/> by
+`.github/workflows/pages.yml` (Settings → Pages → Source: *GitHub Actions*). The app is then embedded in
 Canvas with the `<iframe>` in SPEC §9.
