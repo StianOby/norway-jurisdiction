@@ -66,7 +66,9 @@ EPSG:25833 instead (Krüger series; validated in PROVENANCE §4). Don't add pypr
   registry is `build_zones.py::registry()`. Renaming one is a breaking change (last one:
   `airspace-beyond-territorial-sea` → `international-airspace`, owner, 2026-09-17, before any release). Extensions to
   the SPEC §4 interface: `geography: 'all'` (shelf, high seas, the Area, airspace zones),
-  `derivedFrom` (international airspace = union of member zones, no duplicated geometry),
+  `derivedFrom` (international airspace = union of member zones, no duplicated geometry), internal
+  waters and the territorial sea have **no airspace stratum** (the air above them is `national-airspace`;
+  owner amendment to §4.1, 2026-09-17),
   `notModelled` (`the-area`: beyond-model-extent; `high-seas`: beyond-outer-limit), `contestedExtent` on
   `continental-shelf` (neutral marker inside the extent: the Svalbard-generated shelf incl. the
   Nansen Basin, one extent, no readings distinguished — owner decision round 4), `provenance`, `notes`. `contested: true` = whole zone.
@@ -85,8 +87,7 @@ EPSG:25833 instead (Krüger series; validated in PROVENANCE §4). Don't add pypr
   → midpoint subdivision to `MESH.maxEdgeDeg` → rows at per-vertex heights + walls along boundary
   edges (edges used by exactly one triangle, so holes get walls too). Nominal heights are cached per
   vertex; exaggeration = recompute positions + swap primitives (≈ 60 ms desktop for 380k vertices).
-- **The airspace is never exaggerated** (owner decision 2026-09-17, deviating from SPEC §5.1's single
-  factor): `config.js::stratumFactor` returns 1 for `airspace`, so the fence is always the nominal
+- **The airspace is never exaggerated** (owner amendment to SPEC §5.1, 2026-09-17): `config.js::stratumFactor` returns 1 for `airspace`, so the fence is always the nominal
   100 km; the slider scales the water column, seabed and subsoil only, and the readout says
   "20× · luftrom 1×". At 20× the airspace was a 2 000 km wall that hid everything and forced the
   preset cameras up to 4 000 km. Apply `stratumFactor` wherever a nominal height is scaled
@@ -190,7 +191,9 @@ Court's translation under its own caveat), cross-section (`crossSection.js`: can
 a transect, presets or two clicks in the model, click in the section → column there), preset
 views (`config.js::VIEWS`), URL state + "Del lenke" (`urlState.js`), phone layout (one 40 vh
 sheet). On the owner's first review the airspace stopped being exaggerated (see Conventions) and the
-preset cameras came down to 0.9–1.2 Mm, pitch −55°. Verified in headless Chrome at 1400×900 and
+preset cameras came down to 0.9–1.2 Mm, pitch −55°; internal waters and the territorial sea lost
+their airspace stratum (the national-airspace zone covers the air above them). SPEC §4.1 and §5.1
+carry both amendments, dated. Verified in headless Chrome at 1400×900 and
 375×667 (`docs/renders/app-section-*.png`, `app-phone-section.png`): no page errors, state
 restores from the URL. Bundle 1 032 KB raw / 385 KB gzip — over SPEC §8's 900 KB raw target
 (the zone geometry alone is ~700 KB); gzip is what the wire carries. Not yet reviewed by the owner.

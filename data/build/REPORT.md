@@ -1,15 +1,15 @@
 # Build report — data/build/zones.json
 
-Generated 2026-09-17T13:58:45+00:00. Simplification: arcs 100.0 m, coast 300.0 m, islands ≥ 3.0 km². Exempt: baselines (layer 0); agreed delimitation lines (layers 8, 10); other states' 200 nm limits (layer 11); continental-shelf outer limit (layer 9).
+Generated 2026-09-17T20:13:08+00:00. Simplification: arcs 100.0 m, coast 300.0 m, islands ≥ 3.0 km². Exempt: baselines (layer 0); agreed delimitation lines (layers 8, 10); other states' 200 nm limits (layer 11); continental-shelf outer limit (layer 9).
 
 | Zone | Geography | Strata | Vertices | Source |
 |---|---|---|---:|---|
-| `mainland-internal-waters` | mainland | airspace, watercolumn, seabed, subsoil | 22181 | N1000 Kartdata Havflate (Kartverket, Geonorge GML EPSG:4258), topologically simplified, clipped to the landward side of 'Norges grunnlinje' (Route A layer 0, exact) |
-| `mainland-territorial-sea` | mainland | airspace, watercolumn, seabed, subsoil | 345 | Kartverket Norges maritime grenser (Geonorge GML EPSG:4258) - Sjøterritorium: Sjøterritorium ved Fastlands-Norge |
-| `svalbard-internal-waters` | svalbard | airspace, watercolumn, seabed, subsoil | 3671 | Svalbard baselines (Route A layer 0, exact, closed loops) minus Kartverket 'Landareal' (land=SJ, Norsk Polarinstitutt coastline as delivered in Norges maritime grenser, topologically simplified) |
-| `svalbard-territorial-sea` | svalbard | airspace, watercolumn, seabed, subsoil | 718 | Kartverket Norges maritime grenser (Geonorge GML EPSG:4258) - Sjøterritorium: Sjøterritorium ved Hopen, Svalbard; Sjøterritorium ved Kvitøya, Svalbard; Sjøterritorium ved Kong Karls Land, Svalbard; Sjøterritorium ved Bjørnøya, Svalbard; Sjøterritorium ved Spitsbergen, Nordaustlandet og Edgeøya, Svalbard |
-| `janmayen-internal-waters` | janmayen | airspace, watercolumn, seabed, subsoil | 257 | Kartverket Norges maritime grenser - IndreFarvann: Indre farvann ved Jan Mayen; Indre farvann ved Jan Mayen; Indre farvann ved Jan Mayen (as delivered; coastline vertices 6-decimal) |
-| `janmayen-territorial-sea` | janmayen | airspace, watercolumn, seabed, subsoil | 222 | Kartverket Norges maritime grenser (Geonorge GML EPSG:4258) - Sjøterritorium: Sjøterritorium ved Jan Mayen |
+| `mainland-internal-waters` | mainland | watercolumn, seabed, subsoil | 22181 | N1000 Kartdata Havflate (Kartverket, Geonorge GML EPSG:4258), topologically simplified, clipped to the landward side of 'Norges grunnlinje' (Route A layer 0, exact) |
+| `mainland-territorial-sea` | mainland | watercolumn, seabed, subsoil | 345 | Kartverket Norges maritime grenser (Geonorge GML EPSG:4258) - Sjøterritorium: Sjøterritorium ved Fastlands-Norge |
+| `svalbard-internal-waters` | svalbard | watercolumn, seabed, subsoil | 3671 | Svalbard baselines (Route A layer 0, exact, closed loops) minus Kartverket 'Landareal' (land=SJ, Norsk Polarinstitutt coastline as delivered in Norges maritime grenser, topologically simplified) |
+| `svalbard-territorial-sea` | svalbard | watercolumn, seabed, subsoil | 718 | Kartverket Norges maritime grenser (Geonorge GML EPSG:4258) - Sjøterritorium: Sjøterritorium ved Hopen, Svalbard; Sjøterritorium ved Kvitøya, Svalbard; Sjøterritorium ved Kong Karls Land, Svalbard; Sjøterritorium ved Bjørnøya, Svalbard; Sjøterritorium ved Spitsbergen, Nordaustlandet og Edgeøya, Svalbard |
+| `janmayen-internal-waters` | janmayen | watercolumn, seabed, subsoil | 257 | Kartverket Norges maritime grenser - IndreFarvann: Indre farvann ved Jan Mayen; Indre farvann ved Jan Mayen; Indre farvann ved Jan Mayen (as delivered; coastline vertices 6-decimal) |
+| `janmayen-territorial-sea` | janmayen | watercolumn, seabed, subsoil | 222 | Kartverket Norges maritime grenser (Geonorge GML EPSG:4258) - Sjøterritorium: Sjøterritorium ved Jan Mayen |
 | `mainland-contiguous-zone` | mainland | watercolumn | 317 | Kartverket Norges maritime grenser (Geonorge GML EPSG:4258) - TilstøtendeSone: Tilstøtende sone ved Fastlands-Norge |
 | `mainland-eez` | mainland | watercolumn | 393 | Kartverket Norges maritime grenser (Geonorge GML EPSG:4258) - NorgesØkonomiskeSone: Norges økonomiske sone |
 | `svalbard-fpz` | svalbard | watercolumn | 709 | Kartverket Norges maritime grenser (Geonorge GML EPSG:4258) - Fiskevernsone: Fiskevernsonen ved Svalbard |

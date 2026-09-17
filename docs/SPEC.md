@@ -138,10 +138,14 @@ interface LegalPayload {
 
 ### 4.1 Zones to model
 
+_Amended 2026-09-17 (owner): internal waters and the territorial sea are modelled as water, seabed and
+subsoil only; the air above them is the national-airspace zone in the table below, not a stratum of
+these zones. (They were listed with "air" before.)_
+
 | Zone | Extent | Strata | Norwegian basis | UNCLOS |
 |---|---|---|---|---|
-| Indre farvann | landward of baseline | air, water, seabed, subsoil | territorialfarvannsloven § 3 | arts 2, 8 |
-| Sjøterritoriet | baseline → 12 nm | air, water, seabed, subsoil | territorialfarvannsloven §§ 1–2 | arts 2, 3, 17 |
+| Indre farvann | landward of baseline | water, seabed, subsoil | territorialfarvannsloven § 3 | arts 2, 8 |
+| Sjøterritoriet | baseline → 12 nm | water, seabed, subsoil | territorialfarvannsloven §§ 1–2 | arts 2, 3, 17 |
 | Tilstøtende sone | → 24 nm, **mainland only** | water | territorialfarvannsloven § 4 | arts 33, 303 |
 | Norges økonomiske sone | → 200 nm, mainland | water, seabed | lov om Norges økonomiske sone § 1 | arts 55–58 |
 | Fiskevernsonen ved Svalbard | → 200 nm | water | forskrift 3. juni 1977 nr. 6 | — |
@@ -167,6 +171,10 @@ The teaching payoff is that a single vertical column can sit in several regimes 
 At true scale, 200 nm ≈ 370 km horizontally; airspace to the Kármán line ≈ 100 km; shelf depth ≈ 0.2–3 km. The seabed stratum is under 1% of the EEZ's width and is effectively invisible.
 
 **Solution: a vertical-exaggeration slider, logarithmic, range 1×–200×, default 20×, with detents at 1 / 5 / 20 / 50 / 100 / 200.** A permanent readout shows the current factor, and the 1× detent is labelled "true scale". Exaggeration becomes something students see and reason about rather than a hidden distortion.
+
+_Amended 2026-09-17 (owner): the factor applies to the water column, seabed and subsoil only. The
+airspace is always drawn at true scale (100 km) — it is legible as it is, and at 20× it was a
+2 000 km wall. The readout states this ("20× · luftrom 1×")._
 
 Cesium's `Scene.verticalExaggeration` applies to terrain and 3D Tiles, **not** to entity heights. Apply the factor yourself when constructing geometry and rebuild the affected primitives on change. Debounce the slider; rebuilding 9 000 vertices of extruded polygons on every frame will stall mobile.
 

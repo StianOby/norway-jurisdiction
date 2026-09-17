@@ -72,11 +72,13 @@ def registry() -> list[dict]:
     for g, suffix_no, suffix_en in (("mainland", " (Fastlands-Norge)", " (mainland Norway)"),
                                     ("svalbard", " (Svalbard)", " (Svalbard)"),
                                     ("janmayen", " (Jan Mayen)", " (Jan Mayen)")):
-        zones.append(zone(f"{g}-internal-waters", g, ["airspace", "watercolumn", "seabed", "subsoil"],
+        # Internal waters and the territorial sea carry no airspace stratum of their own: the air above
+        # them is the national-airspace zone (owner amendment to SPEC §4.1, 2026-09-17).
+        zones.append(zone(f"{g}-internal-waters", g, ["watercolumn", "seabed", "subsoil"],
                           "Indre farvann" + suffix_no, "Internal waters" + suffix_en,
                           [cit(f"{tfl} § 3"), unclos("art. 2"), unclos("art. 8")],
                           [cit(f"{tfl} § 3"), unclos("art. 2"), unclos("art. 8")]))
-        zones.append(zone(f"{g}-territorial-sea", g, ["airspace", "watercolumn", "seabed", "subsoil"],
+        zones.append(zone(f"{g}-territorial-sea", g, ["watercolumn", "seabed", "subsoil"],
                           "Sjøterritoriet" + suffix_no, "Territorial sea" + suffix_en,
                           [cit(f"{tfl} §§ 1–2"), unclos("art. 2"), unclos("art. 3"), unclos("art. 17")],
                           [cit(f"{tfl} §§ 1–2"), unclos("art. 2"), unclos("art. 3"), unclos("art. 17")]))
