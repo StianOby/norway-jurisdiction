@@ -60,10 +60,9 @@ EPSG:25833 instead (Krüger series; validated in PROVENANCE §4). Don't add pypr
   registry is `build_zones.py::registry()`. Renaming one is a breaking change. Extensions to
   the SPEC §4 interface: `geography: 'all'` (shelf, high seas, the Area, airspace zones),
   `derivedFrom` (airspace beyond the TS = union of member zones, no duplicated geometry),
-  `notModelled` (`the-area`: beyond-model-extent; `high-seas`: beyond-outer-limit), `contestedExtent` /
-  `contestedExtentInterval` on `continental-shelf` (marker inside the extent; the interval is the
-  difference between two readings and renders as "disputed extent" with a one-line neutral
-  mention of both readings — owner instruction),  `provenance`, `notes`. `contested: true` = whole zone.
+  `notModelled` (`the-area`: beyond-model-extent; `high-seas`: beyond-outer-limit), `contestedExtent` on
+  `continental-shelf` (neutral marker inside the extent: the Svalbard-generated shelf incl. the
+  Nansen Basin, one extent, no readings distinguished — owner decision round 4), `provenance`, `notes`. `contested: true` = whole zone.
 - **Three geodata sources, in order of authority**: Kartverket (Route B polygons, Route A text),
   UN DOALOS (checked; charts only for Russia), Marine Regions (only the Russian 200 nm line, the
   Special Area ring and ECS polygons). Never take Norwegian lines from Marine Regions — their
@@ -132,7 +131,7 @@ Phase 2 done in this session: schematic seabed (GEBCO 2020 class map, levels in 
 verification render `docs/renders/seabed-schematic.png`, PROVENANCE §14); `seabed.js`, `zones.js`,
 `strata.js` (custom-geometry volumes: airspace fence with top fade, water column to the seabed,
 seabed surface, bounded-but-open subsoil; hatched contested markers for `svalbard-fpz` and the
-shelf's contestedExtent / interval), `ui.js` (log slider with detents + readout, stratum and zone
+shelf's contestedExtent), `ui.js` (log slider with detents + readout, stratum and zone
 toggles, NO/EN toggle, scope note, persistent attribution incl. Cesium credits), `main.js`
 (EllipsoidTerrainProvider + OSM, translucent globe inside the bbox, camera may go underground,
 requestRenderMode). Bundle 897 KB raw / 341 KB gzip. Verified in headless Chrome.

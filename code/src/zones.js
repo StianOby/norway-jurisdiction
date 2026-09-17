@@ -36,7 +36,7 @@ export function colourOf(id) {
 export function checkExtent() {
   const problems = [];
   for (const z of zones) {
-    const geoms = [z.horizontal, z.contestedExtent, z.contestedExtentInterval].filter(Boolean);
+    const geoms = [z.horizontal, z.contestedExtent].filter(Boolean);
     for (const g of geoms) {
       for (const part of partsOf(g)) {
         for (const ring of part) {

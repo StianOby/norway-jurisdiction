@@ -298,10 +298,8 @@ export class StrataModel {
           this.volumes.push({ zoneId: z.id, stratum, marker: false, vol: assemble(mesh, rowsFor(stratum), rgb, hatch) });
         }
       }
-      // Contested-extent markers on the seabed (neutral hatching, no text): the core reading (a)
-      // and the interval that reading (b) adds — data/PROVENANCE.md §10.
-      const markers = [[z.contestedExtent, 1], [z.contestedExtentInterval, 2]];
-      for (const [geom, kind] of markers) {
+      // Contested-extent marker on the seabed (neutral hatching, no text) — data/PROVENANCE.md §15.
+      for (const [geom, kind] of [[z.contestedExtent, 1]]) {
         if (!geom) continue;
         for (const rings of (geom.type === 'Polygon' ? [geom.coordinates] : geom.coordinates)) {
           const mesh = prepareMesh(rings);

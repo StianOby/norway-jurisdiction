@@ -102,8 +102,7 @@ def registry() -> list[dict]:
                       "Kontinentalsokkelen", "Continental shelf",
                       [cit("kontinentalsokkelloven"), cit("petroleumsloven § 1-6"), unclos("arts 76–79"), cit(snokrabbe)],
                       [cit("kontinentalsokkelloven"), cit("petroleumsloven § 1-6"), unclos("arts 76–79"), cit(snokrabbe)],
-                      notes=["Neutral contested marker (SPEC §1/§10.5) within contestedExtent: the shelf within 200 nm of Svalbard.",
-                             "contestedExtentInterval: the shelf beyond 200 nm generated from Svalbard (Nansen Basin), shown as 'disputed extent' — whether the dispute reaches it is left open. The Svalbard Treaty Article 1 area is not modelled (owner decision 2026-09-17, round 4)."]))
+                      notes=["Neutral contested marker (SPEC §1/§10.5) within contestedExtent: the shelf generated from Svalbard, within 200 nm and the Nansen Basin beyond, as one extent (owner decision 2026-09-17, round 4)."]))
     zones.append(zone("high-seas", "all", ["watercolumn"],
                       "Det åpne hav", "High seas",
                       [unclos("art. 86"), unclos("art. 87")], [unclos("art. 86"), unclos("art. 87")],
@@ -144,7 +143,7 @@ def build() -> tuple[dict, str]:
         else:
             z["horizontal"] = g["geometry"]
             z["vertexCount"] = g["vertexCount"]
-            for field in ("contestedExtent", "contestedExtentInterval"):
+            for field in ("contestedExtent",):
                 if field in g:
                     z[field] = g[field]
                     z[field + "VertexCount"] = g[field + "VertexCount"]
@@ -192,10 +191,6 @@ def dump(out: dict, geom_text: str) -> str:
             key = f"@@CE:{z['id']}@@"
             placeholders[key] = _extract(geom_text, z["id"], "zones", field="contestedExtent")
             z["contestedExtent"] = key
-        if z.get("contestedExtentInterval"):
-            key = f"@@contestedExtentInterval:{z['id']}@@"
-            placeholders[key] = _extract(geom_text, z["id"], "zones", field="contestedExtentInterval")
-            z["contestedExtentInterval"] = key
     for o in out["overlays"]:
         key = f"@@GEOM:{o['id']}@@"
         placeholders[key] = _extract(geom_text, o["id"], "overlays")
@@ -255,7 +250,7 @@ def check(path: Path) -> tuple[list[str], list[str], dict]:
                     fails.append(f"{z['id']} poly {pi} ring {ri}: spans the antimeridian")
                 if min(lons) < BBOX[0] or max(lons) > BBOX[2] or min(lats) < BBOX[1] or max(lats) > BBOX[3]:
                     fails.append(f"{z['id']} poly {pi} ring {ri}: outside model bbox {BBOX}")
-        for field in ("contestedExtent", "contestedExtentInterval"):
+        for field in ("contestedExtent",):
             if z.get(field):
                 ce = shape(z[field])
                 if not ce.is_valid:
@@ -307,7 +302,7 @@ def write_report(out: dict, fails, warns, info):
              "| Zone | Geography | Strata | Vertices | Source |", "|---|---|---|---:|---|"]
     for z in out["zones"]:
         src = z.get("provenance", {}).get("source", "— (" + ("derived from " + ", ".join(z["derivedFrom"]) if z.get("derivedFrom") else "not modelled: " + ", ".join(z.get("notModelled", []))) + ")")
-        extra = "".join(f" **+{f}** ({z[f + 'VertexCount']} v.)" for f in ("contestedExtent", "contestedExtentInterval") if z.get(f))
+        extra = "".join(f" **+{f}** ({z[f + 'VertexCount']} v.)" for f in ("contestedExtent",) if z.get(f))
         lines.append(f"| `{z['id']}` | {z['geography']} | {', '.join(z['strata'])} | {z['vertexCount']} | {src}{extra} |")
     lines += ["", "| Overlay | Vertices |", "|---|---:|"] + [f"| `{o['id']}` | {o['vertexCount']} |" for o in out["overlays"]]
     lines += ["", f"**Zone polygon vertices:** {info.get('vertexCount')} (SPEC §8 target {VERTEX_BUDGET}); zones.json {info.get('fileBytes', 0)/1024:.0f} KB.", "",

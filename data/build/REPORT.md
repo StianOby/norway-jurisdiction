@@ -1,6 +1,6 @@
 # Build report — data/build/zones.json
 
-Generated 2026-09-17T12:32:50+00:00. Simplification: arcs 100.0 m, coast 300.0 m, islands ≥ 3.0 km². Exempt: baselines (layer 0); agreed delimitation lines (layers 8, 10); other states' 200 nm limits (layer 11); continental-shelf outer limit (layer 9).
+Generated 2026-09-17T12:36:04+00:00. Simplification: arcs 100.0 m, coast 300.0 m, islands ≥ 3.0 km². Exempt: baselines (layer 0); agreed delimitation lines (layers 8, 10); other states' 200 nm limits (layer 11); continental-shelf outer limit (layer 9).
 
 | Zone | Geography | Strata | Vertices | Source |
 |---|---|---|---:|---|
@@ -14,7 +14,7 @@ Generated 2026-09-17T12:32:50+00:00. Simplification: arcs 100.0 m, coast 300.0 m
 | `mainland-eez` | mainland | watercolumn | 393 | Kartverket Norges maritime grenser (Geonorge GML EPSG:4258) - NorgesØkonomiskeSone: Norges økonomiske sone |
 | `svalbard-fpz` | svalbard | watercolumn | 709 | Kartverket Norges maritime grenser (Geonorge GML EPSG:4258) - Fiskevernsone: Fiskevernsonen ved Svalbard |
 | `janmayen-fisheries-zone` | janmayen | watercolumn | 255 | Kartverket Norges maritime grenser (Geonorge GML EPSG:4258) - Fiskerisone: Fiskerisonen ved Jan Mayen |
-| `continental-shelf` | all | seabed, subsoil | 1322 | Kartverket Norges maritime grenser (Geonorge GML EPSG:4258) - Kontinentalsokkel: Norges kontinentalsokkel **+contestedExtent** (709 v.) **+contestedExtentInterval** (153 v.) |
+| `continental-shelf` | all | seabed, subsoil | 1322 | Kartverket Norges maritime grenser (Geonorge GML EPSG:4258) - Kontinentalsokkel: Norges kontinentalsokkel **+contestedExtent** (805 v.) |
 | `high-seas` | all | watercolumn | 807 | Derived. Banana Hole: faces of the noded network of Norway's 200 nm lines (layer 7), agreed delimitation lines (layer 8) and other states' 200 nm limits (layer 11). Loop Hole: same network plus Marine Regions 'Russia 200 NM' (line_id 3697) and the Special Area ring (line_id 4697), Flanders Marine Institute Maritime Boundaries v12, CC BY 4.0, snapped (≤100 m) onto Kartverket lines. Nansen Basin: Norway's continental-shelf polygon beyond every 200 nm zone. |
 | `the-area` | all | seabed, subsoil | 84 | Derived: Marine Regions high-seas pockets minus every Marine Regions extended-continental-shelf polygon (CLCS recommendation, submission, overlapping claim, DOALOS deposit; ECS v2, CC BY 4.0) minus Kartverket's Norwegian shelf and 200 nm zones; parts ≥ 1000 km² |
 | `national-airspace` | all | airspace | 1115 | Mainland: Kartverket Norges maritime grenser - Territorialområde ved Fastlands-Norge (12 nm limit + delimitation lines + Riksgrense land border, border simplified); Svalbard and Jan Mayen: the 12 nm limits as closed loops (exterior rings of the territorial-sea polygons) |
@@ -23,7 +23,7 @@ Generated 2026-09-17T12:32:50+00:00. Simplification: arcs 100.0 m, coast 300.0 m
 | Overlay | Vertices |
 |---|---:|
 
-**Zone polygon vertices:** 32396 (SPEC §8 target 35000); zones.json 856 KB.
+**Zone polygon vertices:** 32396 (SPEC §8 target 35000); zones.json 854 KB.
 
 ## Checks
 

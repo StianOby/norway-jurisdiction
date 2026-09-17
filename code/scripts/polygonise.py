@@ -477,23 +477,20 @@ def main(argv=None) -> int:
         "kartverket": [{k: v for k, v in feats_[0].props.items() if k in KV_KEYS}], "stats": {**stats, "land_border_vertices": land_border_vertices, "land_border_tolerance_m": args.coast_tolerance}}
     print(f"  {'national-airspace':34s} {sum(len(r) for g in zones['national-airspace']['rings'] for r in g):6d} vertices  parts={len(parts)}  {stats} land-border={land_border_vertices}")
 
-    # ---- contested extent on the continental shelf (owner instruction 2026-09-17): the part of the
-    # shelf lying within the 200 nm zone around Svalbard.  Proxy extent — see PROVENANCE §8.
+    # ---- contested extent on the continental shelf (owner instructions 2026-09-17, rounds 2–4): the
+    # shelf generated from Svalbard — within the 200 nm zone plus the Norwegian shelf beyond 200 nm that
+    # adjoins that zone and no other Norwegian 200 nm zone (the Nansen Basin) — as ONE extent, no
+    # distinction between the two (round 4: the treaty dispute is not litigated on the map).
     fpz_filled = unary_union([Polygon(g.exterior.coords) for g in parts_of(zones["svalbard-fpz"]["shapely"])])
-    ce = zones["continental-shelf"]["shapely"].intersection(fpz_filled)
-    ce_parts = parts_of(ce)   # holes kept: the territorial seas are not continental shelf
-    zones["continental-shelf"]["contestedExtent"] = {"rings": [rings_of(g, exact) for g in ce_parts],
-                                                     "area_km2": round(sum(g.area for g in ce_parts) / 1e6)}
-    print(f"  continental-shelf contested extent: {sum(len(r) for g in zones['continental-shelf']['contestedExtent']['rings'] for r in g)} vertices, {zones['continental-shelf']['contestedExtent']['area_km2']} km2")
-    # Interval between the two readings (owner instruction, round 3): the Norwegian shelf beyond 200 nm
-    # that adjoins the Svalbard zone and no other Norwegian 200 nm zone (the Nansen Basin) — inside the
-    # wider reading (all shelf generated from Svalbard), outside the narrower one (within 200 nm).
     other_filled = unary_union([Polygon(g.exterior.coords) for z in ("mainland-eez", "janmayen-fisheries-zone") for g in parts_of(zones[z]["shapely"])])
-    interval = [Polygon(g.exterior.coords) for g in parts_of(zones["continental-shelf"]["shapely"].difference(filled))
-                if g.area > 1e9 and g.distance(fpz_filled) < 1.0 and g.distance(other_filled) > 1000.0]
-    zones["continental-shelf"]["contestedExtentInterval"] = {"rings": [[ring_from_shapely(g.exterior.coords, exact)] for g in interval],
-                                                             "area_km2": round(sum(g.area for g in interval) / 1e6)}
-    print(f"  continental-shelf contested interval: {len(interval)} part(s), {zones['continental-shelf']['contestedExtentInterval']['area_km2']} km2")
+    within = zones["continental-shelf"]["shapely"].intersection(fpz_filled)
+    beyond = [Polygon(g.exterior.coords) for g in parts_of(zones["continental-shelf"]["shapely"].difference(filled))
+              if g.area > 1e9 and g.distance(fpz_filled) < 1.0 and g.distance(other_filled) > 1000.0]
+    ce_parts = parts_of(unary_union([within] + beyond))   # holes kept: the territorial seas are not continental shelf
+    zones["continental-shelf"]["contestedExtent"] = {"rings": [rings_of(g, exact) for g in ce_parts],
+                                                     "area_km2": round(sum(g.area for g in ce_parts) / 1e6),
+                                                     "parts": {"within_200nm_km2": round(within.area / 1e6), "beyond_200nm_km2": round(sum(g.area for g in beyond) / 1e6)}}
+    print(f"  continental-shelf contested extent: {sum(len(r) for g in zones['continental-shelf']['contestedExtent']['rings'] for r in g)} vertices, {zones['continental-shelf']['contestedExtent']['area_km2']} km2 (within 200 nm {round(within.area/1e6)}, Nansen Basin {round(sum(g.area for g in beyond)/1e6)})")
 
     # ---- write
     total = 0
@@ -507,7 +504,7 @@ def main(argv=None) -> int:
         total += n
         geom = {"type": "MultiPolygon", "coordinates": polys_} if len(polys_) != 1 else {"type": "Polygon", "coordinates": polys_[0]}
         out["zones"][zid] = {"geometry": geom, "vertexCount": n, "source": z["source"], "kartverket": z["kartverket"], "stats": z["stats"], "notes": notes.get(zid, [])}
-        for field in ("contestedExtent", "contestedExtentInterval"):
+        for field in ("contestedExtent",):
             if field in z:
                 cps = [poly_vertices(r) for r in z[field]["rings"]]
                 out["zones"][zid][field] = {"type": "MultiPolygon", "coordinates": cps} if len(cps) != 1 else {"type": "Polygon", "coordinates": cps[0]}

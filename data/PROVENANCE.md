@@ -240,8 +240,7 @@ exactly as chart 10100 draws it; the overlay covers that segment. The owner revi
 2. ~~The Area~~ — resolved (§15.1): asserted.
 3. ~~Loop Hole~~ — resolved (§11).
 4. ~~Historical lines~~ — resolved (§9.5).
-5. ~~Contested readings~~ — resolved (§15.2): no Treaty box; the interval stays the Nansen Basin
-   shelf beyond 200 nm, described minimally and neutrally.
+5. ~~Contested readings~~ — resolved (§15.2): no Treaty box, no readings; one neutral extent.
 6. ~~EEZ strata~~ — resolved (§10.8).
 7. ~~Loop Hole sliver~~ — resolved (§15.3): kept; caveat removed.
 
@@ -323,11 +322,12 @@ seabed is schematic and indicative. GEBCO attribution is in `data/LICENSE.md` an
      200 nm shelf outside the box; the Nansen Basin would either join the interval or become a
      third tier. The whole-zone `contested` flag on `svalbard-fpz` (water column) would face the
      same question: 454 100 km² of the FPZ is inside the box, 404 700 km² outside.
-   **Decision (owner, same day): the box is not used.** The readings stay (a) shelf within 200 nm
-   of Svalbard (core) and (b) plus the Svalbard-generated shelf beyond 200 nm (Nansen Basin,
-   interval). The zone notes now say only that; whether the dispute reaches the shelf beyond
-   200 nm is left open in the data (the owner asked; the model does not answer it — it is a legal
-   characterisation the fetched sources in Phase 3 may or may not settle).
+   **Decision (owner, same day, final): the box is not used, and no readings are distinguished.**
+   "Show the Nansen Basin as Svalbard's shelf, without any distinction; the Svalbard Treaty dispute
+   does not need to be litigated on this map." `contestedExtentInterval` is removed;
+   `contestedExtent` on `continental-shelf` is now one extent — the shelf within 200 nm of Svalbard
+   (707 600 km²) plus the Nansen Basin shelf beyond 200 nm (14 614 km²) — carrying the single
+   neutral marker. `svalbard-fpz` stays `contested: true` as a whole.
 3. **Loop Hole sliver — clarification.** The sliver (east of the 2010 line, 74.94–76.96°N) is
    already bounded on the west by the treaty line; "clipping it to the treaty line" changes nothing.
    Kartverket's Svalbard 200 nm arc ends exactly where it meets the treaty line (37°E, 74.9377°N),
