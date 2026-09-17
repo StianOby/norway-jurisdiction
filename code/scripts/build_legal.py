@@ -76,14 +76,11 @@ PROVISIONS = [
     {"source": "UNCLOS arts 136–137", "kind": "unclos", "articles": [(136, None, None), (137, None, None)]},
     {"source": "UNCLOS art. 303", "kind": "unclos", "articles": [(303, None, None)]},
 
-    {"source": "HR-2023-491-P (Snøkrabbe II)", "pinpoint": "avsnitt 16", "kind": "hr", "paragraphs": [16],
-     "selectionNote": "Cited on svalbard-fpz. Paragraph 16 (the Court's account of how the fisheries protection zone was "
-                      "established and why it is called non-discriminatory) is proposed; paragraph 17 states the parties' "
-                      "positions on the Treaty's application in the zone and is NOT quoted (SPEC §10.5: no characterising text). "
-                      "Owner to confirm."},
+    # Paragraph 16 (how the fisheries protection zone was established) was quoted on svalbard-fpz at
+    # first; the owner dropped it (2026-09-17): it only restates the 1977 regulation, which is quoted in full.
     {"source": "HR-2023-491-P (Snøkrabbe II)", "pinpoint": "avsnitt 220", "kind": "hr", "paragraphs": [220],
      "selectionNote": "Cited on continental-shelf. Paragraph 220 (the Court's conclusion on Article 2 of the Treaty and "
-                      "Article 77 of UNCLOS) is proposed; 227 is the overall conclusion. Owner to confirm."},
+                      "Article 77 of UNCLOS); 227 is the overall conclusion. Confirmed by the owner 2026-09-17."},
 ]
 
 UNCLOS_PART_OF = {}   # article number → part file, filled from the fetched table of contents order below

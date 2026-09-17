@@ -1,6 +1,6 @@
 {
  "meta": {
-  "built_at_utc": "2026-09-17T13:12:32+00:00",
+  "built_at_utc": "2026-09-17T13:26:05+00:00",
   "sources": {
    "lovdata": "2026-09-17T13:12:25+00:00",
    "unclos": "2026-09-17T12:50:04+00:00",
@@ -586,33 +586,6 @@
   },
   {
    "source": "HR-2023-491-P (Snøkrabbe II)",
-   "pinpoint": "avsnitt 16",
-   "title": "Høyesteretts dom 20. mars 2023, HR-2023-491-P (Snøkrabbe II)",
-   "citedAs": "HR-2023-491-P avsnitt 16",
-   "quote": "(16) Etter lov 17. desember 1976 nr. 91 om Norges økonomiske sone § 1 første ledd første punktum «opprettes en økonomisk sone i havområdene utenfor Kongeriket Norge» med en yttergrense på 200 nautiske mil fra grunnlinjene, se § 1 andre ledd. I havområdene utenfor Svalbard ble det ved kongelig resolusjon 3. juni 1977 opprettet en særskilt fiskevernsone på 200 nautiske mil fra grunnlinjene. Forbudet mot utenlandsk fiske i § 3 første ledd i økonomisk soneloven er ikke gjort gjeldende for fiskevernsonen. Den betegnes derfor som en ikke-diskriminerende sone, jf. Rt-2006-1498 avsnitt 38.",
-   "quoteLang": "no",
-   "url": "https://www.domstol.no/globalassets/upload/hret/avgjorelser/2023/mars/hr-2023-491-p.pdf",
-   "translation": "(16) According to section 1 subsection 1 first sentence of the Act of 17 December 1976 no. 91 on Norway’s economic zone, “an economic zone shall be established in the seas adjacent to the coast of the Kingdom of Norway” with an outer limit of 200 nautical miles from the baselines, see section 1 subsection 2. In the seas adjacent to the coast of Svalbard, a special fisheries protection zone was established by Royal decree of 3 June 1977, which extended 200 nautical miles from the baselines. The prohibition of foreign fishing in section 3 subsection 1 of the Economic Zone Act has not been invoked for the fishing protection zone. It is therefore referred to as a non-discrimination zone, see the Supreme Court judgment in Rt-2006-1498 paragraph 38.",
-   "translationUrl": "https://www.domstol.no/globalassets/upload/hret/translated-rulings/2023/hr-2023-491-p.pdf",
-   "translationNote": "the Supreme Court's own English translation, 'provided for information purposes only'",
-   "provenance": {
-    "publisher": "Norges Høyesterett",
-    "files": [
-     "data/raw/legal/hr/hr-2023-491-p.pdf",
-     "data/raw/legal/hr/hr-2023-491-p-eng.pdf"
-    ],
-    "sha256": [
-     "e196706e3928c126bd13fc17110b7021a50ef3a2f16aab9a2bf4e357e3fb716b",
-     "b5f8228c5c1fa63284ec3c2be63586b9da2ac05f68c9e88402eb21c1aa66927c"
-    ],
-    "selector": [
-     16
-    ]
-   },
-   "selectionNote": "Cited on svalbard-fpz. Paragraph 16 (the Court's account of how the fisheries protection zone was established and why it is called non-discriminatory) is proposed; paragraph 17 states the parties' positions on the Treaty's application in the zone and is NOT quoted (SPEC §10.5: no characterising text). Owner to confirm."
-  },
-  {
-   "source": "HR-2023-491-P (Snøkrabbe II)",
    "pinpoint": "avsnitt 220",
    "title": "Høyesteretts dom 20. mars 2023, HR-2023-491-P (Snøkrabbe II)",
    "citedAs": "HR-2023-491-P avsnitt 220",
@@ -636,7 +609,7 @@
      220
     ]
    },
-   "selectionNote": "Cited on continental-shelf. Paragraph 220 (the Court's conclusion on Article 2 of the Treaty and Article 77 of UNCLOS) is proposed; 227 is the overall conclusion. Owner to confirm."
+   "selectionNote": "Cited on continental-shelf. Paragraph 220 (the Court's conclusion on Article 2 of the Treaty and Article 77 of UNCLOS); 227 is the overall conclusion. Confirmed by the owner 2026-09-17."
   }
  ]
 }

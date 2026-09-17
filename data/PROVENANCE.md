@@ -175,8 +175,8 @@ see §10.10 — one seabed patch inside the model extent is in no shelf polygon 
    of the disputed area: (a) shelf within 200 nm of Svalbard; (b) all Norwegian shelf generated
    from Svalbard, including beyond 200 nm. The UI shows the interval as "disputed extent" with
    a one-line neutral mention of the two readings (owner instruction, round 3). A third notion —
-   the Svalbard Treaty Article 1 area — is not modelled. Both zones cite **HR-2023-491-P
-   (Snøkrabbe II)**; quote to be fetched in Phase 3.
+   the Svalbard Treaty Article 1 area — is not modelled. Both zones cited **HR-2023-491-P
+   (Snøkrabbe II)** at first; after Phase 3 only the shelf does (§16.3 item 5).
 
 ## 10. Owner decisions, third round (2026-09-17)
 
@@ -362,7 +362,7 @@ dropped by the owner (§16.3).
 
 ### 16.2 Extraction
 
-`build_legal.py` writes `data/build/legal.json` (25 provisions) and the review copy
+`build_legal.py` writes `data/build/legal.json` (24 provisions) and the review copy
 `data/build/LEGAL.md`. Lovdata provisions are taken element by element from the XHTML
 (`article.legalArticle` / `section` by `data-name`), keeping headings, ledd and list markers and
 dropping amendment notes and footnote markers. UNCLOS articles are parsed from the DOALOS pages
@@ -376,7 +376,7 @@ paragraphs 16 and 220 of HR-2023-491-P extracted from the Court's PDF are identi
 whitespace normalisation, to Lovdata's HTML publication of the judgment.
 
 `build_zones.py` merges the provisions into every citation by `source` (+ `pinpoint`) and fails
-`--check` if any citation lacks a fetched quote. 80 citations, all filled.
+`--check` if any citation lacks a fetched quote. 78 citations, all filled.
 
 ### 16.3 Selection choices — for the owner to confirm (SPEC §9 Phase 3 exit criterion)
 
@@ -392,12 +392,12 @@ Recorded as `selectionNote` in `legal.json` and shown in `LEGAL.md`:
    (§§ 1–5) on `svalbard-fpz`.
 4. **forskrift 23. mai 1980 nr. 4** — dropped and reinstated the same day; **quoted in full**
    (items 1–5) on `janmayen-fisheries-zone`.
-5. **HR-2023-491-P** on `svalbard-fpz`: paragraph 16 (how the zone was established; "ikke-
-   diskriminerende sone"). Paragraph 17 (the parties' positions on the Treaty in the zone) is not
-   quoted: SPEC §10.5. On `continental-shelf`: paragraph 220 (conclusion on Treaty art. 2 and
-   UNCLOS art. 77); 227 is the overall conclusion. The `en` payload also carries the Court's own
-   English translation of the same paragraph as `translation` (the `quote` stays Norwegian, SPEC
-   §4); whether the UI shows it is the owner's call.
+5. **HR-2023-491-P** (not in SPEC §4.1; added with the contested marker in Phase 1). On
+   `svalbard-fpz`: ~~paragraph 16~~ — **dropped by the owner (2026-09-17)**, it only restates the
+   1977 regulation. On `continental-shelf`: paragraph 220 (conclusion on Treaty art. 2 and
+   UNCLOS art. 77), **confirmed by the owner (2026-09-17)**; 227 is the overall conclusion. The
+   `en` payload also carries the Court's own English translation of the paragraph as `translation`
+   (the `quote` stays Norwegian, SPEC §4); whether the UI shows it is the owner's call.
 6. **luftfartsloven § 1-1** is quoted as cited. Its neighbour § 1-2 ("Lovens virkeområde på
    kontinentalsokkelen og utenfor norsk område") is in the fetched file if the owner wants it.
 7. **Summaries.** Drafts for all 15 zones are in `data/legal/summaries.json` with
