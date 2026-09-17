@@ -46,21 +46,12 @@ PROVISIONS = [
     {"source": "territorialfarvannsloven § 3", "kind": "lovdata", "doc": "NL/lov/2003-06-27-57", "articles": ["§3"]},
     {"source": "territorialfarvannsloven § 4", "kind": "lovdata", "doc": "NL/lov/2003-06-27-57", "articles": ["§4"]},
     {"source": "lov om Norges økonomiske sone § 1", "kind": "lovdata", "doc": "NL/lov/1976-12-17-91", "articles": ["§1"]},
-    {"source": "forskrift 3. juni 1977 nr. 6", "kind": "lovdata", "doc": "SF/forskrift/1977-06-03-6", "articles": ["§1"],
-     "selectionNote": "SPEC §4.1 cites the regulation as a whole; § 1 (establishment and outer limit of the zone) is quoted. "
-                      "§§ 2–5 (non-application of the foreign-fishing ban, delegation, penalties, entry into force) are not."},
-    {"source": "forskrift 23. mai 1980 nr. 4", "kind": "lovdata", "doc": "SF/forskrift/1980-05-23-4", "sections": ["kap1", "kap2", "kap3"],
-     "selectionNote": "SPEC §4.1 cites the regulation as a whole; its provisions are numbered 1–5 without §. 1–3 (establishment, "
-                      "outer limit, delimitation towards East Greenland) are quoted; 4–5 (delegations to the ministry) are not."},
     {"source": "kontinentalsokkelloven", "kind": "lovdata", "doc": "NL/lov/2021-06-18-89", "articles": ["§1"],
      "selectionNote": "SPEC §4.1 says 'kontinentalsokkelloven' without a provision. Lovdata's current-acts package holds two acts on "
                       "the shelf: lov 18. juni 2021 nr. 89 om Norges kontinentalsokkel (short title on Lovdata: 'Lov om Norges "
                       "kontinentalsokkel'), whose § 1 defines the shelf, and lov 21. juni 1963 nr. 12 (scientific research and "
                       "exploitation of other subsea natural resources), whose § 1 now refers to the 2021 act for the definition. "
                       "§ 1 of the 2021 act is quoted; the 1963 act is fetched (data/raw/legal/lovdata/nl-19630621-012.xml) but not cited."},
-    {"source": "petroleumsloven § 1-6", "kind": "lovdata", "doc": "NL/lov/1996-11-29-72", "articles": ["§1-6"], "items": ["l."],
-     "selectionNote": "§ 1-6 is the definitions list (a–o). Only the chapeau and item l ('kontinentalsokkelen') are quoted; "
-                      "the other definitions are replaced by [...]."},
     {"source": "luftfartsloven § 1-1", "kind": "lovdata", "doc": "NL/lov/1993-06-11-101", "articles": ["§1-1"]},
 
     {"source": "UNCLOS art. 1(1)(1)", "kind": "unclos", "articles": [(1, 1, "1")]},

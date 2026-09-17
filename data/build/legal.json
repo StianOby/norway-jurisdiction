@@ -1,6 +1,6 @@
 {
  "meta": {
-  "built_at_utc": "2026-09-17T13:00:57+00:00",
+  "built_at_utc": "2026-09-17T13:05:32+00:00",
   "sources": {
    "lovdata": "2026-09-17T12:49:56+00:00",
    "unclos": "2026-09-17T12:50:04+00:00",
@@ -95,52 +95,6 @@
    }
   },
   {
-   "source": "forskrift 3. juni 1977 nr. 6",
-   "title": "Forskrift om fiskevernsone ved Svalbard.",
-   "citedAs": "forskrift 3. juni 1977 nr. 6",
-   "quote": "§ 1.\nDet opprettes en fiskevernsone i havområdene utenfor Svalbard for bevaring av de levende ressurser i havet og regulering av fiske og fangst.\nYttergrensen for fiskevernsonen skal gå i en avstand av 200 nautiske mil (én nautisk mil = 1.852 meter) fra de grunnlinjer som er fastsatt, eller der grunnlinjer ikke er fastsatt, fra linjer som forbinder øygruppenes ytterste punkter.\nFiskevernsonen begrenses videre av yttergrensen for den økonomiske sone utenfor det norske fastland, slik denne er fastsatt ved kgl.res. 17. desember 1976.\nDer fiskevernsonen støter opp mot annen stats myndighetsområde, skal grensen trekkes i samsvar med avtale.",
-   "quoteLang": "no",
-   "url": "https://lovdata.no/dokument/SF/forskrift/1977-06-03-6/§1",
-   "provenance": {
-    "publisher": "Lovdata",
-    "dokid": "SF/forskrift/1977-06-03-6",
-    "file": "data/raw/legal/lovdata/sf-19770603-0006.xml",
-    "sha256": "161e51921506d8e4078603c83a83418727ad8b242bc98af8086a143c320bb500",
-    "lastChangeInForce": "2001-03-02",
-    "package": "gjeldende-sentrale-forskrifter.tar.bz2",
-    "packageLastModified": "2026-09-17T01:32:00Z",
-    "selector": [
-     "§1"
-    ],
-    "items": null
-   },
-   "selectionNote": "SPEC §4.1 cites the regulation as a whole; § 1 (establishment and outer limit of the zone) is quoted. §§ 2–5 (non-application of the foreign-fishing ban, delegation, penalties, entry into force) are not."
-  },
-  {
-   "source": "forskrift 23. mai 1980 nr. 4",
-   "title": "Forskrift om opprettelse av fiskerisone ved Jan Mayen. Delegering av fullmakt.",
-   "citedAs": "forskrift 23. mai 1980 nr. 4",
-   "quote": "1\nMed hjemmel i lov av 17. desember 1976 nr. 91 om Norges økonomiske sone opprettes en fiskerisone i havområdene ved Jan Mayen med virkning fra 29. mai 1980.\n2\nYttergrensen for fiskerisonen skal trekkes i en avstand av 200 n. mil (en nautisk mil = 1.852 meter) fra de grunnlinjer som er fastsatt for Jan Mayen, likevel ikke ut over midtlinjen i forhold til Grønland eller ut over den linje som utgjør yttergrensen for Islands økonomiske sone, slik denne i dag er fastlagt i islandsk lov nr. 41 av 1. juni 1979.\n3\nHvor fiskerisonen støter opp mot sonen utenfor Øst-Grønland skal delelinjen trekkes i samsvar med avtale.",
-   "quoteLang": "no",
-   "url": "https://lovdata.no/dokument/SF/forskrift/1980-05-23-4/KAPITTEL_1",
-   "provenance": {
-    "publisher": "Lovdata",
-    "dokid": "SF/forskrift/1980-05-23-4",
-    "file": "data/raw/legal/lovdata/sf-19800523-0004.xml",
-    "sha256": "97783e16c0c8b1c4a46749b76de588ddc3307ca4d251a511bf6f89dc984dff3d",
-    "lastChangeInForce": "",
-    "package": "gjeldende-sentrale-forskrifter.tar.bz2",
-    "packageLastModified": "2026-09-17T01:32:00Z",
-    "selector": [
-     "kap1",
-     "kap2",
-     "kap3"
-    ],
-    "items": null
-   },
-   "selectionNote": "SPEC §4.1 cites the regulation as a whole; its provisions are numbered 1–5 without §. 1–3 (establishment, outer limit, delimitation towards East Greenland) are quoted; 4–5 (delegations to the ministry) are not."
-  },
-  {
    "source": "kontinentalsokkelloven",
    "title": "Lov om Norges kontinentalsokkel",
    "citedAs": "lov 18. juni 2021 nr. 89",
@@ -161,30 +115,6 @@
     "items": null
    },
    "selectionNote": "SPEC §4.1 says 'kontinentalsokkelloven' without a provision. Lovdata's current-acts package holds two acts on the shelf: lov 18. juni 2021 nr. 89 om Norges kontinentalsokkel (short title on Lovdata: 'Lov om Norges kontinentalsokkel'), whose § 1 defines the shelf, and lov 21. juni 1963 nr. 12 (scientific research and exploitation of other subsea natural resources), whose § 1 now refers to the 2021 act for the definition. § 1 of the 2021 act is quoted; the 1963 act is fetched (data/raw/legal/lovdata/nl-19630621-012.xml) but not cited."
-  },
-  {
-   "source": "petroleumsloven § 1-6",
-   "title": "Lov om petroleumsvirksomhet [petroleumsloven]",
-   "citedAs": "lov 29. november 1996 nr. 72",
-   "quote": "§ 1-6. Definisjoner\nI denne lov forstås med:\n[…]\nl. kontinentalsokkelen, Norges kontinentalsokkel som fastsatt i lov 18. juni 2021 nr. 89.\n[…]",
-   "quoteLang": "no",
-   "url": "https://lovdata.no/dokument/NL/lov/1996-11-29-72/§1-6",
-   "provenance": {
-    "publisher": "Lovdata",
-    "dokid": "NL/lov/1996-11-29-72",
-    "file": "data/raw/legal/lovdata/nl-19961129-072.xml",
-    "sha256": "2b4f9b95c2f115bd82f497216e4ed7b2ddf30a3e4113337a3e20aabf27f63056",
-    "lastChangeInForce": "2026-01-01",
-    "package": "gjeldende-lover.tar.bz2",
-    "packageLastModified": "2026-09-15T01:31:00Z",
-    "selector": [
-     "§1-6"
-    ],
-    "items": [
-     "l."
-    ]
-   },
-   "selectionNote": "§ 1-6 is the definitions list (a–o). Only the chapeau and item l ('kontinentalsokkelen') are quoted; the other definitions are replaced by [...]."
   },
   {
    "source": "luftfartsloven § 1-1",

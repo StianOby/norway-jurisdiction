@@ -93,20 +93,20 @@ def registry() -> list[dict]:
     snokrabbe = "HR-2023-491-P (Snøkrabbe II)"
     zones.append(zone("svalbard-fpz", "svalbard", ["watercolumn"],
                       "Fiskevernsonen ved Svalbard", "Fisheries protection zone around Svalbard",
-                      [cit("forskrift 3. juni 1977 nr. 6"), cit(snokrabbe, pinpoint="avsnitt 16")],
-                      [cit("forskrift 3. juni 1977 nr. 6"), cit(snokrabbe, pinpoint="avsnitt 16")],
+                      [cit(snokrabbe, pinpoint="avsnitt 16")],
+                      [cit(snokrabbe, pinpoint="avsnitt 16")],
                       contested=True,
                       notes=["A fisheries protection zone, not an exclusive economic zone (SPEC §2.3).",
                              "contested: true — owner instruction 2026-09-17 (neutral marker only, SPEC §1/§10.5)."]))
     zones.append(zone("janmayen-fisheries-zone", "janmayen", ["watercolumn"],
                       "Fiskerisonen ved Jan Mayen", "Fisheries zone around Jan Mayen",
-                      [cit("forskrift 23. mai 1980 nr. 4")],
-                      [cit("forskrift 23. mai 1980 nr. 4")],
-                      notes=["A fisheries zone, not an exclusive economic zone (SPEC §2.3)."]))
+                      [], [],
+                      notes=["A fisheries zone, not an exclusive economic zone (SPEC §2.3).",
+                             "No citation: the owner dropped forskrift 23. mai 1980 nr. 4 (2026-09-17); nothing else is named in SPEC §4.1."]))
     zones.append(zone("continental-shelf", "all", ["seabed", "subsoil"],
                       "Kontinentalsokkelen", "Continental shelf",
-                      [cit("kontinentalsokkelloven"), cit("petroleumsloven § 1-6"), unclos("arts 76–79"), cit(snokrabbe, pinpoint="avsnitt 220")],
-                      [cit("kontinentalsokkelloven"), cit("petroleumsloven § 1-6"), unclos("arts 76–79"), cit(snokrabbe, pinpoint="avsnitt 220")],
+                      [cit("kontinentalsokkelloven"), unclos("arts 76–79"), cit(snokrabbe, pinpoint="avsnitt 220")],
+                      [cit("kontinentalsokkelloven"), unclos("arts 76–79"), cit(snokrabbe, pinpoint="avsnitt 220")],
                       notes=["Neutral contested marker (SPEC §1/§10.5) within contestedExtent: the shelf generated from Svalbard, within 200 nm and the Nansen Basin beyond, as one extent (owner decision 2026-09-17, round 4)."]))
     zones.append(zone("high-seas", "all", ["watercolumn"],
                       "Det åpne hav", "High seas",
@@ -294,6 +294,8 @@ def check(path: Path) -> tuple[list[str], list[str], dict]:
                     fails.append(f"{z['id']} [{lang}]: citation {c['source']!r} has no fetched quote (SPEC §10.1)")
                 if c.get("_todo"):
                     fails.append(f"{z['id']} [{lang}]: citation {c['source']!r} still carries a Phase 1 placeholder")
+            if not pl["citations"]:
+                warns.append(f"{z['id']} [{lang}]: no citations")
             if pl.get("summary"):
                 n_sum += 1
             else:

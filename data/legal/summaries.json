@@ -4,7 +4,8 @@
     "Hand-maintained; merged into data/build/zones.json by code/scripts/build_zones.py.",
     "A summary ships only when its status is \"approved\" (SPEC §10.4: legal characterisation is the owner's call). Until then the app shows no summary for that zone.",
     "Drafts were written 2026-09-17 from the quoted provisions in data/build/LEGAL.md only, with the provision cited in brackets; nothing in them comes from other sources.",
-    "Statuses: draft | approved."
+    "Statuses: draft | approved.",
+    "janmayen-fisheries-zone has no entry: its only SPEC §4.1 basis (forskrift 23. mai 1980 nr. 4) was dropped by the owner on 2026-09-17, so there is no quoted provision to summarise from."
   ],
   "zones": {
     "mainland-internal-waters": {
@@ -49,13 +50,8 @@
     },
     "svalbard-fpz": {
       "status": "draft",
-      "no": "Fiskevernsonen ved Svalbard ble opprettet ved forskrift 3. juni 1977 nr. 6 for bevaring av de levende ressurser i havet og regulering av fiske og fangst, med yttergrense 200 nautiske mil fra grunnlinjene, begrenset av yttergrensen for Norges økonomiske sone og, mot andre staters myndighetsområder, trukket etter avtale (§ 1). Forbudet mot utenlandsk fiske i økonomiske soneloven § 3 er ikke gjort gjeldende i sonen (§ 2), og Høyesterett betegner den derfor som en ikke-diskriminerende sone (HR-2023-491-P avsnitt 16).",
-      "en": "The fisheries protection zone around Svalbard was established by regulation of 3 June 1977 no. 6 for the conservation of the living resources of the sea and the regulation of fishing and hunting, with an outer limit 200 nautical miles from the baselines, bounded by the outer limit of Norway's economic zone and, towards other States' areas, drawn by agreement (§ 1). The ban on foreign fishing in § 3 of the Economic Zone Act has not been made applicable in the zone (§ 2), and the Supreme Court therefore describes it as a non-discriminatory zone (HR-2023-491-P paragraph 16)."
-    },
-    "janmayen-fisheries-zone": {
-      "status": "draft",
-      "no": "Fiskerisonen ved Jan Mayen ble opprettet med hjemmel i lov om Norges økonomiske sone med virkning fra 29. mai 1980 (forskrift 23. mai 1980 nr. 4 nr. 1). Yttergrensen går 200 nautiske mil fra grunnlinjene for Jan Mayen, men ikke ut over midtlinjen mot Grønland eller yttergrensen for Islands økonomiske sone; mot Øst-Grønland trekkes delelinjen etter avtale (nr. 2–3). Fiskeridepartementet har fullmakt til å gi bestemmelser om forvaltningen av sonen, vern av fiskebestandene og begrensning av utenlandsk fiske (nr. 4).",
-      "en": "The fisheries zone around Jan Mayen was established under the Economic Zone Act with effect from 29 May 1980 (regulation of 23 May 1980 no. 4, item 1). Its outer limit runs 200 nautical miles from the baselines of Jan Mayen, but not beyond the median line towards Greenland or the outer limit of Iceland's economic zone; towards East Greenland the dividing line is drawn by agreement (items 2–3). The Ministry of Fisheries is authorised to lay down rules on the management of the zone, the protection of fish stocks and the limitation of foreign fishing (item 4)."
+      "no": "I havområdene utenfor Svalbard ble det ved kongelig resolusjon 3. juni 1977 opprettet en særskilt fiskevernsone på 200 nautiske mil fra grunnlinjene. Forbudet mot utenlandsk fiske i økonomiske soneloven § 3 første ledd er ikke gjort gjeldende for sonen, som derfor betegnes som en ikke-diskriminerende sone (HR-2023-491-P avsnitt 16).",
+      "en": "In the seas adjacent to Svalbard a special fisheries protection zone extending 200 nautical miles from the baselines was established by Royal decree of 3 June 1977. The prohibition of foreign fishing in section 3 subsection 1 of the Economic Zone Act has not been invoked for the zone, which is therefore referred to as a non-discriminatory zone (HR-2023-491-P paragraph 16)."
     },
     "continental-shelf": {
       "status": "draft",
