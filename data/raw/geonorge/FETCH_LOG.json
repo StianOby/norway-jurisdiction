@@ -1,0 +1,27 @@
+{
+  "fetched_at_utc": "2026-09-17T07:28:29+00:00",
+  "files": {
+    "Basisdata_0000_Norge_4258_NorgesMaritimeGrenser_GML.zip": {
+      "url": "https://nedlasting.geonorge.no/api/download/order/4be29dc2-a4c8-4207-934a-2b86ecf09d49/3df6f975-100a-4963-8d36-96d9548224e7",
+      "metadataUuid": "e106adf4-c9d8-4fce-a9b5-7886a4126d23",
+      "projection": "4258",
+      "bytes": 1510314,
+      "sha256": "688a93d42417c6e7bd50b3dfbc9e20e0c640e23bd4b18c73e17ea57d9e4fa9fe",
+      "committed": true
+    },
+    "Basisdata_0000_Norge_4258_N1000Kartdata_GML.zip": {
+      "url": "https://nedlasting.geonorge.no/api/download/order/4be29dc2-a4c8-4207-934a-2b86ecf09d49/2cc54185-35e9-442f-ad52-939d91c7f97c",
+      "metadataUuid": "aee42bb6-d0e9-4d70-86fe-6ea76c381055",
+      "projection": "4258",
+      "bytes": 21861430,
+      "sha256": "320a0af163c3662957bc533c43a9445220ef6461bf70fb7f86f32bb5c3d3dfe4",
+      "committed": false,
+      "extracted": {
+        "to": "n1000-coast.geojson",
+        "Kystkontur": 6713,
+        "Havflate": 209,
+        "sha256": "dc5ef9405c1823a21231b0ae580eeebc834c253d8349bd9a2a8a43c8ac6f7d0c"
+      }
+    }
+  }
+}

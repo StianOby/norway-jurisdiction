@@ -1,0 +1,32 @@
+{
+  "fetched_at_utc": "2026-09-17T08:55:53+00:00",
+  "wfs": "https://geo.vliz.be/geoserver/MarineRegions/wfs",
+  "licence": "CC BY 4.0",
+  "citation": "Flanders Marine Institute (2023). Maritime Boundaries Geodatabase, version 12. https://doi.org/10.14284/628",
+  "files": {
+    "eez_boundaries_barents.json": {
+      "layer": "MarineRegions:eez_boundaries",
+      "bbox": "15,68,60,85",
+      "features": 56,
+      "bytes": 260406,
+      "sha256": "42eefa1d2dfc7245c6d49f400b91cdd4c7a73698c9d23db5cd136e4ae0fc6399",
+      "note": ""
+    },
+    "high_seas_pockets.json": {
+      "layer": "MarineRegions:high_seas",
+      "bbox": "-15,60,45,86",
+      "features": 2,
+      "bytes": 105211,
+      "sha256": "cb0ecbfedf19dc27c66767cb47a36322eec443d2be9aaf3c8c5ae6139eb5a907",
+      "note": "(subset: 2 pocket polygons kept of a global multipolygon)"
+    },
+    "ecs_north_atlantic.json": {
+      "layer": "MarineRegions:ecs",
+      "bbox": "-15,60,45,86",
+      "features": 18,
+      "bytes": 1324235,
+      "sha256": "f2a9b1f70c0c16637cac3303722ed93a3d1635678e53182cbbce84a5a19f2998",
+      "note": ""
+    }
+  }
+}
